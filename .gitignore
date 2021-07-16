@@ -175,3 +175,8 @@ dmypy.json
 cython_debug/
 
 # End of https://www.toptal.com/developers/gitignore/api/matlab,python
+
+# Model related files
+legacy/Preisfunktion_2014.xlsm
+legacy/VDEW_-SLP_Profile_Strom_VSG.xls
+legacy/Spotvektor_2014.xlsm
