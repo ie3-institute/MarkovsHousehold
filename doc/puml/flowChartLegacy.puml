@@ -1,0 +1,28 @@
+@startuml
+(*) --> "."
+partition "Read in probabilities" {
+}
+partition "Set up GUI" {
+}
+partition "Define variables" {
+}
+partition "Main routine" {
+    --> "Ask user, if load swifting shall be considered"
+    if "Consider load shifting?" then
+        -->[true] "Ask user, if to simulate according to typical days"
+        if "Consider typical days?" then
+            -->[true] "//goto:// Wahrscheinlichkeiten_Lastverschiebung"
+            --> "Prompt main menu"
+            note left: 1 = calculate transition probability\n
+        else
+            --> "//goto:// Wahrscheinlichkeiten_Lastverschiebung_Jahr"
+            ' TODO
+            --> "**TODO**"
+        endif
+    else
+        ' TODO
+        --> "**TODO**"
+    endif
+}
+--> (*)
+@enduml
