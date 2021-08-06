@@ -1,11 +1,9 @@
 @startuml
 (*) --> "Ask user, if load swifting shall be considered"
-partition "Read in probabilities" {
-}
-partition "Set up GUI" {
-}
-partition "Define variables" {
-}
+--> "Read in probabilities"
+--> "Set up GUI"
+note left: This is more or less a GUI for configuring the whole routine
+--> "Define variables"
 if "Consider load shifting?" then
     partition "Consider load shifting" {
     -->[true] "Ask user, if to simulate according to typical days"
