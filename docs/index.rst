@@ -6,6 +6,8 @@
 Welcome to Markovs Household's documentation!
 =============================================
 
+Hello World !
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
