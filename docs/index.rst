@@ -12,6 +12,7 @@ Hello World !
    :maxdepth: 2
    :caption: Contents:
 
+   developer/Input Part1.md
 
 
 Indices and tables
