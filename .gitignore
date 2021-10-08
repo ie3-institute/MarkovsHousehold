@@ -277,3 +277,6 @@ modules.xml
 legacy/Preisfunktion_2014.xlsm
 legacy/VDEW_-SLP_Profile_Strom_VSG.xls
 legacy/Spotvektor_2014.xlsm
+
+# Ignore temporary files
+~$*
