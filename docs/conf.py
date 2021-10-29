@@ -18,11 +18,12 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Markovs Household'
-copyright = ''
+copyright = '© 2020. TU Dortmund University, Institute of Energy Systems, Energy Efficiency and Energy Economics, ' \
+            'Research group Distribution grid planning and operation'
 author = 'Johannes Hiry, Chris Kittl, Jawana Gabrielski, Nils Offermann, Thomas Oberließen'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.1'
+release = '0.1.0'
 
 
 # -- General configuration ---------------------------------------------------
