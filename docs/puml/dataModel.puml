@@ -1,0 +1,27 @@
+@startuml
+!theme plain
+class Geraet {
+ Einschaltwahrscheinlichkeiten
+ Nutzungswahrscheinlichkeiten
+ Lastgang
+ ~method1()
+ ~method2()
+}
+
+class Haushalt {
+ Art
+ 
+ 
+ ~Bestimme_Anzahl_Geraete(Anzahl_Personen, Einkommen)
+}
+
+class Art 
+
+class Lastgang
+
+
+
+Geraet +-- Lastgang
+
+Haushalt +-- Art
+@enduml
