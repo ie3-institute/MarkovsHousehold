@@ -1,113 +1,25 @@
 @startuml
+'https://plantuml.com/activity-diagram-beta
 !theme plain
-Wahrscheinlichkeiten_Einlesen: Einlesen der Lastgaenge (Lastgang_XGeraet) aus //Lastgangmatrix//
-Wahrscheinlichkeiten_Einlesen: Einlesen der Wahrscheinlichkeitsmatrizen (Wahrscheinlichkeitsmatrix_XGeraet)\naus //Eingabeoberflaeche_Wahrscheinlichkeit_Leistung//
-Wahrscheinlichkeiten_Einlesen: Berechnete Parameter Einlesen (P_berechnet_XGeraet) aus //P_berechnet//
 
-VariablenDefinieren: n_pro_tag=96
-VariablenDefinieren: starttag=1 (Donnerstag)
-VariablenDefinieren: anzahl_simulierter_tage=1
-VariablenDefinieren: Vstart_XGeraet[1,0...0]
-VariablenDefinieren: P_XGeraet=initiale Wahrscheinlichkeitsmatrix [10..0;0..0;010..0;...]
-VariablenDefinieren: start_Intervall=96+starttag+1
-VariablenDefinieren: anzahl_Intervalle=96*(anzahl_simulierter_tage+einschwingtage 
-VariablenDefinieren: end_Intervall=start_Intervall + anzahl_Intervalle - 1
-VariablenDefinieren: start_Intervall_Simulation
-VariablenDefinieren: anzahl_Intervalle_Simulation
-VariablenDefinieren: XJahreszeit_Anfang
-state Parameterberechnung{
-  state "Einlesen der jeweiligen Geräte" as st1
-  st1: P_Geraet=Wahrscheinlichkeitsmatrix
-  st1: V=Vstart
-  st1:P_leistung=[0,Lastgang]
-  state "Bestimmung des Zeitpunkts" as st3
-  st3:Ermittlung Tag im Jahr, Tagesintervall, Wochentag, Jahreszeit
-  st3:Auslesen der entsprechenden Wahrscheinlichkeiten (P=P_Geraet(Zeitpunkt))
-  state "Berechung der Uebergangswahrscheinlichkeiten" as st2
-  st2: neuer Zustandsvektor (V)=Aenderungswahrscheinlichkeiten (P)*alter Zustandsvektor (V)
-  st2: Anschaltwahrscheinlichkeit in P_opt_abspeichern
-  st2: aufsummierte Leistung der unterschiedlichen Zustände (=Leistung in jeder Viertelstunde)\nin Pzeitreihe_perhand
-  state "Abspeichern" as st4
-  st4: Abspeichern von P_opt_abspeichern unter //P_berechnet//
-  st1-->st3
-  st3-->st2
-  st2-->st4
+partition DataPreparation {
+    (*) -->"Read config"
+    if "calculate probabilities"
+        -->[true] "Preparation of switch on probabilities"
+        note left
+            Former "Eingabeoberflaeche_Wahrscheinlichkeit_Leistung.xlsx"
+        end note
+        if "write probabilities?"
+            -->[true] "write probabilities"
+            --> "..."
+        else
+            --> "..."
+        endif
+    else
+        --> "Read probabilties"
+    endif
 }
-state Simulation{
-  state "Einlesen der jeweiligen Geräte" as st7
-  st7: P_Geraet=Wahrscheinlichkeitsmatrix
-  st7: V=Vstart
-  st7:P_leistung=[0,Lastgang]
-  state "Bestimmung des Zeitpunkts" as st8
-  st8:Ermittlung Tag im Jahr, Tagesintervall, Wochentag, Jahreszeit
-  st8:Auslesen der entsprechenden Wahrscheinlichkeiten (P=P_Geraet(Zeitpunkt))
-  st7-->st8
-  state "Berechung der Uebergangswahrscheinlichkeiten" as st9
-  st9: neuer Zustandsvektor (V)=Aenderungswahrscheinlichkeiten (P)*alter Zustandsvektor (V)
-  st9: Anschaltwahrscheinlichkeit in P_opt_abspeichern
-  st9: aufsummierte Leistung der unterschiedlichen Zustände (=Leistung in jeder Vertelstunde)\nin Pzeitreihe_perhand
-  st9: Pzeitreihe_perhand=Pzeitreihe_perhand.*Anzahl_gereate
-  st9: Lastgaenge fuer Kuehl- und Gefriergeraet als Grundlast durch zufaellige Bestimmung\nder Anfangsleistung
-  state "Abspeichern" as st10
-  st10: Abspeichern von Pzeitreihe_perhand unter //Lastverlaefe_Geraete//
-  st8-->st9
-  st9-->st10
-}
+--> "..."
+--> (*)
 
-state Simulation_Monte_Carlo{
-  state "Einlesen der jeweiligen Geräte" as st14
-  st14: P_Geraet=Wahrscheinlichkeitsmatrix
-  st14: V=Vstart
-  st14:P_leistung=[0,Lastgang]
-  st14: Anzahl_Geraete
-  state "Inizialisierung der Monte Carlo Variablen" as st15
-  st15: PzeitreiheMonte_Matrix_Waschmaschine=zeros(anzahl_Intervalle,anzahl_Durchlaeufe+3)
-  st15: Pzeitreihe_perhand_XGeraet=zeros(anzahl_Intervalle,1)
-  state "Vorbereitung Monte Carlo" as st_1
-  st_1: Verteilung der Maschinenzustände anhand der Anfangswahrscheinlichkeiten \nund der Anzahl an Maschinen
-  state "Bestimmung des Zeitpunkts" as st16
-  st16:Ermittlung Tag im Jahr, Tagesintervall, Wochentag, Jahreszeit
-  st16:Auslesen der entsprechenden Wahrscheinlichkeiten (P=P_Geraet(Zeitpunkt))
-  state "Monte Carlo" as stMC
-
-  stMC: V_Monte_neu = zeros(max(size(P)),1)
-  stMC:Aenderung von V_Monte falls zufaellige Zahl zwischen 0 und 1 kleiner als die Wahrscheinlichkeit ist (Markov Chain)
-  stMC:Pzeitreihe_Monte(n,1) = V_Monte'*P_leistung;
-  stMC:Pzeitreihe_Monte in Pzeitreihe_Monte_Matrix_XGeraet
-  stMC:Pzeitreihe_perhand_XGeraet*Anzahl_Geraete
-  stMC:Pzeitreihe_perhand_XGeraet in Pzeitreihe_Monte_Matrix_XGeraet
-  stMC: Lastgaenge fuer Kuehl- und Gefriergeraet als Grundlast durch zufaellige Bestimmung der Anfangsleistung
-  stMC: Berechnung Mittelwert und Standardabweichung der einzelnen Matrizen in Pzeitreihe_Monte_Matrix_XGeraet
-
-  state "Abspeichern" as AMC
-
-  AMC: Abspeichern unter //Lastverlaeufe_Geraete_Monte//
-  AMC:-->Zeit, Erwartungswert, Mittelwert, Standardwert, Zeitreihen
- 
-
-  st14-->st15
-  st15-->st_1
-  st_1-->st16
-  st16-->stMC
-  stMC--->AMC
-  }
-/'
-state Hauptprogramm{
-  state "Parameterberechnung" as sH1
-  state "Simulation" as sH2
-  state "Plotten" as sH3
-  state "Simulation_Monte_Carlo" as sH4
-  sH1-->sH2
-  sH1-->Parameterberechnung
-  sH2-->sH3
-  sH2-->Simulation
-  sH3-->sH4
-  sH4-->Simulation_Monte_Carlo
-  
-}
-'/
-Wahrscheinlichkeiten_Einlesen-->VariablenDefinieren
-VariablenDefinieren-->Parameterberechnung
-Parameterberechnung-->Simulation
-Parameterberechnung --> Simulation_Monte_Carlo
 @enduml
