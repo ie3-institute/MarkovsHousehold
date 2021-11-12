@@ -10,7 +10,7 @@ class Configuration:
     @staticmethod
     def parse_config(path):
         with open(path, "r") as ymlfile:
-            config = yaml.safe_load(ymlfile, Loader=yaml.FullLoader)
+            config = yaml.safe_load(ymlfile)
         return Configuration(
             config["consider_load_shifting"],
             config["simulate_typical_days"]
