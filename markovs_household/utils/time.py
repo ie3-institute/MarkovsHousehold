@@ -33,7 +33,6 @@ class DayType(Enum):
     """
     Enumeration of all day types
     """
-
     WORKING_DAY = "working day"
     SATURDAY = "saturday"
     SUNDAY = "sunday"
