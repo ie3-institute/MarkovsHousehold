@@ -2,8 +2,8 @@ from enum import Enum
 
 from dataclasses import dataclass
 
+from markovs_household.data.probability import SwitchOnProbabilities, SwitchOnProbabilityKey
 from markovs_household.data.timeseries import TimeSeries
-from probability import SwitchOnProbabilites, SwitchOnProbabilityKey
 from abc import ABC
 from datetime import datetime
 import logging
@@ -36,7 +36,7 @@ class Appliance(ABC):
     :type type: ApplianceType
     """
     type: ApplianceType
-    switchOnProbabilities: SwitchOnProbabilites
+    switch_on_probabilities: SwitchOnProbabilities
 
     def get_switch_on_probability(self, date_time: datetime) -> float:
         """
@@ -46,7 +46,7 @@ class Appliance(ABC):
         """
         key = SwitchOnProbabilityKey.extract_from_datetime(date_time)
         try:
-            return self.switchOnProbabilities.get(key)
+            return self.switch_on_probabilities.get_probability(key)
         except KeyError as exc:
             logging.error("Cannot determine the switch on probability")
             raise exc

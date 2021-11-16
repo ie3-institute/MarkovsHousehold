@@ -12,7 +12,7 @@ class Season(Enum):
     WINTER = "winter"
 
     @staticmethod
-    def getSeason(date_time: datetime):
+    def get_season(date_time: datetime):
         """
         Extracts the season of a datetime instance.
         :param date_time: datetime instance
@@ -38,7 +38,7 @@ class DayType(Enum):
     SUNDAY = "sunday"
 
     @staticmethod
-    def getDayType(date_time: datetime):
+    def get_day_type(date_time: datetime):
         """
         Extracts the DayType of a datetime instance.
         :param date_time: datetime instance
@@ -47,9 +47,9 @@ class DayType(Enum):
         weekday = date_time.weekday()
         if weekday < 5:
             return DayType.WORKING_DAY
-        if weekday == 6:
+        if weekday == 5:
             return DayType.SATURDAY
-        if weekday == 7:
+        if weekday == 6:
             return DayType.SUNDAY
 
 
