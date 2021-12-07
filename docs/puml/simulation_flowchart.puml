@@ -1,0 +1,27 @@
+@startuml
+start
+:Read in probabilities;
+if(Calculate transition probabilities?) then(yes)
+    :Calculate transition probabilities;
+if(Save results?) then(yes)
+    :Save results;
+else(no)
+endif;
+else(no)
+    :Load transition probabilities;
+endif;
+:Determine Point in time;
+if(Simulation mode?) then(Monte Carlo)
+partition MCS {
+:Initilization;
+:Preparation;
+:Simulation;
+}
+else (Analytical Simulation)
+partition AnalyticalSimulation {
+:Calculate with transition probabilities;
+}
+endif;
+:Save results;
+stop
+@enduml
