@@ -6,6 +6,8 @@ import yaml
 class Configuration:
     consider_load_shifting: bool
     simulate_typical_days: bool
+    calculate_switch_on_probabilities: bool
+    switch_on_probabilities_folder: str
 
     usage_probability_washing_machine: float
     usage_probability_lighting: float
@@ -27,6 +29,8 @@ class Configuration:
         return Configuration(
             config["consider_load_shifting"],
             config["simulate_typical_days"],
+            config["calculate_switch_on_probabilities"],
+            config["switch_on_probabilities_folder"],
 
             config["usage_probability_washing_machine"],
             config["usage_probability_lighting"],

@@ -20,16 +20,27 @@ def calculate_probabilities(df, type):
 
     probabilities_df = probabilities_df / 4 * getattr(config, usage_probability_str)
 
+    if not(os.path.isdir(r"tests\\input\\probabilities\\" + config.switch_on_probabilities_folder)):
+        os.mkdir(r"tests\\input\\probabilities\\" + config.switch_on_probabilities_folder)
+
+    probabilities_df.to_csv(r"tests\\input\\probabilities\\" + config.switch_on_probabilities_folder + r"\\" + type + r".csv")
+
     return probabilities_df
 
 
 def import_probabilities(type):
-    try:
+    config = Configuration.parse_config(r"tests/input/config.yaml")
+    if config.calculate_switch_on_probabilities:
         df = pd.read_csv(os.path.join("tests/input/probabilities/" + type + ".csv"), sep=";")
         df_switch_on_probabilities = calculate_probabilities(df, type)
-    except FileNotFoundError:
-        df_switch_on_probabilities = pd.read_csv(os.path.join("tests/input/probabilities/default/" + type + "_default.csv"), sep=";")
+    else:
+        if not(config.switch_on_probabilities_folder):
+            df_switch_on_probabilities = pd.read_csv(os.path.join("tests/input/probabilities/default/" + type + "_default.csv"), sep=";")
+            print("defaukt")
+        else:
+            df_switch_on_probabilities = pd.read_csv(os.path.join("tests/input/probabilities/" + config.switch_on_probabilities_folder + r'/' + type + ".csv"), sep=";")
+            print("berechnet")
 
     return df_switch_on_probabilities
 
-import_probabilities("stove")
+import_probabilities("freezer")

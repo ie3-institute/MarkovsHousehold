@@ -1,5 +1,7 @@
 consider_load_shifting: False
 simulate_typical_days: False  
+calculate_switch_on_probabilities: True
+switch_on_probabilities_folder:
 usage_probability_washing_machine: 0.6
 usage_probability_lighting: 5
 usage_probability_dish_washer: 0.77
