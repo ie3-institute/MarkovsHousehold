@@ -13,7 +13,7 @@ endif;
 :Determine Point in time;
 if(Simulation mode?) then(Monte Carlo)
 partition MCS {
-:Initilization;
+:Initialization;
 :Preparation;
 :Simulation;
 }

@@ -12,6 +12,7 @@ Hello World !
    :maxdepth: 2
    :caption: Contents:
 
+   user/monte_carlo.md
    developer/Input Part1.md
 
 

@@ -70,5 +70,3 @@ class ApplianceConstantPower(Appliance):
     :type power: float
     """
     power: float
-
-

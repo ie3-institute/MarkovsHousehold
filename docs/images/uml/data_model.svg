@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="974px" preserveAspectRatio="none" style="width:1975px;height:974px;background:#FFFFFF;" version="1.1" viewBox="0 0 1975 974" width="1975px" zoomAndPan="magnify"><defs/><g><!--MD5=[2916714cae8f0462c1096d4fd55ce4c3]
+class Season--><rect codeLine="3" fill="#FFFFFF" height="44" id="Season" style="stroke:#000000;stroke-width:1.5;" width="78" x="500" y="923"/><ellipse cx="513" cy="937" fill="#FFFFFF" rx="9" ry="9" style="stroke:#000000;stroke-width:1.0;"/><path d="M516.6143,943.5 L508.8945,943.5 L508.8945,931.1069 L516.6143,931.1069 L516.6143,933.2651 L511.3433,933.2651 L511.3433,935.938 L516.1162,935.938 L516.1162,938.0962 L511.3433,938.0962 L511.3433,941.3418 L516.6143,941.3418 Z " fill="#000000"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="50" x="525" y="942.5679">Season</text><line style="stroke:#000000;stroke-width:1.5;" x1="501" x2="577" y1="951" y2="951"/><line style="stroke:#000000;stroke-width:1.5;" x1="501" x2="577" y1="959" y2="959"/><!--MD5=[db024eadf81e667c611a5b21a210a7ac]
+class DayType--><rect codeLine="5" fill="#FFFFFF" height="44" id="DayType" style="stroke:#000000;stroke-width:1.5;" width="89" x="613.5" y="923"/><ellipse cx="626.5" cy="937" fill="#FFFFFF" rx="9" ry="9" style="stroke:#000000;stroke-width:1.0;"/><path d="M630.1143,943.5 L622.3945,943.5 L622.3945,931.1069 L630.1143,931.1069 L630.1143,933.2651 L624.8433,933.2651 L624.8433,935.938 L629.6162,935.938 L629.6162,938.0962 L624.8433,938.0962 L624.8433,941.3418 L630.1143,941.3418 Z " fill="#000000"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="61" x="638.5" y="942.5679">DayType</text><line style="stroke:#000000;stroke-width:1.5;" x1="614.5" x2="701.5" y1="951" y2="951"/><line style="stroke:#000000;stroke-width:1.5;" x1="614.5" x2="701.5" y1="959" y2="959"/><!--MD5=[9b1ac4b91e71ecec5b64951ff48d2f19]
+class ApplianceType--><rect codeLine="7" fill="#FFFFFF" height="44" id="ApplianceType" style="stroke:#000000;stroke-width:1.5;" width="130" x="873" y="596"/><ellipse cx="886" cy="610" fill="#FFFFFF" rx="9" ry="9" style="stroke:#000000;stroke-width:1.0;"/><path d="M889.6143,616.5 L881.8945,616.5 L881.8945,604.1069 L889.6143,604.1069 L889.6143,606.2651 L884.3433,606.2651 L884.3433,608.938 L889.1162,608.938 L889.1162,611.0962 L884.3433,611.0962 L884.3433,614.3418 L889.6143,614.3418 Z " fill="#000000"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="102" x="898" y="615.5679">ApplianceType</text><line style="stroke:#000000;stroke-width:1.5;" x1="874" x2="1002" y1="624" y2="624"/><line style="stroke:#000000;stroke-width:1.5;" x1="874" x2="1002" y1="632" y2="632"/><!--MD5=[94208399ec881e1911674b2f46bd0f26]
+class SwitchOnProbabilityKey--><rect codeLine="9" fill="#FFFFFF" height="112.0586" id="SwitchOnProbabilityKey" style="stroke:#000000;stroke-width:1.5;" width="594" x="301" y="751"/><ellipse cx="510.75" cy="765" fill="#FFFFFF" rx="9" ry="9" style="stroke:#000000;stroke-width:1.0;"/><path d="M513.2231,771.1431 Q512.6421,771.4419 512.0029,771.5913 Q511.3638,771.7407 510.6582,771.7407 Q508.1514,771.7407 506.8315,770.0889 Q505.5117,768.437 505.5117,765.3159 Q505.5117,762.1865 506.8315,760.5347 Q508.1514,758.8828 510.6582,758.8828 Q511.3638,758.8828 512.0112,759.0322 Q512.6587,759.1816 513.2231,759.4805 L513.2231,762.2031 Q512.5923,761.6221 511.9988,761.3523 Q511.4053,761.0825 510.7744,761.0825 Q509.4297,761.0825 508.7449,762.1492 Q508.0601,763.2158 508.0601,765.3159 Q508.0601,767.4077 508.7449,768.4744 Q509.4297,769.541 510.7744,769.541 Q511.4053,769.541 511.9988,769.2712 Q512.5923,769.0015 513.2231,768.4204 Z " fill="#000000"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="167" x="528.25" y="770.5679">SwitchOnProbabilityKey</text><line style="stroke:#000000;stroke-width:1.5;" x1="302" x2="894" y1="779" y2="779"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="108" x="307" y="797.0752">Season: season</text><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="137" x="307" y="814.0898">DayType: day_type</text><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="179" x="307" y="831.1045">int: quarter_hour_of_day</text><line style="stroke:#000000;stroke-width:1.5;" x1="302" x2="894" y1="838.0439" y2="838.0439"/><ellipse cx="312" cy="849.0439" fill="#FFFFFF" rx="3" ry="3" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="570" x="319" y="856.1191">extract_from_datetime(datetime: instance_of_interest): SwitchOnProbabilityKey</text><!--MD5=[982f31ac7a398be22954e608b3ebc83e]
+class SwitchOnProbabilities--><rect codeLine="19" fill="#FFFFFF" height="95.0439" id="SwitchOnProbabilities" style="stroke:#000000;stroke-width:1.5;" width="479" x="358.5" y="570.5"/><ellipse cx="518.25" cy="584.5" fill="#FFFFFF" rx="9" ry="9" style="stroke:#000000;stroke-width:1.0;"/><path d="M520.7231,590.6431 Q520.1421,590.9419 519.5029,591.0913 Q518.8638,591.2407 518.1582,591.2407 Q515.6514,591.2407 514.3315,589.5889 Q513.0117,587.937 513.0117,584.8159 Q513.0117,581.6865 514.3315,580.0347 Q515.6514,578.3828 518.1582,578.3828 Q518.8638,578.3828 519.5112,578.5322 Q520.1587,578.6816 520.7231,578.9805 L520.7231,581.7031 Q520.0923,581.1221 519.4988,580.8523 Q518.9053,580.5825 518.2744,580.5825 Q516.9297,580.5825 516.2449,581.6492 Q515.5601,582.7158 515.5601,584.8159 Q515.5601,586.9077 516.2449,587.9744 Q516.9297,589.041 518.2744,589.041 Q518.9053,589.041 519.4988,588.7712 Q520.0923,588.5015 520.7231,587.9204 Z " fill="#000000"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="152" x="535.75" y="590.0679">SwitchOnProbabilities</text><line style="stroke:#000000;stroke-width:1.5;" x1="359.5" x2="836.5" y1="598.5" y2="598.5"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="467" x="364.5" y="616.5752">dict[SwitchOnProbabilityKey, dict[int, float]]: seasonal_probability</text><line style="stroke:#000000;stroke-width:1.5;" x1="359.5" x2="836.5" y1="623.5146" y2="623.5146"/><ellipse cx="369.5" cy="634.5146" fill="#FFFFFF" rx="3" ry="3" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="234" x="376.5" y="641.5898">__init__(): SwitchOnProbabilities</text><ellipse cx="369.5" cy="651.5293" fill="#FFFFFF" rx="3" ry="3" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="273" x="376.5" y="658.6045">get(SwitchOnProbabilityKey key): float</text><path d="M11,573.5 L11,662.4966 A0,0 0 0 0 11,662.4966 L323,662.4966 A0,0 0 0 0 323,662.4966 L323,622 L358.31,618 L323,614 L323,583.5 L313,573.5 L11,573.5 A0,0 0 0 0 11,573.5 " fill="#FFFFFF" style="stroke:#000000;stroke-width:1.0;"/><path d="M313,573.5 L313,583.5 L323,583.5 L313,573.5 " fill="#FFFFFF" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="13" lengthAdjust="spacing" textLength="145" x="17" y="591.5698">"Interface" definition:</text><text fill="#000000" font-family="Verdana" font-size="13" lengthAdjust="spacing" textLength="259" x="17" y="607.3691">We receive a "matrix" of probabilities,</text><text fill="#000000" font-family="Verdana" font-size="13" lengthAdjust="spacing" textLength="249" x="17" y="623.1685">which maps from quarter hour of the</text><text fill="#000000" font-family="Verdana" font-size="13" lengthAdjust="spacing" textLength="237" x="17" y="638.9678">year to actual switch on probability</text><text fill="#000000" font-family="Verdana" font-size="13" lengthAdjust="spacing" textLength="291" x="17" y="654.7671">(accounting for so called usage probability)</text><!--MD5=[89ecbc0110fdc21a2f7540dccc579fdb]
+class ApplianceData--><rect codeLine="29" fill="#FFFFFF" height="146.0879" id="ApplianceData" style="stroke:#000000;stroke-width:1.5;" width="506" x="841" y="339"/><ellipse cx="1039.75" cy="353" fill="#FFFFFF" rx="9" ry="9" style="stroke:#000000;stroke-width:1.0;"/><path d="M1039.6133,348.3481 L1038.4595,353.4199 L1040.7754,353.4199 Z M1038.1191,346.1069 L1041.1157,346.1069 L1044.4609,358.5 L1042.0122,358.5 L1041.2485,355.437 L1037.9697,355.437 L1037.2227,358.5 L1034.7739,358.5 Z " fill="#000000"/><text fill="#000000" font-family="Verdana" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="101" x="1057.25" y="358.5679">ApplianceData</text><line style="stroke:#000000;stroke-width:1.5;" x1="842" x2="1346" y1="367" y2="367"/><ellipse cx="852" cy="378" fill="none" rx="3" ry="3" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="96" x="859" y="385.0752">int: nr_states</text><ellipse cx="852" cy="395.0146" fill="none" rx="3" ry="3" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="144" x="859" y="402.0898">ApplianceType: type</text><rect fill="none" height="6" style="stroke:#000000;stroke-width:1.0;" width="6" x="849" y="409.0293"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="317" x="859" y="419.1045">SwitchOnProbabilities: switch_on_probability</text><line style="stroke:#000000;stroke-width:1.5;" x1="842" x2="1346" y1="426.0439" y2="426.0439"/><ellipse cx="852" cy="437.0439" fill="#FFFFFF" rx="3" ry="3" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="65" x="859" y="444.1191">__init__(</text><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="442" x="899" y="461.1338">SwitchOnProbabilities: type_switch_on_probability): Appliance</text><ellipse cx="852" cy="471.0732" fill="#FFFFFF" rx="3" ry="3" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="457" x="859" y="478.1484">get_switch_on_probability(datetime: instance_of_interest): float</text><path d="M1382,383.5 L1382,408 L1347.16,412 L1382,416 L1382,440.8979 A0,0 0 0 0 1382,440.8979 L1588,440.8979 A0,0 0 0 0 1588,440.8979 L1588,393.5 L1578,383.5 L1382,383.5 A0,0 0 0 0 1382,383.5 " fill="#FFFFFF" style="stroke:#000000;stroke-width:1.0;"/><path d="M1578,383.5 L1578,393.5 L1588,393.5 L1578,383.5 " fill="#FFFFFF" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="13" lengthAdjust="spacing" textLength="137" x="1388" y="401.5698">Implicit assumption:</text><text fill="#000000" font-family="Verdana" font-size="13" lengthAdjust="spacing" textLength="175" x="1388" y="417.3691">Generation _only_ for one</text><text fill="#000000" font-family="Verdana" font-size="13" lengthAdjust="spacing" textLength="185" x="1388" y="433.1685">whole year to be calculated</text><!--MD5=[509c1d5364af75aa5b0d5380db288fe5]
+class ApplianceDataLoadProfile--><rect codeLine="41" fill="#FFFFFF" height="146.0879" id="ApplianceDataLoadProfile" style="stroke:#000000;stroke-width:1.5;" width="426" x="1038" y="545"/><ellipse cx="1158.75" cy="559" fill="#FFFFFF" rx="9" ry="9" style="stroke:#000000;stroke-width:1.0;"/><path d="M1161.2231,565.1431 Q1160.6421,565.4419 1160.0029,565.5913 Q1159.3638,565.7407 1158.6582,565.7407 Q1156.1514,565.7407 1154.8315,564.0889 Q1153.5117,562.437 1153.5117,559.3159 Q1153.5117,556.1865 1154.8315,554.5347 Q1156.1514,552.8828 1158.6582,552.8828 Q1159.3638,552.8828 1160.0112,553.0322 Q1160.6587,553.1816 1161.2231,553.4805 L1161.2231,556.2031 Q1160.5923,555.6221 1159.9988,555.3523 Q1159.4053,555.0825 1158.7744,555.0825 Q1157.4297,555.0825 1156.7449,556.1492 Q1156.0601,557.2158 1156.0601,559.3159 Q1156.0601,561.4077 1156.7449,562.4744 Q1157.4297,563.541 1158.7744,563.541 Q1159.4053,563.541 1159.9988,563.2712 Q1160.5923,563.0015 1161.2231,562.4204 Z " fill="#000000"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="177" x="1176.25" y="564.5679">ApplianceDataLoadProfile</text><line style="stroke:#000000;stroke-width:1.5;" x1="1039" x2="1463" y1="573" y2="573"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="170" x="1044" y="591.0752">TimeSeries: time_series</text><line style="stroke:#000000;stroke-width:1.5;" x1="1039" x2="1463" y1="598.0146" y2="598.0146"/><ellipse cx="1049" cy="609.0146" fill="#FFFFFF" rx="3" ry="3" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="65" x="1056" y="616.0898">__init__(</text><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="172" x="1096" y="633.1045">float: usage_probability,</text><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="362" x="1096" y="650.1191">SwitchOnProbabilities: type_switch_on_probability,</text><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="170" x="1096" y="667.1338">TimeSeries: time_series</text><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="161" x="1096" y="684.1484">): ApplianceWithProfile</text><!--MD5=[1607c3002aad8e2462dfde7f812aa8df]
+class TimeSeries--><rect codeLine="61" fill="#FFFFFF" height="61.0146" id="TimeSeries" style="stroke:#000000;stroke-width:1.5;" width="165" x="1565.5" y="209.5"/><ellipse cx="1605.25" cy="223.5" fill="#FFFFFF" rx="9" ry="9" style="stroke:#000000;stroke-width:1.0;"/><path d="M1607.7231,229.6431 Q1607.1421,229.9419 1606.5029,230.0913 Q1605.8638,230.2407 1605.1582,230.2407 Q1602.6514,230.2407 1601.3315,228.5889 Q1600.0117,226.937 1600.0117,223.8159 Q1600.0117,220.6865 1601.3315,219.0347 Q1602.6514,217.3828 1605.1582,217.3828 Q1605.8638,217.3828 1606.5112,217.5322 Q1607.1587,217.6816 1607.7231,217.9805 L1607.7231,220.7031 Q1607.0923,220.1221 1606.4988,219.8523 Q1605.9053,219.5825 1605.2744,219.5825 Q1603.9297,219.5825 1603.2449,220.6492 Q1602.5601,221.7158 1602.5601,223.8159 Q1602.5601,225.9077 1603.2449,226.9744 Q1603.9297,228.041 1605.2744,228.041 Q1605.9053,228.041 1606.4988,227.7712 Q1607.0923,227.5015 1607.7231,226.9204 Z " fill="#000000"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="78" x="1622.75" y="229.0679">TimeSeries</text><line style="stroke:#000000;stroke-width:1.5;" x1="1566.5" x2="1729.5" y1="237.5" y2="237.5"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="153" x="1571.5" y="255.5752">dict[int, float]: values</text><line style="stroke:#000000;stroke-width:1.5;" x1="1566.5" x2="1729.5" y1="262.5146" y2="262.5146"/><path d="M1766,211.5 L1766,236 L1730.55,240 L1766,244 L1766,268.8979 A0,0 0 0 0 1766,268.8979 L1968,268.8979 A0,0 0 0 0 1968,268.8979 L1968,221.5 L1958,211.5 L1766,211.5 A0,0 0 0 0 1766,211.5 " fill="#FFFFFF" style="stroke:#000000;stroke-width:1.0;"/><path d="M1958,211.5 L1958,221.5 L1968,221.5 L1958,211.5 " fill="#FFFFFF" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="13" lengthAdjust="spacing" textLength="181" x="1772" y="229.5698">Mapping from quarter hour</text><text fill="#000000" font-family="Verdana" font-size="13" lengthAdjust="spacing" textLength="172" x="1772" y="245.3691">from start of operation to</text><text fill="#000000" font-family="Verdana" font-size="13" lengthAdjust="spacing" textLength="113" x="1772" y="261.1685">consumed power</text><!--MD5=[02bf434f33a4c0356dd0a34e175f8abf]
+class ApplianceDataConstantPower--><rect codeLine="48" fill="#FFFFFF" height="146.0879" id="ApplianceDataConstantPower" style="stroke:#000000;stroke-width:1.5;" width="426" x="1499" y="545"/><ellipse cx="1605.75" cy="559" fill="#FFFFFF" rx="9" ry="9" style="stroke:#000000;stroke-width:1.0;"/><path d="M1608.2231,565.1431 Q1607.6421,565.4419 1607.0029,565.5913 Q1606.3638,565.7407 1605.6582,565.7407 Q1603.1514,565.7407 1601.8315,564.0889 Q1600.5117,562.437 1600.5117,559.3159 Q1600.5117,556.1865 1601.8315,554.5347 Q1603.1514,552.8828 1605.6582,552.8828 Q1606.3638,552.8828 1607.0112,553.0322 Q1607.6587,553.1816 1608.2231,553.4805 L1608.2231,556.2031 Q1607.5923,555.6221 1606.9988,555.3523 Q1606.4053,555.0825 1605.7744,555.0825 Q1604.4297,555.0825 1603.7449,556.1492 Q1603.0601,557.2158 1603.0601,559.3159 Q1603.0601,561.4077 1603.7449,562.4744 Q1604.4297,563.541 1605.7744,563.541 Q1606.4053,563.541 1606.9988,563.2712 Q1607.5923,563.0015 1608.2231,562.4204 Z " fill="#000000"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="205" x="1623.25" y="564.5679">ApplianceDataConstantPower</text><line style="stroke:#000000;stroke-width:1.5;" x1="1500" x2="1924" y1="573" y2="573"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="97" x="1505" y="591.0752">float: p_rated</text><line style="stroke:#000000;stroke-width:1.5;" x1="1500" x2="1924" y1="598.0146" y2="598.0146"/><ellipse cx="1510" cy="609.0146" fill="#FFFFFF" rx="3" ry="3" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="65" x="1517" y="616.0898">__init__(</text><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="172" x="1557" y="633.1045">float: usage_probability,</text><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="362" x="1557" y="650.1191">SwitchOnProbabilities: type_switch_on_probability,</text><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="97" x="1557" y="667.1338">float: p_rated</text><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="161" x="1557" y="684.1484">): ApplianceWithProfile</text><!--MD5=[5b58cc52d91b3961365632140c60fe14]
+class Appliance--><rect codeLine="54" fill="#FFFFFF" height="78.0293" id="Appliance" style="stroke:#000000;stroke-width:1.5;" width="242" x="973" y="201"/><ellipse cx="1056.25" cy="215" fill="#FFFFFF" rx="9" ry="9" style="stroke:#000000;stroke-width:1.0;"/><path d="M1058.7231,221.1431 Q1058.1421,221.4419 1057.5029,221.5913 Q1056.8638,221.7407 1056.1582,221.7407 Q1053.6514,221.7407 1052.3315,220.0889 Q1051.0117,218.437 1051.0117,215.3159 Q1051.0117,212.1865 1052.3315,210.5347 Q1053.6514,208.8828 1056.1582,208.8828 Q1056.8638,208.8828 1057.5112,209.0322 Q1058.1587,209.1816 1058.7231,209.4805 L1058.7231,212.2031 Q1058.0923,211.6221 1057.4988,211.3523 Q1056.9053,211.0825 1056.2744,211.0825 Q1054.9297,211.0825 1054.2449,212.1492 Q1053.5601,213.2158 1053.5601,215.3159 Q1053.5601,217.4077 1054.2449,218.4744 Q1054.9297,219.541 1056.2744,219.541 Q1056.9053,219.541 1057.4988,219.2712 Q1058.0923,219.0015 1058.7231,218.4204 Z " fill="#000000"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="68" x="1073.75" y="220.5679">Appliance</text><line style="stroke:#000000;stroke-width:1.5;" x1="974" x2="1214" y1="229" y2="229"/><ellipse cx="984" cy="240" fill="none" rx="3" ry="3" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="125" x="991" y="247.0752">int: current_state</text><ellipse cx="984" cy="257.0146" fill="none" rx="3" ry="3" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="218" x="991" y="264.0898">ApplianceData: appliance_data</text><line style="stroke:#000000;stroke-width:1.5;" x1="974" x2="1214" y1="271.0293" y2="271.0293"/><!--MD5=[a04cbf41898dbf764474b44f344ef5de]
+class ApplianceWithProfile--><rect fill="#FFFFFF" height="44" id="ApplianceWithProfile" style="stroke:#000000;stroke-width:1.5;" width="172" x="1562" y="54.5"/><ellipse cx="1575" cy="68.5" fill="#FFFFFF" rx="9" ry="9" style="stroke:#000000;stroke-width:1.0;"/><path d="M1577.4731,74.6431 Q1576.8921,74.9419 1576.2529,75.0913 Q1575.6138,75.2407 1574.9082,75.2407 Q1572.4014,75.2407 1571.0815,73.5889 Q1569.7617,71.937 1569.7617,68.8159 Q1569.7617,65.6865 1571.0815,64.0347 Q1572.4014,62.3828 1574.9082,62.3828 Q1575.6138,62.3828 1576.2612,62.5322 Q1576.9087,62.6816 1577.4731,62.9805 L1577.4731,65.7031 Q1576.8423,65.1221 1576.2488,64.8523 Q1575.6553,64.5825 1575.0244,64.5825 Q1573.6797,64.5825 1572.9949,65.6492 Q1572.3101,66.7158 1572.3101,68.8159 Q1572.3101,70.9077 1572.9949,71.9744 Q1573.6797,73.041 1575.0244,73.041 Q1575.6553,73.041 1576.2488,72.7712 Q1576.8423,72.5015 1577.4731,71.9204 Z " fill="#000000"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="144" x="1587" y="74.0679">ApplianceWithProfile</text><line style="stroke:#000000;stroke-width:1.5;" x1="1563" x2="1733" y1="82.5" y2="82.5"/><line style="stroke:#000000;stroke-width:1.5;" x1="1563" x2="1733" y1="90.5" y2="90.5"/><!--MD5=[64d576831e27e156c79ff84bef690284]
+class Household--><rect codeLine="66" fill="#FFFFFF" height="129.0732" id="Household" style="stroke:#000000;stroke-width:1.5;" width="324" x="932" y="12"/><ellipse cx="1053.75" cy="26" fill="#FFFFFF" rx="9" ry="9" style="stroke:#000000;stroke-width:1.0;"/><path d="M1056.2231,32.1431 Q1055.6421,32.4419 1055.0029,32.5913 Q1054.3638,32.7407 1053.6582,32.7407 Q1051.1514,32.7407 1049.8315,31.0889 Q1048.5117,29.437 1048.5117,26.3159 Q1048.5117,23.1865 1049.8315,21.5347 Q1051.1514,19.8828 1053.6582,19.8828 Q1054.3638,19.8828 1055.0112,20.0322 Q1055.6587,20.1816 1056.2231,20.4805 L1056.2231,23.2031 Q1055.5923,22.6221 1054.9988,22.3523 Q1054.4053,22.0825 1053.7744,22.0825 Q1052.4297,22.0825 1051.7449,23.1492 Q1051.0601,24.2158 1051.0601,26.3159 Q1051.0601,28.4077 1051.7449,29.4744 Q1052.4297,30.541 1053.7744,30.541 Q1054.4053,30.541 1054.9988,30.2712 Q1055.5923,30.0015 1056.2231,29.4204 Z " fill="#000000"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="73" x="1071.25" y="31.5679">Household</text><line style="stroke:#000000;stroke-width:1.5;" x1="933" x2="1255" y1="40" y2="40"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="189" x="938" y="58.0752">List[Appliance]: appliances</text><line style="stroke:#000000;stroke-width:1.5;" x1="933" x2="1255" y1="65.0146" y2="65.0146"/><ellipse cx="943" cy="76.0146" fill="#FFFFFF" rx="3" ry="3" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="71" x="950" y="83.0898">__init__()</text><ellipse cx="943" cy="93.0293" fill="#FFFFFF" rx="3" ry="3" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="228" x="950" y="100.1045">__init__(int: no_of_inhabitants)</text><ellipse cx="943" cy="110.0439" fill="#FFFFFF" rx="3" ry="3" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="163" x="950" y="117.1191">__init__(float: income)</text><ellipse cx="943" cy="127.0586" fill="#FFFFFF" rx="3" ry="3" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="300" x="950" y="134.1338">__init__(HouseholdType: household_type)</text><path d="M1291.5,55.5 L1291.5,72.5 L1256.11,76.5 L1291.5,80.5 L1291.5,97.0986 A0,0 0 0 0 1291.5,97.0986 L1526.5,97.0986 A0,0 0 0 0 1526.5,97.0986 L1526.5,65.5 L1516.5,55.5 L1291.5,55.5 A0,0 0 0 0 1291.5,55.5 " fill="#FFFFFF" style="stroke:#000000;stroke-width:1.0;"/><path d="M1516.5,55.5 L1516.5,65.5 L1526.5,65.5 L1516.5,55.5 " fill="#FFFFFF" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="13" lengthAdjust="spacing" textLength="157" x="1297.5" y="73.5698">Init without parameter:</text><text fill="#000000" font-family="Verdana" font-size="13" lengthAdjust="spacing" textLength="214" x="1297.5" y="89.3691">According to average household</text><!--MD5=[2e0e6fc3d347c46fb27ec22ab8adb191]
+class HouseholdType--><rect codeLine="77" fill="#FFFFFF" height="44" id="HouseholdType" style="stroke:#000000;stroke-width:1.5;" width="135" x="1769.5" y="54.5"/><ellipse cx="1782.5" cy="68.5" fill="#FFFFFF" rx="9" ry="9" style="stroke:#000000;stroke-width:1.0;"/><path d="M1786.1143,75 L1778.3945,75 L1778.3945,62.6069 L1786.1143,62.6069 L1786.1143,64.7651 L1780.8433,64.7651 L1780.8433,67.438 L1785.6162,67.438 L1785.6162,69.5962 L1780.8433,69.5962 L1780.8433,72.8418 L1786.1143,72.8418 Z " fill="#000000"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="107" x="1794.5" y="74.0679">HouseholdType</text><line style="stroke:#000000;stroke-width:1.5;" x1="1770.5" x2="1903.5" y1="82.5" y2="82.5"/><line style="stroke:#000000;stroke-width:1.5;" x1="1770.5" x2="1903.5" y1="90.5" y2="90.5"/><!--MD5=[7cf25f2e406c7c7d8b9d7710a4e19c26]
+reverse link SwitchOnProbabilityKey to DayType--><path codeLine="16" d="M627.86,875.68 C635.39,892.75 642.94,909.85 648.59,922.68 " fill="none" id="SwitchOnProbabilityKey-backto-DayType" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="622.4,863.32,621.1689,870.4252,627.2541,874.2944,628.4852,867.1892,622.4,863.32" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[87ac7d3560ed776d9418ecc8f71cf8a0]
+reverse link SwitchOnProbabilityKey to Season--><path codeLine="17" d="M568.64,875.68 C561.23,892.75 553.81,909.85 548.25,922.68 " fill="none" id="SwitchOnProbabilityKey-backto-Season" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="574,863.32,567.9435,867.2339,569.2269,874.3299,575.2834,870.416,574,863.32" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[048c17bb8ddbc2ec1d28a7a9977383e8]
+reverse link SwitchOnProbabilities to SwitchOnProbabilityKey--><path codeLine="27" d="M598,678.9 C598,702.01 598,728.29 598,750.93 " fill="none" id="SwitchOnProbabilities-backto-SwitchOnProbabilityKey" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="598,665.71,594,671.71,598,677.71,602,671.71,598,665.71" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[f03d8d569b3230d92c31fcee65501959]
+reverse link ApplianceData to SwitchOnProbabilities--><path codeLine="38" d="M906.57,490.09 C840.78,517.15 768.93,546.7 711.13,570.47 " fill="none" id="ApplianceData-backto-SwitchOnProbabilities" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="918.78,485.07,911.7099,483.6507,907.6806,489.631,914.7506,491.0503,918.78,485.07" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[37bf30dc02fc75350128f792a827e864]
+reverse link ApplianceData to ApplianceType--><path codeLine="39" d="M1030.64,495.85 C1002.87,532.17 972.53,571.85 954.39,595.57 " fill="none" id="ApplianceData-backto-ApplianceType" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1038.78,485.21,1031.9576,487.5456,1031.4896,494.7415,1038.312,492.4059,1038.78,485.21" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[be643557269e034c05f00b4d49a24c5b]
+reverse link ApplianceData to ApplianceDataLoadProfile--><path d="M1162.02,501.39 C1173.2,515.91 1184.67,530.82 1195.5,544.89 " fill="none" id="ApplianceData-backto-ApplianceDataLoadProfile" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="none" points="1156.22,505.33,1149.57,485.21,1167.32,496.79,1156.22,505.33" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[998037a4a93f1708661a6c59a177b596]
+reverse link ApplianceData to ApplianceDataConstantPower--><path d="M1331.66,491.45 C1386.74,509.63 1445.02,528.87 1498.97,546.68 " fill="none" id="ApplianceData-backto-ApplianceDataConstantPower" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="none" points="1329.12,497.98,1312.32,485.07,1333.5,484.69,1329.12,497.98" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[49c739a9b064280c963837985f57ed20]
+reverse link Appliance to ApplianceData--><path codeLine="59" d="M1094,292.57 C1094,307.14 1094,323.27 1094,338.81 " fill="none" id="Appliance-backto-ApplianceData" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1094,279.15,1090,285.15,1094,291.15,1098,285.15,1094,279.15" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[6dcc30ab473b8b94110a468df6291d15]
+reverse link ApplianceWithProfile to TimeSeries--><path codeLine="64" d="M1648,111.75 C1648,140.72 1648,181.81 1648,209.38 " fill="none" id="ApplianceWithProfile-backto-TimeSeries" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1648,98.61,1644,104.61,1648,110.61,1652,104.61,1648,98.61" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[639e003bc69b87efc52ad3189a53fd75]
+reverse link Household to Appliance--><path codeLine="75" d="M1094,154.68 C1094,170.68 1094,186.88 1094,200.74 " fill="none" id="Household-backto-Appliance" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1094,141.33,1090,147.33,1094,153.33,1098,147.33,1094,141.33" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[295abcba4ef32f692c96de99242f6e64]
+@startuml
+!theme plain
+
+enum Season
+
+enum DayType
+
+enum ApplianceType
+
+class SwitchOnProbabilityKey {
+    Season: season
+    DayType: day_type
+    int: quarter_hour_of_day
+
+    + extract_from_datetime(datetime: instance_of_interest): SwitchOnProbabilityKey
+}
+SwitchOnProbabilityKey *- - DayType
+SwitchOnProbabilityKey *- - Season
+
+class SwitchOnProbabilities {
+    dict[SwitchOnProbabilityKey, dict[int, float]]: seasonal_probability
+
+    + __init__(): SwitchOnProbabilities
+    + get(SwitchOnProbabilityKey key): float
+
+}
+note left of SwitchOnProbabilities: "Interface" definition:\nWe receive a "matrix" of probabilities,\nwhich maps from quarter hour of the\nyear to actual switch on probability\n(accounting for so called usage probability)
+SwitchOnProbabilities *- - SwitchOnProbabilityKey
+
+abstract class ApplianceData {
+    + int: nr_states
+    + ApplianceType: type
+    - SwitchOnProbabilities: switch_on_probability
+
+    + __init__(\n\tSwitchOnProbabilities: type_switch_on_probability): Appliance
+    + get_switch_on_probability(datetime: instance_of_interest): float
+}
+note right of ApplianceData: Implicit assumption:\nGeneration _only_ for one\nwhole year to be calculated
+ApplianceData*- - SwitchOnProbabilities
+ApplianceData*- - ApplianceType
+
+class ApplianceDataLoadProfile extends ApplianceData{
+    TimeSeries: time_series
+
+    + __init__(\n\tfloat: usage_probability,\n\tSwitchOnProbabilities: type_switch_on_probability,\n\tTimeSeries: time_series\n\t): ApplianceWithProfile
+}
+note right of TimeSeries: Mapping from quarter hour\nfrom start of operation to\nconsumed power
+
+class ApplianceDataConstantPower extends ApplianceData{
+    float: p_rated
+
+    + __init__(\n\tfloat: usage_probability,\n\tSwitchOnProbabilities: type_switch_on_probability,\n\tfloat: p_rated\n\t): ApplianceWithProfile
+}
+
+class Appliance {
+    + int: current_state
+    + ApplianceData: appliance_data
+}
+
+Appliance *- - ApplianceData
+
+class TimeSeries {
+    dict[int, float]: values
+}
+ApplianceWithProfile *- - TimeSeries
+
+class Household {
+ List[Appliance]: appliances
+
+ + __init__()
+ + __init__(int: no_of_inhabitants)
+ + __init__(float: income)
+ + __init__(HouseholdType: household_type)
+}
+note right of Household: Init without parameter:\nAccording to average household
+Household *- - Appliance
+
+enum HouseholdType
+@enduml
+
+@startuml
+
+
+
+
+
+
+
+<style>
+  root {
+    BackgroundColor white
+    FontColor black
+    FontName Verdana
+    HyperLinkColor blue
+    LineColor black
+    LineThickness 1
+    Margin 5
+  }
+  caption {
+    LineThickness 0
+  }
+  footer {
+    LineThickness 0
+  }
+  header {
+    LineThickness 0
+  }
+  node {
+    MaximumWidth 300
+  }
+  title {
+    FontSize 22
+    LineThickness 0
+  }
+</style>
+
+skinparam ArrowLollipopColor black
+skinparam BackgroundColor white
+skinparam DefaultFontName Verdana
+skinparam DefaultMonospacedFontName Courier
+skinparam LifelineStrategy nosolid
+skinparam ParticipantPadding 10
+skinparam SequenceLifeLineBorderColor black
+skinparam Shadowing false
+skinparam UseBetaStyle true
+
+skinparam Activity {
+  BackgroundColor white
+  BarColor black
+  BorderColor black
+  FontColor black
+  FontName Verdana
+}
+skinparam Boundary {
+  FontColor black
+}
+skinparam Box {
+  Padding 5
+}
+skinparam CircledCharacter {
+  FontColor black
+  FontName Courier
+  Radius 9
+}
+skinparam Class {
+  BackgroundColor white
+  BorderColor black
+  FontColor black
+  FontName Verdana
+}
+skinparam ClassAttribute {
+  FontColor black
+  FontName Verdana
+}
+skinparam ClassStereotype {
+  FontColor black
+  FontName Verdana
+}
+skinparam Footer {
+  FontColor black
+  FontName Verdana
+}
+skinparam Header {
+  FontColor black
+  FontName Verdana
+}
+skinparam Hyperlink {
+  Color blue
+}
+skinparam IconPackage {
+  Color black
+  BackgroundColor white
+}
+skinparam IconPrivate {
+  Color black
+  BackgroundColor white
+}
+skinparam IconProtected {
+  Color black
+  BackgroundColor white
+}
+skinparam IconPublic {
+  Color black
+  BackgroundColor white
+}
+skinparam Note {
+  FontColor black
+  FontName Verdana
+}
+skinparam Object {
+  BorderColor black
+}
+skinparam Package {
+  BorderColor black
+  FontColor black
+  FontName Verdana
+}
+skinparam State {
+  BackgroundColor white
+  BorderColor black
+}
+skinparam StereotypeA {
+  BackgroundColor white
+  BorderColor black
+}
+skinparam StereotypeC {
+  BackgroundColor white
+  BorderColor black
+}
+skinparam StereotypeE {
+  BackgroundColor white
+  BorderColor black
+}
+skinparam StereotypeI {
+  BackgroundColor white
+  BorderColor black
+}
+skinparam StereotypeN {
+  BackgroundColor white
+  BorderColor black
+}
+skinparam UseCaseStereoType {
+  FontColor black
+  FontName Verdana
+}
+
+enum Season
+
+enum DayType
+
+enum ApplianceType
+
+class SwitchOnProbabilityKey {
+    Season: season
+    DayType: day_type
+    int: quarter_hour_of_day
+
+    + extract_from_datetime(datetime: instance_of_interest): SwitchOnProbabilityKey
+}
+SwitchOnProbabilityKey *- - DayType
+SwitchOnProbabilityKey *- - Season
+
+class SwitchOnProbabilities {
+    dict[SwitchOnProbabilityKey, dict[int, float]]: seasonal_probability
+
+    + __init__(): SwitchOnProbabilities
+    + get(SwitchOnProbabilityKey key): float
+
+}
+note left of SwitchOnProbabilities: "Interface" definition:\nWe receive a "matrix" of probabilities,\nwhich maps from quarter hour of the\nyear to actual switch on probability\n(accounting for so called usage probability)
+SwitchOnProbabilities *- - SwitchOnProbabilityKey
+
+abstract class ApplianceData {
+    + int: nr_states
+    + ApplianceType: type
+    - SwitchOnProbabilities: switch_on_probability
+
+    + __init__(\n\tSwitchOnProbabilities: type_switch_on_probability): Appliance
+    + get_switch_on_probability(datetime: instance_of_interest): float
+}
+note right of ApplianceData: Implicit assumption:\nGeneration _only_ for one\nwhole year to be calculated
+ApplianceData*- - SwitchOnProbabilities
+ApplianceData*- - ApplianceType
+
+class ApplianceDataLoadProfile extends ApplianceData{
+    TimeSeries: time_series
+
+    + __init__(\n\tfloat: usage_probability,\n\tSwitchOnProbabilities: type_switch_on_probability,\n\tTimeSeries: time_series\n\t): ApplianceWithProfile
+}
+note right of TimeSeries: Mapping from quarter hour\nfrom start of operation to\nconsumed power
+
+class ApplianceDataConstantPower extends ApplianceData{
+    float: p_rated
+
+    + __init__(\n\tfloat: usage_probability,\n\tSwitchOnProbabilities: type_switch_on_probability,\n\tfloat: p_rated\n\t): ApplianceWithProfile
+}
+
+class Appliance {
+    + int: current_state
+    + ApplianceData: appliance_data
+}
+
+Appliance *- - ApplianceData
+
+class TimeSeries {
+    dict[int, float]: values
+}
+ApplianceWithProfile *- - TimeSeries
+
+class Household {
+ List[Appliance]: appliances
+
+ + __init__()
+ + __init__(int: no_of_inhabitants)
+ + __init__(float: income)
+ + __init__(HouseholdType: household_type)
+}
+note right of Household: Init without parameter:\nAccording to average household
+Household *- - Appliance
+
+enum HouseholdType
+@enduml
+
+PlantUML version 1.2022.1(Tue Feb 01 19:19:58 CET 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: de
+Country: DE
+--></g></svg>
