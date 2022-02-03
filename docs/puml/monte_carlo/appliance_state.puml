@@ -1,0 +1,25 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+:get appliance;
+if (is turned on?) then (yes)
+ :get time since activation;
+ if (is >= appliance operation time) then (yes)
+    :turn off;
+    stop
+ else (no)
+    :stay on;
+    stop
+ endif
+
+else (no)
+:get current switch on probability;
+:generate random number between 0 and 1;
+  if (is <= current switch on probability) then (yes)
+  :turn on;
+  stop
+  else (no)
+  :stay off;
+stop
+@enduml
