@@ -28,7 +28,6 @@ note left of SwitchOnProbabilities: "Interface" definition:\nWe receive a "matri
 SwitchOnProbabilities *-- SwitchOnProbabilityKey
 
 abstract class ApplianceData {
-    + int: nr_states
     + ApplianceType: type
     - SwitchOnProbabilities: switch_on_probability
 
@@ -42,19 +41,24 @@ ApplianceData*-- ApplianceType
 class ApplianceDataLoadProfile extends ApplianceData{
     TimeSeries: time_series
 
-    + __init__(\n\tfloat: usage_probability,\n\tSwitchOnProbabilities: type_switch_on_probability,\n\tTimeSeries: time_series\n\t): ApplianceWithProfile
+    + __init__(\n\tfloat: usage_probability,\n\tSwitchOnProbabilities: type_switch_on_probability,\n\tTimeSeries: time_series\n\t): ApplianceDataLoadProfile
+    + get_time_series_length():
 }
 note right of TimeSeries: Mapping from quarter hour\nfrom start of operation to\nconsumed power
 
 class ApplianceDataConstantPower extends ApplianceData{
     float: p_rated
 
-    + __init__(\n\tfloat: usage_probability,\n\tSwitchOnProbabilities: type_switch_on_probability,\n\tfloat: p_rated\n\t): ApplianceWithProfile
+    + __init__(\n\tfloat: usage_probability,\n\tSwitchOnProbabilities: type_switch_on_probability,\n\tfloat: p_rated\n\t): ApplianceDataConstantPower
 }
 
 class Appliance {
-    + int: current_state
-    + ApplianceData: appliance_data
+    - List[OperationInterval]: operation_intervals
+    - ApplianceData: appliance_data
+    + handle_simulation_step():
+    - is_turned_on(): Boolean
+    - sample_switch_on(time: datetime): Unit
+    - add_operation_interval(start: datetime): Unit
 }
 
 Appliance *-- ApplianceData
@@ -62,7 +66,7 @@ Appliance *-- ApplianceData
 class TimeSeries {
     dict[int, float]: values
 }
-ApplianceWithProfile *-- TimeSeries
+ApplianceDataLoadProfile *-- TimeSeries
 
 class Household {
  List[Appliance]: appliances
@@ -76,4 +80,6 @@ note right of Household: Init without parameter:\nAccording to average household
 Household *-- Appliance
 
 enum HouseholdType
+
+Household *-- HouseholdType
 @enduml
