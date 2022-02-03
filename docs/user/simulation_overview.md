@@ -1,4 +1,4 @@
-# Monte Carlo Simulation
+# Simulation Overview
 
 The monte carlo simulation should stochastically calculate the power draw of a household.
 The power draw of a house is the aggregate of the power draw of all appliances.

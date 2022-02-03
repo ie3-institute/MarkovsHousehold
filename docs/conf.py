@@ -41,6 +41,11 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
 
+# Myst parser plugins
+# for more plugins and documentation check out https://myst-parser.readthedocs.io/en/latest/syntax/optional.html
+myst_enable_extensions = [
+  "colon_fence"
+]
 
 # -- Options for HTML output -------------------------------------------------
 
