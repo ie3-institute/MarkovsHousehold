@@ -309,3 +309,6 @@ legacy/Spotvektor_2014.xlsm
 
 # Ignore temporary files
 ~$*
+
+# Ignore built sphinx documentation
+docs/sphinx/_build
