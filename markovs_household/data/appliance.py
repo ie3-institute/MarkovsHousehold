@@ -1,3 +1,4 @@
+from dataclasses import dataclass
 from enum import Enum
 from typing import List
 from markovs_household.data.probability import SwitchOnProbabilities, SwitchOnProbabilityKey
@@ -9,7 +10,7 @@ import logging
 from markovs_household.utils.time import TimeInterval
 
 
-class ApplianceType(Enum):
+class ApplianceCategory(Enum):
     """
     Enumeration of all considered appliance types
     """
@@ -27,11 +28,10 @@ class ApplianceType(Enum):
     WATER_HEATING = "water heating"
 
 
-
 @dataclass(frozen=True)
 class ApplianceData(ABC):
-    category: ApplianceType
-    switch_on_probability: SwitchOnProbabilities
+    category: ApplianceCategory
+    switch_on_probabilities: SwitchOnProbabilities
 
     def get_switch_on_probability(self, date_time: datetime) -> float:
         """
@@ -73,8 +73,7 @@ class Appliance(ABC):
     Abstract class for household appliances
     :var type: the specific type of the appliance
     :var switchOnProbabilities: probabilities for switching the device on depending on season, weekday and day type
-    :type type: ApplianceType
+    :type type: ApplianceCategory
     """
     appliance_data: ApplianceData
     operation_intervals: List[TimeInterval]
-

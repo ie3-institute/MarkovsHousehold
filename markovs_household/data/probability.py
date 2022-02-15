@@ -4,6 +4,7 @@ import logging
 from markovs_household.utils import time
 from datetime import datetime
 from markovs_household.utils.time import Season, DayType
+from dataclasses import dataclass
 
 
 @dataclass(frozen=True)
