@@ -71,9 +71,10 @@ class ApplianceDataConstantPower(ApplianceData):
 class Appliance(ABC):
     """
     Abstract class for household appliances
-    :var type: the specific type of the appliance
-    :var switchOnProbabilities: probabilities for switching the device on depending on season, weekday and day type
-    :type type: ApplianceCategory
+    :param appliance_data: type data of the appliance
+    :type appliance_data: ApplianceData
+    :param operation_intervals: the intervals in which this appliance is operating
+    :type operation_interfals: List[OperationInterval]
     """
     appliance_data: ApplianceData
     operation_intervals: List[TimeInterval]
