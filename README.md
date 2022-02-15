@@ -1,6 +1,6 @@
 # MarkovsHousehold
 [![Documentation Status](https://readthedocs.org/projects/markovshousehold/badge/?version=latest)](https://markovshousehold.readthedocs.io/en/latest/?badge=latest)
-[![License](https://img.shields.io/github/license/ie3-institute/markovshousehold)](https://github.com/ie3-institute/markovshousehold/blob/master/LICENSE)
+[![License](https://img.shields.io/github/license/ie3-institute/markovshousehold)](https://github.com/ie3-institute/markovshousehold/blob/main/LICENSE)
 
 Markov chain based domestic house hold consumption model
 
