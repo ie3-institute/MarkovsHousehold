@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
--   Legacy code base
+- Legacy code base
+- Dependabot for auto-dependency updates
 
 [Unreleased]: https://github.com/ie3-institute/MarkovsHousehold
