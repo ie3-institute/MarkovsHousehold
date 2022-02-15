@@ -1,5 +1,6 @@
+from dataclasses import dataclass
 from enum import Enum
-from datetime import datetime
+from datetime import datetime, timedelta
 
 
 class Season(Enum):
@@ -60,3 +61,22 @@ def get_quarterly_hour_of_day(date_time: datetime) -> int:
     :return: the 15 minute interval
     """
     return (date_time.hour * 60 + date_time.minute) // 15
+
+
+@dataclass(frozen=True)
+class TimeInterval:
+    """
+    Operation interval consisting of a start and end
+    """
+    start: datetime
+    end: datetime
+
+    @classmethod
+    def get_operation_interval(cls, start: datetime, duration: timedelta):
+        """
+        Get the time interval from its start datetime and its duration
+        :param start: start of the time interval
+        :param duration: duration of the time interval
+        :return:
+        """
+        return TimeInterval(start, start + duration)

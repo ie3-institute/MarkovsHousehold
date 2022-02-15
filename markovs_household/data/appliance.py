@@ -1,12 +1,12 @@
 from enum import Enum
-
-from dataclasses import dataclass
-
+from typing import List
 from markovs_household.data.probability import SwitchOnProbabilities, SwitchOnProbabilityKey
 from markovs_household.data.timeseries import TimeSeries
 from abc import ABC
 from datetime import datetime
 import logging
+
+from markovs_household.utils.time import TimeInterval
 
 
 class ApplianceType(Enum):
@@ -27,16 +27,11 @@ class ApplianceType(Enum):
     WATER_HEATING = "water heating"
 
 
+
 @dataclass(frozen=True)
-class Appliance(ABC):
-    """
-    Abstract class for household appliances
-    :var type: the specific type of the appliance
-    :var switchOnProbabilities: probabilities for switching the device on depending on season, weekday and day type
-    :type type: ApplianceType
-    """
-    type: ApplianceType
-    switch_on_probabilities: SwitchOnProbabilities
+class ApplianceData(ABC):
+    category: ApplianceType
+    switch_on_probability: SwitchOnProbabilities
 
     def get_switch_on_probability(self, date_time: datetime) -> float:
         """
@@ -53,7 +48,7 @@ class Appliance(ABC):
 
 
 @dataclass(frozen=True)
-class ApplianceLoadProfile(Appliance):
+class ApplianceDataLoadProfile(ApplianceData):
     """
     Appliance that has an associated load profile
     :param profile: the load profile of the device
@@ -63,10 +58,23 @@ class ApplianceLoadProfile(Appliance):
 
 
 @dataclass(frozen=True)
-class ApplianceConstantPower(Appliance):
+class ApplianceDataConstantPower(ApplianceData):
     """
     Appliance that has an associated constant power
     :param power: power draw of the appliance
     :type power: float
     """
     power: float
+
+
+@dataclass(frozen=True)
+class Appliance(ABC):
+    """
+    Abstract class for household appliances
+    :var type: the specific type of the appliance
+    :var switchOnProbabilities: probabilities for switching the device on depending on season, weekday and day type
+    :type type: ApplianceType
+    """
+    appliance_data: ApplianceData
+    operation_intervals: List[TimeInterval]
+
