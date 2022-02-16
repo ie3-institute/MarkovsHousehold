@@ -74,7 +74,7 @@ class Appliance(ABC):
     :param appliance_data: type data of the appliance
     :type appliance_data: ApplianceData
     :param operation_intervals: the intervals in which this appliance is operating
-    :type operation_interfals: List[OperationInterval]
+    :type operation_intervals: List[TimeInterval]
     """
     appliance_data: ApplianceData
     operation_intervals: List[TimeInterval]

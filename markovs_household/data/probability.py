@@ -10,7 +10,7 @@ from dataclasses import dataclass
 @dataclass(frozen=True)
 class SwitchOnProbabilityKey:
     """
-    Class that is used for instantiating keys to acces switch on probabilities with respect to season, day type and
+    Class that is used for instantiating keys to access switch on probabilities with respect to season, day type and
     quarterly hour of day
     """
     season: Season
