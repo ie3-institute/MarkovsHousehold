@@ -46,12 +46,6 @@ myst_enable_extensions = [
   "colon_fence"
 ]
 
-# Myst parser plugins
-# for more plugins and documentation check out https://myst-parser.readthedocs.io/en/latest/syntax/optional.html
-myst_enable_extensions = [
-  "colon_fence"
-]
-
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for

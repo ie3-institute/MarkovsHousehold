@@ -17,7 +17,7 @@ class HouseHoldType(Enum):
 class Household:
     """
     Represents a household that houses a certain amount of appliances
-    :var appliances: mapping of an appliance to the number of the particular appliance within the household
+    :appliances: mapping of an appliance to the number of the particular appliance within the household
     """
     appliances: Dict[Appliance, float]
 

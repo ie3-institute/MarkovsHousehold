@@ -11,7 +11,7 @@ from dataclasses import dataclass
 class SwitchOnProbabilityKey:
     """
     Class that is used for instantiating keys to access switch on probabilities with respect to season, day type and
-    quarterly hour of day
+    quarterly hour of day.
     """
     season: Season
     day_type: DayType
@@ -27,6 +27,9 @@ class SwitchOnProbabilityKey:
 
 @dataclass(frozen=True)
 class SwitchOnProbabilities:
+    """
+    Probabilities to switch on an appliance given factors defined in the SwitchOnProbibilityKey class.
+    """
     __probabilities: Dict[SwitchOnProbabilityKey, float]
 
     def get_probabilities(self):

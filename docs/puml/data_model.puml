@@ -27,59 +27,57 @@ class SwitchOnProbabilities {
 note left of SwitchOnProbabilities: "Interface" definition:\nWe receive a "matrix" of probabilities,\nwhich maps from quarter hour of the\nyear to actual switch on probability\n(accounting for so called usage probability)
 SwitchOnProbabilities *-- SwitchOnProbabilityKey
 
-abstract class ApplianceData {
-    + ApplianceType: type
+abstract class ApplianceType {
+    + ApplianceCategory: category
     - SwitchOnProbabilities: switch_on_probability
 
     + __init__(\n\tSwitchOnProbabilities: type_switch_on_probability): Appliance
     + get_switch_on_probability(datetime: instance_of_interest): float
 }
-note right of ApplianceData: Implicit assumption:\nGeneration _only_ for one\nwhole year to be calculated
-ApplianceData*-- SwitchOnProbabilities
-ApplianceData*-- ApplianceType
+note right of ApplianceType: Implicit assumption:\nGeneration _only_ for one\nwhole year to be calculated
+ApplianceType*-- SwitchOnProbabilities
+ApplianceType*-- ApplianceCategory
 
-class ApplianceDataLoadProfile extends ApplianceData{
+class ApplianceTypeLoadProfile extends ApplianceType{
     TimeSeries: time_series
 
-    + __init__(\n\tfloat: usage_probability,\n\tSwitchOnProbabilities: type_switch_on_probability,\n\tTimeSeries: time_series\n\t): ApplianceDataLoadProfile
+    + __init__(\n\tfloat: usage_probability,\n\tSwitchOnProbabilities: type_switch_on_probability,\n\tTimeSeries: time_series\n\t): ApplianceTypeLoadProfile
     + get_time_series_length():
 }
-note right of TimeSeries: Mapping from quarter hour\nfrom start of operation to\nconsumed power
+note right of TimeSeries: Mapping from time of operation to\nconsumed power
 
-class ApplianceDataConstantPower extends ApplianceData{
+class ApplianceTypeConstantPower extends ApplianceType{
     float: p_rated
 
-    + __init__(\n\tfloat: usage_probability,\n\tSwitchOnProbabilities: type_switch_on_probability,\n\tfloat: p_rated\n\t): ApplianceDataConstantPower
+    + __init__(\n\tfloat: usage_probability,\n\tSwitchOnProbabilities: type_switch_on_probability,\n\tfloat: p_rated\n\t): ApplianceTypeConstantPower
 }
 
 class Appliance {
     - List[OperationInterval]: operation_intervals
-    - ApplianceData: appliance_data
-    + handle_simulation_step():
-    - is_turned_on(): Boolean
-    - sample_switch_on(time: datetime): Unit
-    - add_operation_interval(start: datetime): Unit
+    - ApplianceType: appliance_type
 }
 
-Appliance *-- ApplianceData
+Appliance *-- ApplianceType
 
 class TimeSeries {
     dict[int, float]: values
 }
-ApplianceDataLoadProfile *-- TimeSeries
+ApplianceTypeLoadProfile *-- TimeSeries
 
 class Household {
  List[Appliance]: appliances
 
- + __init__()
- + __init__(int: no_of_inhabitants)
- + __init__(float: income)
- + __init__(HouseholdType: household_type)
+ + from_average_household()
+ + from_no_of_inhabitants(int: no_of_inhabitants)
+ + from_income(float: income)
+ + from_household_tpye(HouseholdType: household_type)
 }
 note right of Household: Init without parameter:\nAccording to average household
 Household *-- Appliance
 
 enum HouseholdType
+
+enum ApplianceCategory
 
 Household *-- HouseholdType
 @enduml

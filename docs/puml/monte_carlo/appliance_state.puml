@@ -10,7 +10,7 @@ else (no)
 :generate random number between 0 and 1;
   if (is <= current switch on probability) then (yes)
   :turn on;
-  :add operation time interval from current time until end of operation;
+  :add operation time interval from current time\nuntil end of operation to appliances operation_intervals;
   stop
   else (no)
   :stay off;

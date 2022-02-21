@@ -29,7 +29,10 @@ class ApplianceCategory(Enum):
 
 
 @dataclass(frozen=True)
-class ApplianceData(ABC):
+class ApplianceType(ABC):
+    """
+    Type of actual appliance.
+    """
     category: ApplianceCategory
     switch_on_probabilities: SwitchOnProbabilities
 
@@ -43,38 +46,30 @@ class ApplianceData(ABC):
         try:
             return self.switch_on_probabilities.get_probability(key)
         except KeyError as exc:
-            logging.error("Cannot determine the switch on probability")
+            logging.error("Cannot determine the switch on probability", exc)
             raise exc
 
 
 @dataclass(frozen=True)
-class ApplianceDataLoadProfile(ApplianceData):
+class ApplianceTypeLoadProfile(ApplianceType):
     """
-    Appliance that has an associated load profile
-    :param profile: the load profile of the device
-    :type profile: TimeSeries
+    Appliance type that has an associated load profile
     """
     profile: TimeSeries
 
 
 @dataclass(frozen=True)
-class ApplianceDataConstantPower(ApplianceData):
+class ApplianceTypeConstantPower(ApplianceType):
     """
     Appliance that has an associated constant power
-    :param power: power draw of the appliance
-    :type power: float
     """
     power: float
 
 
 @dataclass(frozen=True)
-class Appliance(ABC):
+class Appliance:
     """
-    Abstract class for household appliances
-    :param appliance_data: type data of the appliance
-    :type appliance_data: ApplianceData
-    :param operation_intervals: the intervals in which this appliance is operating
-    :type operation_intervals: List[TimeInterval]
+    A household appliance that is defined by its type and stores the intervals in which it is operating.
     """
-    appliance_data: ApplianceData
+    appliance_type: ApplianceType
     operation_intervals: List[TimeInterval]

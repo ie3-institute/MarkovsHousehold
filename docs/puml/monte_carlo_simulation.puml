@@ -7,7 +7,7 @@ start
 appliance_state_distribution = initial_appliance_state_distribution * nr_appliances;
 note left: number of devices in the different stages \n initially all appliances are off (build up)
 :assign transition matrix;
-note left:
+:to be defined later;
 
 stop
 
