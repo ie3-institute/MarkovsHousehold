@@ -13,7 +13,7 @@ help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 plantuml:
-	scripts/plantuml.sh -tsvg -o $(shell pwd)/docs/images/uml docs/**.puml
+	../../scripts/plantuml.sh -tsvg -o $(shell pwd)/docs/images/uml ../puml/**.puml
 
 .PHONY: help Makefile
 
