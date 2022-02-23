@@ -1,6 +1,5 @@
 from enum import Enum
 from dataclasses import dataclass
-from typing import Dict
 
 from markovs_household.data.appliance import Appliance
 
@@ -17,9 +16,9 @@ class HouseHoldType(Enum):
 class Household:
     """
     Represents a household that houses a certain amount of appliances
-    :appliances: mapping of an appliance to the number of the particular appliance within the household
+    :var appliances: list of appliances within the household
     """
-    appliances: Dict[Appliance, float]
+    appliances: list[Appliance]
 
     @classmethod
     def from_average_household(cls) -> "Household":
@@ -47,7 +46,7 @@ class Household:
         pass
 
     @classmethod
-    def from_household_tpye(cls, household_type: HouseHoldType) -> "Household":
+    def from_household_type(cls, household_type: HouseHoldType) -> "Household":
         """
         Factory method that generates a household object with appliances based on its household type
         :param household_type: type of the household
