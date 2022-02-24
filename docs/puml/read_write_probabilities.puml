@@ -1,0 +1,25 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+!theme plain
+
+partition DataPreparation {
+    (*) -->"Read config"
+    if "calculate probabilities"
+        -->[true] "Preparation of switch on probabilities"
+        note left
+            Former "Eingabeoberflaeche_Wahrscheinlichkeit_Leistung.xlsx"
+        end note
+        if "write probabilities?"
+            -->[true] "write probabilities"
+            --> "..."
+        else
+            --> "..."
+        endif
+    else
+        --> "Read probabilties"
+    endif
+}
+--> "..."
+--> (*)
+
+@enduml

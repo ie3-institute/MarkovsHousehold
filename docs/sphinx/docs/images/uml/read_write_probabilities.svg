@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="652px" preserveAspectRatio="none" style="width:794px;height:652px;background:#FFFFFF;" version="1.1" viewBox="0 0 794 652" width="794px" zoomAndPan="magnify"><defs/><g><!--MD5=[3f93f3269b41b97406244f03e8f37126]
+cluster DataPreparation--><polygon fill="#FFFFFF" points="21,12.1191,232,12.1191,239,44.8564,777,44.8564,777,589.1191,21,589.1191,21,12.1191" style="stroke:#000000;stroke-width:1.0;"/><line style="stroke:#000000;stroke-width:1.0;" x1="21" x2="239" y1="44.8564" y2="44.8564"/><text fill="#000000" font-family="Verdana" font-size="22" font-weight="bold" lengthAdjust="spacing" textLength="205" x="25" y="36.2373">DataPreparation</text><ellipse cx="576" cy="67.1191" fill="#000000" rx="10" ry="10" style="stroke:none;stroke-width:1.0;"/><rect fill="#FFFFFF" height="34.584" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:1.0;" width="88" x="532" y="118.1191"/><text fill="#000000" font-family="Verdana" font-size="12" lengthAdjust="spacing" textLength="68" x="542" y="140.1836">Read config</text><polygon fill="#FFFFFF" points="576,194.1191,588,206.1191,576,218.1191,564,206.1191,576,194.1191" style="stroke:#000000;stroke-width:1.0;"/><rect fill="#FFFFFF" height="34.584" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:1.0;" width="238" x="37" y="273.1191"/><text fill="#000000" font-family="Verdana" font-size="12" lengthAdjust="spacing" textLength="218" x="47" y="295.1836">Preparation of switch on probabilities</text><path d="M295,277.6191 L295,286.6191 L275.16,290.6191 L295,294.6191 L295,303.4185 A0,0 0 0 0 295,303.4185 L739,303.4185 A0,0 0 0 0 739,303.4185 L739,287.6191 L729,277.6191 L295,277.6191 A0,0 0 0 0 295,277.6191 " fill="#FFFFFF" style="stroke:#000000;stroke-width:1.0;"/><path d="M729,277.6191 L729,287.6191 L739,287.6191 L729,277.6191 " fill="#FFFFFF" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="13" lengthAdjust="spacing" textLength="423" x="301" y="295.689">Former "Eingabeoberflaeche_Wahrscheinlichkeit_Leistung.xlsx"</text><polygon fill="#FFFFFF" points="369,383.1191,381,395.1191,369,407.1191,357,395.1191,369,383.1191" style="stroke:#000000;stroke-width:1.0;"/><rect fill="#FFFFFF" height="34.584" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:1.0;" width="124" x="390" y="462.1191"/><text fill="#000000" font-family="Verdana" font-size="12" lengthAdjust="spacing" textLength="104" x="400" y="484.1836">write probabilities</text><rect fill="#FFFFFF" height="34.584" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:1.0;" width="32" x="436" y="538.1191"/><text fill="#000000" font-family="Verdana" font-size="12" lengthAdjust="spacing" textLength="12" x="446" y="560.1836">...</text><rect fill="#FFFFFF" height="34.584" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:1.0;" width="120" x="617" y="328.1191"/><text fill="#000000" font-family="Verdana" font-size="12" lengthAdjust="spacing" textLength="100" x="627" y="350.1836">Read probabilties</text><ellipse cx="452" cy="636.1191" fill="none" rx="10" ry="10" style="stroke:#000000;stroke-width:1.0;"/><ellipse cx="452.5" cy="636.6191" fill="#000000" rx="6" ry="6" style="stroke:none;stroke-width:1.0;"/><!--MD5=[2ad2e32af7a81c05a0e806234b603ef4]
+link start to Read config--><path d="M576,77.3691 C576,86.5491 576,100.9591 576,113.0191 " fill="none" id="start-to-Read config" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="576,118.0291,580,109.0291,576,113.0291,572,109.0291,576,118.0291" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[d2de19a8de8eb37376ca9bd5b72af635]
+link Read config to #101--><path d="M576,153.1991 C576,163.9891 576,177.9991 576,188.7491 " fill="none" id="Read config-to-#101" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="576,194.0391,580,185.0391,576,189.0391,572,185.0391,576,194.0391" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="11" lengthAdjust="spacing" textLength="123" x="432.6281" y="186.0047">calculate probabilities</text><!--MD5=[cd143cd85fa384d317c23d53d48a3e2c]
+link #101 to Preparation of switch on probabilities--><path d="M566.44,208.9991 C524.37,217.2591 353.07,250.9091 245.51,272.0391 " fill="none" id="#101-to-Preparation of switch on probabilities" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="240.43,273.0291,250.0348,275.2079,245.3351,272.0595,248.4835,267.3598,240.43,273.0291" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="11" lengthAdjust="spacing" textLength="23" x="416" y="250.1782">true</text><!--MD5=[c0b7e6c32888214db8d05af0a8b06f8a]
+link Preparation of switch on probabilities to #109--><path d="M190.7,308.3191 C239.26,331.6891 325.11,372.9991 356.8,388.2491 " fill="none" id="Preparation of switch on probabilities-to-#109" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="361.41,390.4691,355.0334,382.9632,356.9042,388.3018,351.5656,390.1726,361.41,390.4691" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="11" lengthAdjust="spacing" textLength="107" x="241.8102" y="386.2666">write probabilities?</text><!--MD5=[2702436732eafc0e39d36750900eced1]
+link #109 to write probabilities--><path d="M374.7,401.7891 C386.24,413.2591 412.84,439.6991 431.6,458.3391 " fill="none" id="#109-to-write probabilities" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="435.24,461.9591,431.6859,452.7739,431.6973,458.4308,426.0405,458.4422,435.24,461.9591" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="11" lengthAdjust="spacing" textLength="23" x="413" y="439.1782">true</text><!--MD5=[280094fa5e2905a00ab3d04e4516c34c]
+link write probabilities to ...--><path d="M452,497.4091 C452,507.9091 452,521.5491 452,532.8691 " fill="none" id="write probabilities-to-..." style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="452,537.8891,456,528.8891,452,532.8891,448,528.8891,452,537.8891" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[a2aded8d441d074ca11e0215abfff102]
+link #109 to ...--><path d="M367.69,406.0391 C365.68,425.0291 363.6,467.2891 380,497.1191 C391.62,518.2591 414.54,534.4491 431.41,544.1791 " fill="none" id="#109-to-..." style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="436,546.7591,430.1058,538.8687,431.6387,544.3139,426.1935,545.8468,436,546.7591" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[3c08982b1dfc16a49a7ee7ce2e75eafb]
+link #101 to Read probabilties--><path d="M587.04,207.3591 C618.82,208.7291 710.71,217.5291 749,273.1191 C757.82,285.9291 757.14,294.8691 749,308.1191 C744.75,315.0391 738.73,320.6991 731.96,325.3091 " fill="none" id="#101-to-Read probabilties" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="727.66,328.0491,737.3995,326.5855,731.8765,325.362,733.1001,319.839,727.66,328.0491" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[e1cf4b3027aa8181c2319f6a911609b4]
+link Read probabilties to ...--><path d="M661.01,363.4491 C633.74,391.8891 576.13,450.8891 524,497.1191 C507.04,512.1591 486.8,528.1591 472.11,539.4591 " fill="none" id="Read probabilties-to-..." style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="468.12,542.5091,477.6969,540.2106,472.089,539.4682,472.8313,533.8603,468.12,542.5091" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[d12e9c1de9adaf6daf2163d2122fe6cd]
+link ... to end--><path d="M452,573.2691 C452,587.2891 452,607.1391 452,620.5391 " fill="none" id="...-to-end" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="452,625.8591,456,616.8591,452,620.8591,448,616.8591,452,625.8591" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[1715ee1519c94a84f06ca605a73cc317]
+@startuml
+'https://plantuml.com/activity-diagram-beta
+!theme plain
+
+partition DataPreparation {
+    (*) - ->"Read config"
+    if "calculate probabilities"
+        - ->[true] "Preparation of switch on probabilities"
+        note left
+            Former "Eingabeoberflaeche_Wahrscheinlichkeit_Leistung.xlsx"
+        end note
+        if "write probabilities?"
+            - ->[true] "write probabilities"
+            - -> "..."
+        else
+            - -> "..."
+        endif
+    else
+        - -> "Read probabilties"
+    endif
+}
+- -> "..."
+- -> (*)
+
+@enduml
+
+@startuml
+
+
+
+
+
+
+
+<style>
+  root {
+    BackgroundColor white
+    FontColor black
+    FontName Verdana
+    HyperLinkColor blue
+    LineColor black
+    LineThickness 1
+    Margin 5
+  }
+  caption {
+    LineThickness 0
+  }
+  footer {
+    LineThickness 0
+  }
+  header {
+    LineThickness 0
+  }
+  node {
+    MaximumWidth 300
+  }
+  title {
+    FontSize 22
+    LineThickness 0
+  }
+</style>
+
+skinparam ArrowLollipopColor black
+skinparam BackgroundColor white
+skinparam DefaultFontName Verdana
+skinparam DefaultMonospacedFontName Courier
+skinparam LifelineStrategy nosolid
+skinparam ParticipantPadding 10
+skinparam SequenceLifeLineBorderColor black
+skinparam Shadowing false
+skinparam UseBetaStyle true
+
+skinparam Activity {
+  BackgroundColor white
+  BarColor black
+  BorderColor black
+  FontColor black
+  FontName Verdana
+}
+skinparam Boundary {
+  FontColor black
+}
+skinparam Box {
+  Padding 5
+}
+skinparam CircledCharacter {
+  FontColor black
+  FontName Courier
+  Radius 9
+}
+skinparam Class {
+  BackgroundColor white
+  BorderColor black
+  FontColor black
+  FontName Verdana
+}
+skinparam ClassAttribute {
+  FontColor black
+  FontName Verdana
+}
+skinparam ClassStereotype {
+  FontColor black
+  FontName Verdana
+}
+skinparam Footer {
+  FontColor black
+  FontName Verdana
+}
+skinparam Header {
+  FontColor black
+  FontName Verdana
+}
+skinparam Hyperlink {
+  Color blue
+}
+skinparam IconPackage {
+  Color black
+  BackgroundColor white
+}
+skinparam IconPrivate {
+  Color black
+  BackgroundColor white
+}
+skinparam IconProtected {
+  Color black
+  BackgroundColor white
+}
+skinparam IconPublic {
+  Color black
+  BackgroundColor white
+}
+skinparam Note {
+  FontColor black
+  FontName Verdana
+}
+skinparam Object {
+  BorderColor black
+}
+skinparam Package {
+  BorderColor black
+  FontColor black
+  FontName Verdana
+}
+skinparam State {
+  BackgroundColor white
+  BorderColor black
+}
+skinparam StereotypeA {
+  BackgroundColor white
+  BorderColor black
+}
+skinparam StereotypeC {
+  BackgroundColor white
+  BorderColor black
+}
+skinparam StereotypeE {
+  BackgroundColor white
+  BorderColor black
+}
+skinparam StereotypeI {
+  BackgroundColor white
+  BorderColor black
+}
+skinparam StereotypeN {
+  BackgroundColor white
+  BorderColor black
+}
+skinparam UseCaseStereoType {
+  FontColor black
+  FontName Verdana
+}
+
+partition DataPreparation {
+    (*) - ->"Read config"
+    if "calculate probabilities"
+        - ->[true] "Preparation of switch on probabilities"
+        note left
+            Former "Eingabeoberflaeche_Wahrscheinlichkeit_Leistung.xlsx"
+        end note
+        if "write probabilities?"
+            - ->[true] "write probabilities"
+            - -> "..."
+        else
+            - -> "..."
+        endif
+    else
+        - -> "Read probabilties"
+    endif
+}
+- -> "..."
+- -> (*)
+
+@enduml
+
+PlantUML version 1.2022.1(Tue Feb 01 19:19:58 CET 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: de
+Country: DE
+--></g></svg>
