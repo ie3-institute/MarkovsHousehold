@@ -6,7 +6,7 @@ authors = [""]
 
 [tool.poetry.dependencies]
 python = "3.10"
-Sphinx = "^4.2.0"
+Sphinx = "^4.4.0"
 myst-parser = "^0.15.2"
 sphinx-rtd-theme = "^1.0.0"
 pytest = "^6.2.5"
