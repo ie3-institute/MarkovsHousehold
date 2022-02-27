@@ -1,7 +1,6 @@
 from dataclasses import dataclass
 import yaml
 
-
 @dataclass(frozen=True)
 class Configuration:
     consider_load_shifting: bool

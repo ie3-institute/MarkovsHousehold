@@ -1,10 +1,11 @@
-from dataclasses import dataclass
+import random
+from dataclasses import dataclass, field
 from enum import Enum
-from typing import List
+from typing import List, ClassVar
 from markovs_household.data.probability import SwitchOnProbabilities, SwitchOnProbabilityKey
 from markovs_household.data.timeseries import TimeSeries
-from abc import ABC
-from datetime import datetime
+from abc import ABC, abstractmethod
+from datetime import datetime, timedelta
 import logging
 
 from markovs_household.utils.time import TimeInterval
@@ -49,6 +50,10 @@ class ApplianceType(ABC):
             logging.error("Cannot determine the switch on probability", exc)
             raise exc
 
+    @abstractmethod
+    def get_operation_time(self) -> timedelta:
+        pass
+
 
 @dataclass(frozen=True)
 class ApplianceTypeLoadProfile(ApplianceType):
@@ -57,13 +62,20 @@ class ApplianceTypeLoadProfile(ApplianceType):
     """
     profile: TimeSeries
 
+    def get_operation_time(self) -> timedelta:
+        return self.profile.length
+
 
 @dataclass(frozen=True)
 class ApplianceTypeConstantPower(ApplianceType):
     """
-    Appliance that has an associated constant power
+    Appliance that has an associated constant power and an operation time in seconds
     """
     power: float
+    operation_time: timedelta
+
+    def get_operation_time(self) -> timedelta:
+        return self.operation_time
 
 
 @dataclass(frozen=True)
@@ -72,4 +84,27 @@ class Appliance:
     A household appliance that is defined by its type and stores the intervals in which it is operating.
     """
     appliance_type: ApplianceType
-    operation_intervals: List[TimeInterval]
+    # fixme: you probably shouldn't be able to instantiate the class with operation_intervals because they should always be empty
+    operation_intervals: List[TimeInterval] = field(default_factory=list)
+    random_generator: ClassVar[random.Random] = random.Random(42)
+
+    def handle_simulation_step(self, current_time: datetime) -> None:
+        if self.is_turned_on(current_time):
+            return
+        self.__sample_switch_on(current_time)
+
+    def is_turned_on(self, current_time) -> bool:
+        if not self.operation_intervals:
+            return False
+        return self.operation_intervals[-1].is_within(current_time)
+
+    def __sample_switch_on(self, current_time):
+        switch_on_probability_key = SwitchOnProbabilityKey.extract_from_datetime(current_time)
+        switch_on_probability = self.appliance_type.switch_on_probabilities.get_probability(switch_on_probability_key)
+        dice_roll = self.random_generator.random()
+        if dice_roll <= switch_on_probability:
+            self.__add_operation_interval(current_time)
+
+    def __add_operation_interval(self, current_time: datetime):
+        self.operation_intervals.append(
+            TimeInterval.get_operation_interval(current_time, self.appliance_type.operation_time))
