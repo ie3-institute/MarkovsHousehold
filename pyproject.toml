@@ -5,12 +5,12 @@ description = ""
 authors = [""]
 
 [tool.poetry.dependencies]
-python = "3.6.8"
+python = "3.10"
 Sphinx = "^4.2.0"
 myst-parser = "^0.15.2"
 sphinx-rtd-theme = "^1.0.0"
-dataclasses = "^0.8"
 pytest = "^6.2.5"
+PyYAML = "^6.0"
 
 [tool.poetry.dev-dependencies]
 

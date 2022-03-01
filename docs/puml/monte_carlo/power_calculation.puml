@@ -1,0 +1,16 @@
+	
+@startuml
+
+start
+:house_hold_power = 0;
+repeat
+repeat :next appliance;
+repeat while (appliance turned on?) is (no) not (yes)
+  :get power consumption p_appliance;
+  :house_hold_power += p_appliance;
+repeat while (all appliances checked?) is (no) not (yes)
+:aggregated power = house_hold_power;
+
+stop
+
+@endum

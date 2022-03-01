@@ -1,0 +1,83 @@
+@startuml
+!theme plain
+
+enum Season
+
+enum DayType
+
+enum ApplianceType
+
+class SwitchOnProbabilityKey {
+    Season: season
+    DayType: day_type
+    int: quarter_hour_of_day
+
+    + extract_from_datetime(datetime: instance_of_interest): SwitchOnProbabilityKey
+}
+SwitchOnProbabilityKey *-- DayType
+SwitchOnProbabilityKey *-- Season
+
+class SwitchOnProbabilities {
+    dict[SwitchOnProbabilityKey, dict[int, float]]: seasonal_probability
+
+    + __init__(): SwitchOnProbabilities
+    + get(SwitchOnProbabilityKey key): float
+
+}
+note left of SwitchOnProbabilities: "Interface" definition:\nWe receive a "matrix" of probabilities,\nwhich maps from quarter hour of the\nyear to actual switch on probability\n(accounting for so called usage probability)
+SwitchOnProbabilities *-- SwitchOnProbabilityKey
+
+abstract class ApplianceType {
+    + ApplianceCategory: category
+    - SwitchOnProbabilities: switch_on_probability
+
+    + __init__(\n\tSwitchOnProbabilities: type_switch_on_probability): Appliance
+    + get_switch_on_probability(datetime: instance_of_interest): float
+}
+note right of ApplianceType: Implicit assumption:\nGeneration _only_ for one\nwhole year to be calculated
+ApplianceType*-- SwitchOnProbabilities
+ApplianceType*-- ApplianceCategory
+
+class ApplianceTypeLoadProfile extends ApplianceType{
+    TimeSeries: time_series
+
+    + __init__(\n\tfloat: usage_probability,\n\tSwitchOnProbabilities: type_switch_on_probability,\n\tTimeSeries: time_series\n\t): ApplianceTypeLoadProfile
+    + get_time_series_length():
+}
+note right of TimeSeries: Mapping from time of operation to\nconsumed power
+
+class ApplianceTypeConstantPower extends ApplianceType{
+    float: p_rated
+
+    + __init__(\n\tfloat: usage_probability,\n\tSwitchOnProbabilities: type_switch_on_probability,\n\tfloat: p_rated\n\t): ApplianceTypeConstantPower
+}
+
+class Appliance {
+    - List[OperationInterval]: operation_intervals
+    - ApplianceType: appliance_type
+}
+
+Appliance *-- ApplianceType
+
+class TimeSeries {
+    dict[int, float]: values
+}
+ApplianceTypeLoadProfile *-- TimeSeries
+
+class Household {
+ List[Appliance]: appliances
+
+ + from_average_household()
+ + from_no_of_inhabitants(int: no_of_inhabitants)
+ + from_income(float: income)
+ + from_household_tpye(HouseholdType: household_type)
+}
+note right of Household: Init without parameter:\nAccording to average household
+Household *-- Appliance
+
+enum HouseholdType
+
+enum ApplianceCategory
+
+Household *-- HouseholdType
+@enduml
