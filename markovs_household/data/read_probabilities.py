@@ -28,13 +28,13 @@ def calculate_probabilities(df, type):
     return probabilities_df
 
 
-def import_probabilities(type):
-    config = Configuration.parse_config(r"tests/input/config.yaml")
-    if config.calculate_switch_on_probabilities:
-        df = pd.read_csv(os.path.join("tests/input/probabilities/" + type + ".csv"), sep=";")
-        df_switch_on_probabilities = calculate_probabilities(df, type)
-    else:
-        if not(config.switch_on_probabilities_folder):
+def import_probabilities(type, config):
+
+        df = pd.read_csv(os.path.join(config.switch_on_probabilities_path + "/" + type + ".csv"), sep=";")
+
+
+
+            if not(config.switch_on_probabilities_folder):
             df_switch_on_probabilities = pd.read_csv(os.path.join("tests/input/probabilities/default/" + type + "_default.csv"), sep=";")
             print("defaukt")
         else:
@@ -43,4 +43,9 @@ def import_probabilities(type):
 
     return df_switch_on_probabilities
 
-import_probabilities("freezer")
+
+config = Configuration.parse_config(r"tests\input\config.yaml")
+type = "freezer"
+df = pd.read_csv(os.path.join(config.switch_on_probabilities_path + "/" + type + ".csv"), sep=";")
+print(df)
+# import_probabilities("freezer")

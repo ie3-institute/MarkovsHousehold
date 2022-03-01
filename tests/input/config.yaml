@@ -1,16 +1,5 @@
 consider_load_shifting: False
 simulate_typical_days: False  
-calculate_switch_on_probabilities: True
-switch_on_probabilities_folder:
-usage_probability_washing_machine: 0.6
-usage_probability_lighting: 5
-usage_probability_dish_washer: 0.77
-usage_probability_video_recorder: 0.15
-usage_probability_telecommunication: 1
-usage_probability_PC: 1
-usage_probability_fridge: 1
-usage_probability_television: 2.33
-usage_probability_freezer: 1
-usage_probability_dryer: 0.44
-usage_probability_stove: 1
-usage_probability_water_heating: 1
+switch_on_probabilities_path: tests/input/switch_on_probabilities
+usage_probabilities_path: tests/input/usage_probabilities
+
