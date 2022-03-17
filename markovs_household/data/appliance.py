@@ -84,9 +84,12 @@ class Appliance:
     A household appliance that is defined by its type and stores the intervals in which it is operating.
     """
     appliance_type: ApplianceType
-    # fixme: you probably shouldn't be able to instantiate the class with operation_intervals because they should always be empty
-    operation_intervals: List[TimeInterval] = field(default_factory=list)
+    _operation_intervals: List[TimeInterval] = field(default_factory=list)
     random_generator: ClassVar[random.Random] = random.Random(42)
+
+    @property
+    def __operation_intervals(self):
+        return self._operation_intervals
 
     def handle_simulation_step(self, current_time: datetime) -> None:
         if self.is_turned_on(current_time):
@@ -94,9 +97,9 @@ class Appliance:
         self.__sample_switch_on(current_time)
 
     def is_turned_on(self, current_time) -> bool:
-        if not self.operation_intervals:
+        if not self._operation_intervals:
             return False
-        return self.operation_intervals[-1].is_within(current_time)
+        return self._operation_intervals[-1].is_within(current_time)
 
     def __sample_switch_on(self, current_time):
         switch_on_probability_key = SwitchOnProbabilityKey.extract_from_datetime(current_time)
@@ -106,5 +109,5 @@ class Appliance:
             self.__add_operation_interval(current_time)
 
     def __add_operation_interval(self, current_time: datetime):
-        self.operation_intervals.append(
-            TimeInterval.get_operation_interval(current_time, self.appliance_type.operation_time))
+        self._operation_intervals.append(
+            TimeInterval.get_operation_interval(current_time, self.appliance_type.get_operation_time()))
