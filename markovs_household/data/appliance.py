@@ -92,6 +92,11 @@ class Appliance:
         return self._operation_intervals
 
     def handle_simulation_step(self, current_time: datetime) -> None:
+        """
+        Handles a simulation step to check stochastically check if the appliance is turned on at this point in time.
+        If the appliance is turned on an operation interval is added to the appliances operation intervals.
+        :param current_time: current time
+        """
         if self.is_turned_on(current_time):
             return
         self.__sample_switch_on(current_time)
@@ -101,7 +106,13 @@ class Appliance:
             return False
         return self._operation_intervals[-1].is_within(current_time)
 
-    def __sample_switch_on(self, current_time):
+    def __sample_switch_on(self, current_time) -> None:
+        """
+        Rolls the dice and compares it with the probability of the appliance to be turned on. If the dice roll falls
+        within the turn on probability of the device at the current time we "turn it on" by adding a corresponding
+        operation interval
+        :param current_time: current time
+        """
         switch_on_probability_key = SwitchOnProbabilityKey.extract_from_datetime(current_time)
         switch_on_probability = self.appliance_type.switch_on_probabilities.get_probability(switch_on_probability_key)
         dice_roll = self.random_generator.random()
