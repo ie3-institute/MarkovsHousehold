@@ -23,9 +23,3 @@ class UsageProbabilities:
         cls.__probabilities = cls.read_usage_probabilities(config)
 
         return cls.__probabilities["UsageProbability"][cat]
-
-
-from markovs_household.config.config import Configuration
-
-config = Configuration.parse_config(r"tests\input\config.yaml")
-print(UsageProbabilities.get_usage_probability('dryer', config))
