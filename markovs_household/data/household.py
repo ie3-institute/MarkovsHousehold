@@ -24,7 +24,7 @@ class Household:
 
     @classmethod
     def from_average_household(cls) -> "Household":
-        """ "
+        """
         Factory method that generates a household object with appliances based on an average household
         :return: a household instance
         """
@@ -41,7 +41,7 @@ class Household:
 
     @classmethod
     def from_income(cls, income: float):
-        """ "
+        """
         Factory method that generates a household object with appliances based on its income
         :param income: income of the household
         """
