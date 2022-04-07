@@ -8,6 +8,7 @@ class HouseHoldType(Enum):
     """
     Enumeration of different household types
     """
+
     FLAT = "flat"
     HOUSE = "house"
 
@@ -18,11 +19,12 @@ class Household:
     Represents a household that houses a certain amount of appliances
     :var appliances: list of appliances within the household
     """
+
     appliances: list[Appliance]
 
     @classmethod
     def from_average_household(cls) -> "Household":
-        """"
+        """ "
         Factory method that generates a household object with appliances based on an average household
         :return: a household instance
         """
@@ -39,7 +41,7 @@ class Household:
 
     @classmethod
     def from_income(cls, income: float):
-        """"
+        """ "
         Factory method that generates a household object with appliances based on its income
         :param income: income of the household
         """
@@ -53,4 +55,3 @@ class Household:
         :return: a household instance
         """
         pass
-

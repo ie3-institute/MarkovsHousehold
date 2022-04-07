@@ -11,6 +11,8 @@ myst-parser = "^0.15.2"
 sphinx-rtd-theme = "^1.0.0"
 pytest = "^6.2.5"
 PyYAML = "^6.0"
+black = "^22.3.0"
+flake8 = "^4.0.1"
 
 [tool.poetry.dev-dependencies]
 
