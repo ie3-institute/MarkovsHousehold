@@ -1,6 +1,9 @@
 from typing import Dict
 import logging
 
+from pandas import DataFrame
+
+from markovs_household.data.appliance import ApplianceCategory
 from markovs_household.utils import time
 from datetime import datetime
 from markovs_household.utils.time import Season, DayType
@@ -30,9 +33,15 @@ class SwitchOnProbabilities:
     """
     Probabilities to switch on an appliance given factors defined in the SwitchOnProbibilityKey class.
     """
+    __probabilitie_df: DataFrame
+
     __probabilities: Dict[SwitchOnProbabilityKey, float]
 
+    def from_csv(self):
+        pass
+
     def get_probabilities(self):
+        df.loc()
         return self.__probabilities
 
     def get_probability(self, key: SwitchOnProbabilityKey) -> float:

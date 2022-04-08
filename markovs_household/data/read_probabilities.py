@@ -4,7 +4,7 @@ import numpy as np
 from markovs_household.data.usage_probabilities import UsageProbabilities
 
 
-def import_probabilities(type, config):
+def import_probabilities(type: str, config, usage_probability: float):
 
     df = pd.read_csv(os.path.join(config.switch_on_probabilities_datapath + "/" + type + ".csv"), sep=";")
 
@@ -24,7 +24,7 @@ def import_probabilities(type, config):
     probabilities_df.insert(8, "autumn_sunday",
                             value=(probabilities_df["summer_sunday"] + probabilities_df["winter_sunday"]) / 2)
 
-    probabilities_df = probabilities_df / 4 * UsageProbabilities.get_usage_probability(type, config)
+    probabilities_df = probabilities_df / 4 * usage_probability
 
     if config.switch_on_probabilities_savepath is not None:
         probabilities_df.to_csv(

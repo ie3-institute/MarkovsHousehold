@@ -1,25 +1,27 @@
+from dataclasses import dataclass
+
 import pandas as pd
 from typing import Dict
+
 from markovs_household.data.appliance import ApplianceCategory
 
 
+@dataclass(frozen=True)
 class UsageProbabilities:
-    __probabilities: Dict[ApplianceCategory, float]
-
+    __probabilities: Dict[str, float]
 
     @classmethod
-    def read_usage_probabilities(cls, config):
-        df_usage_probabilities = pd.read_csv(config.usage_probabilities_file, sep=';')
+    def from_csv(cls, path: str) -> 'UsageProbabilities':
+        df_usage_probabilities = pd.read_csv(path, sep=';')
         for data in ApplianceCategory:
             if not (df_usage_probabilities["ApplianceType"].str.contains(data.value.replace(' ', '_')).any()):
                 raise ValueError(data)
 
-        df_usage_probabilities = df_usage_probabilities.set_index("ApplianceType")
+        probability_dict = df_usage_probabilities.set_index("ApplianceType")["UsageProbability"].to_dict()
 
-        return df_usage_probabilities.to_dict()
+        return UsageProbabilities(probability_dict)
 
-    @classmethod
-    def get_usage_probability(cls, cat: ApplianceCategory, config):
-        cls.__probabilities = cls.read_usage_probabilities(config)
+    def get_usage_probability(self, cat: ApplianceCategory):
+        return self.__probabilities[cat.value]
 
-        return cls.__probabilities["UsageProbability"][cat]
+usage_probability = UsageProbabilities
