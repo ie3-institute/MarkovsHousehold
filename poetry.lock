@@ -157,26 +157,26 @@ testing = ["coverage", "pytest (>=3.6,<4)", "pytest-cov", "pytest-regressions"]
 
 [[package]]
 name = "myst-parser"
-version = "0.17.2"
+version = "0.18.0"
 description = "An extended commonmark compliant parser, with bridges to docutils & sphinx."
 category = "main"
 optional = false
 python-versions = ">=3.7"
 
 [package.dependencies]
-docutils = ">=0.15,<0.18"
+docutils = ">=0.15,<0.19"
 jinja2 = "*"
 markdown-it-py = ">=1.0.0,<3.0.0"
 mdit-py-plugins = ">=0.3.0,<0.4.0"
 pyyaml = "*"
-sphinx = ">=3.1,<5"
+sphinx = ">=4,<6"
 typing-extensions = "*"
 
 [package.extras]
 code_style = ["pre-commit (>=2.12,<3.0)"]
 linkify = ["linkify-it-py (>=1.0,<2.0)"]
-rtd = ["ipython", "sphinx-book-theme", "sphinx-panels", "sphinxcontrib-bibtex (>=2.4,<3.0)", "sphinxext-rediraffe (>=0.2.7,<0.3.0)", "sphinxcontrib.mermaid (>=0.7.1,<0.8.0)", "sphinxext-opengraph (>=0.6.3,<0.7.0)"]
-testing = ["beautifulsoup4", "coverage", "docutils (>=0.17.0,<0.18.0)", "pytest (>=6,<7)", "pytest-cov", "pytest-regressions", "pytest-param-files (>=0.3.4,<0.4.0)"]
+rtd = ["ipython", "sphinx-book-theme", "sphinx-design", "sphinxext-rediraffe (>=0.2.7,<0.3.0)", "sphinxcontrib.mermaid (>=0.7.1,<0.8.0)", "sphinxext-opengraph (>=0.6.3,<0.7.0)"]
+testing = ["beautifulsoup4", "coverage", "pytest (>=6,<7)", "pytest-cov", "pytest-regressions", "pytest-param-files (>=0.3.4,<0.4.0)", "sphinx-pytest"]
 
 [[package]]
 name = "packaging"
@@ -437,7 +437,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "3.10"
-content-hash = "8552e1eb242930081c66b91a7b9ba96508838243c64eedca40c7403a003f482b"
+content-hash = "084b33ba5a89301dfaf0b336028f8e603947b2471c07641f0b74ec799af49458"
 
 [metadata.files]
 alabaster = [
@@ -568,8 +568,8 @@ mdit-py-plugins = [
     {file = "mdit_py_plugins-0.3.0-py3-none-any.whl", hash = "sha256:b1279701cee2dbf50e188d3da5f51fee8d78d038cdf99be57c6b9d1aa93b4073"},
 ]
 myst-parser = [
-    {file = "myst-parser-0.17.2.tar.gz", hash = "sha256:4c076d649e066f9f5c7c661bae2658be1ca06e76b002bb97f02a09398707686c"},
-    {file = "myst_parser-0.17.2-py3-none-any.whl", hash = "sha256:1635ce3c18965a528d6de980f989ff64d6a1effb482e1f611b1bfb79e38f3d98"},
+    {file = "myst-parser-0.18.0.tar.gz", hash = "sha256:739a4d96773a8e55a2cacd3941ce46a446ee23dcd6b37e06f73f551ad7821d86"},
+    {file = "myst_parser-0.18.0-py3-none-any.whl", hash = "sha256:4965e51918837c13bf1c6f6fe2c6bddddf193148360fbdaefe743a4981358f6a"},
 ]
 packaging = [
     {file = "packaging-21.0-py3-none-any.whl", hash = "sha256:c86254f9220d55e31cc94d69bade760f0847da8000def4dfe1c6b872fd14ff14"},
