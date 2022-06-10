@@ -1,32 +1,34 @@
 from abc import ABC, abstractmethod
 
+from typing import Dict
+
 from markovs_household.data.appliance import ApplianceCategory, ApplianceType
 from markovs_household.data.household_categories import HouseholdType, HouseholdIncome
 
 
-class Input(ABC):
+class HouseholdApplianceInput(ABC):
 
     @classmethod
     @abstractmethod
-    def get_appliance_types(cls) -> dict[ApplianceCategory, ApplianceType]:
+    def get_appliance_types(cls) -> Dict[ApplianceCategory, ApplianceType]:
         pass
 
     @classmethod
     @abstractmethod
-    def get_household_average_appliances(cls) -> dict[ApplianceCategory, float]:
+    def get_household_average_appliances(cls) -> Dict[ApplianceCategory, float]:
         pass
 
     @classmethod
     @abstractmethod
-    def get_household_average_appliances_by_no_of_inhabitants(cls) -> dict[int, dict[ApplianceCategory, float]]:
+    def get_household_average_appliances_by_no_of_inhabitants(cls) -> Dict[int, Dict[ApplianceCategory, float]]:
         pass
 
     @classmethod
     @abstractmethod
-    def get_household_average_appliances_by_income(cls) -> dict[HouseholdIncome, dict[ApplianceCategory, float]]:
+    def get_household_average_appliances_by_income(cls) -> Dict[HouseholdIncome, Dict[ApplianceCategory, float]]:
         pass
 
     @classmethod
     @abstractmethod
-    def get_household_average_appliances_by_household_type(cls) -> dict[HouseholdType, dict[ApplianceCategory, float]]:
+    def get_household_average_appliances_by_household_type(cls) -> Dict[HouseholdType, Dict[ApplianceCategory, float]]:
         pass
