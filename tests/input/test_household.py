@@ -1,13 +1,13 @@
 from typing import Dict
 
-from markovs_household.input.appliances_input import HouseholdApplianceInput
+from markovs_household.input.appliances_input import HouseholdAppliancesInput
 from markovs_household.data.appliance import ApplianceCategory, ApplianceType, ApplianceTypeConstantPower, Appliance
 from markovs_household.data.household import Household, HouseholdType, HouseholdIncome
 from markovs_household.data.probability import SwitchOnProbabilities, SwitchOnProbabilityKey
 from markovs_household.utils.time import Season, DayType
 
 
-class TestHouseholdApplianceInput(HouseholdApplianceInput):
+class TestHouseholdAppliancesInput(HouseholdAppliancesInput):
     pc = ApplianceTypeConstantPower(
         ApplianceCategory.PC,
         SwitchOnProbabilities(
@@ -87,41 +87,41 @@ class TestHouseholdApplianceInput(HouseholdApplianceInput):
 
 
 def test_init_household_avg():
-    household = Household.from_average_household(TestHouseholdApplianceInput())
+    household = Household.from_average_household(TestHouseholdAppliancesInput())
 
     # household should have only pcs, since video recorders have probability of 0
     assert (len(household.appliances) == 2)
 
     for appliance in household.appliances:
-        assert (appliance.appliance_type == TestHouseholdApplianceInput.pc)
+        assert (appliance.appliance_type == TestHouseholdAppliancesInput.pc)
         assert (appliance.operation_intervals == [])
 
 
 def test_init_household_by_no_of_inhabitants():
-    household = Household.from_no_of_inhabitants(TestHouseholdApplianceInput(), 2)
+    household = Household.from_no_of_inhabitants(TestHouseholdAppliancesInput(), 2)
 
     # it's random, could be either
     assert (len(household.appliances) == 2 or len(household.appliances) == 3)
 
     for appliance in household.appliances:
-        assert (appliance.appliance_type == TestHouseholdApplianceInput.pc)
+        assert (appliance.appliance_type == TestHouseholdAppliancesInput.pc)
         assert (appliance.operation_intervals == [])
 
 
 def test_init_household_by_income():
-    household = Household.from_income(TestHouseholdApplianceInput(), 1900.0)
+    household = Household.from_income(TestHouseholdAppliancesInput(), 1900.0)
 
     assert (len(household.appliances) == 3)
 
-    assert (Appliance(TestHouseholdApplianceInput.washing_machine, []) in household.appliances)
-    assert (Appliance(TestHouseholdApplianceInput.pc, []) in household.appliances)
+    assert (Appliance(TestHouseholdAppliancesInput.washing_machine, []) in household.appliances)
+    assert (Appliance(TestHouseholdAppliancesInput.pc, []) in household.appliances)
 
 
 def test_init_household_by_household_type():
-    household = Household.from_household_type(TestHouseholdApplianceInput(), HouseholdType.FLAT)
+    household = Household.from_household_type(TestHouseholdAppliancesInput(), HouseholdType.FLAT)
 
     assert (len(household.appliances) == 5)
 
-    assert (Appliance(TestHouseholdApplianceInput.washing_machine, []) in household.appliances)
-    assert (Appliance(TestHouseholdApplianceInput.pc, []) in household.appliances)
-    assert (Appliance(TestHouseholdApplianceInput.video_recorder, []) in household.appliances)
+    assert (Appliance(TestHouseholdAppliancesInput.washing_machine, []) in household.appliances)
+    assert (Appliance(TestHouseholdAppliancesInput.pc, []) in household.appliances)
+    assert (Appliance(TestHouseholdAppliancesInput.video_recorder, []) in household.appliances)

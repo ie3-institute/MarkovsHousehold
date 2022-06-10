@@ -6,7 +6,7 @@ from markovs_household.data.appliance import ApplianceCategory, ApplianceType
 from markovs_household.data.household_categories import HouseholdType, HouseholdIncome
 
 
-class HouseholdApplianceInput(ABC):
+class HouseholdAppliancesInput(ABC):
 
     @classmethod
     @abstractmethod

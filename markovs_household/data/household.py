@@ -2,8 +2,10 @@ import math
 import random
 from dataclasses import dataclass
 
+from typing import List, Dict
+
 from markovs_household.data.household_categories import HouseholdIncome, HouseholdType
-from markovs_household.input.appliances_input import HouseholdApplianceInput
+from markovs_household.input.appliances_input import HouseholdAppliancesInput
 from markovs_household.data.appliance import Appliance, ApplianceCategory, ApplianceType
 
 
@@ -13,10 +15,10 @@ class Household:
     Represents a household that houses a certain amount of appliances
     :var appliances: list of appliances within the household
     """
-    appliances: list[Appliance]
+    appliances: List[Appliance]
 
     @classmethod
-    def from_average_household(cls, inp: HouseholdApplianceInput) -> "Household":
+    def from_average_household(cls, inp: HouseholdAppliancesInput) -> "Household":
         """"
         Factory method that generates a household object with appliances based on an average household
         :param inp: Source of inputs
@@ -29,7 +31,7 @@ class Household:
         return Household(cls.__create_household_with_stats(appliance_types, appliance_stats))
 
     @classmethod
-    def from_no_of_inhabitants(cls, inp: HouseholdApplianceInput, no_of_inhabitants: int) -> "Household":
+    def from_no_of_inhabitants(cls, inp: HouseholdAppliancesInput, no_of_inhabitants: int) -> "Household":
         """
         Factory method that generates a household object with appliances based on the number of its inhabitants
         :param inp: Source of inputs
@@ -43,7 +45,7 @@ class Household:
         return Household(cls.__create_household_with_stats(appliance_types, appliance_stats))
 
     @classmethod
-    def from_income(cls, inp: HouseholdApplianceInput, income: float):
+    def from_income(cls, inp: HouseholdAppliancesInput, income: float):
         """"
         Factory method that generates a household object with appliances based on its income
         :param inp: Source of inputs
@@ -57,7 +59,7 @@ class Household:
         return Household(cls.__create_household_with_stats(appliance_types, appliance_stats))
 
     @classmethod
-    def from_household_type(cls, inp: HouseholdApplianceInput, household_type: HouseholdType) -> "Household":
+    def from_household_type(cls, inp: HouseholdAppliancesInput, household_type: HouseholdType) -> "Household":
         """
         Factory method that generates a household object with appliances based on its household type
         :param inp: Source of inputs
@@ -73,8 +75,8 @@ class Household:
     @classmethod
     def __create_household_with_stats(
             cls,
-            appliance_types: dict[ApplianceCategory, ApplianceType],
-            appliance_stats: dict[ApplianceCategory, float]
+            appliance_types: Dict[ApplianceCategory, ApplianceType],
+            appliance_stats: Dict[ApplianceCategory, float]
     ):
         appliances = []
         for appliance_cat, avg_amount in appliance_stats.items():
