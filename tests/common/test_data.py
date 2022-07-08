@@ -1,13 +1,12 @@
 import random
 from datetime import datetime
 
-from markovs_household.data.appliance import ApplianceTypeLoadProfile, ApplianceCategory
-from markovs_household.data.probability import (
-    SwitchOnProbabilityKey,
-    SwitchOnProbabilities,
-)
+from markovs_household.data.appliance import (ApplianceCategory,
+                                              ApplianceTypeLoadProfile)
+from markovs_household.data.probability import (SwitchOnProbabilities,
+                                                SwitchOnProbabilityKey)
 from markovs_household.data.timeseries import TimeSeries
-from markovs_household.utils.time import Season, DayType
+from markovs_household.utils.time import DayType, Season
 
 SWITCH_ON_PROBABILITY_KEYS = [
     SwitchOnProbabilityKey(season, day_type, quarterly_hour_of_day)

@@ -1,10 +1,10 @@
-from typing import Dict
 import logging
+from dataclasses import dataclass
+from datetime import datetime
+from typing import Dict
 
 from markovs_household.utils import time
-from datetime import datetime
-from markovs_household.utils.time import Season, DayType
-from dataclasses import dataclass
+from markovs_household.utils.time import DayType, Season
 
 
 @dataclass(frozen=True)

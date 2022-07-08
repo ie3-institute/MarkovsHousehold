@@ -1,8 +1,6 @@
-from markovs_household.data.appliance import (
-    ApplianceCategory,
-    ApplianceTypeLoadProfile,
-    ApplianceTypeConstantPower,
-)
+from markovs_household.data.appliance import (ApplianceCategory,
+                                              ApplianceTypeConstantPower,
+                                              ApplianceTypeLoadProfile)
 from markovs_household.data.probability import SwitchOnProbabilityKey
 from tests.common import test_data
 

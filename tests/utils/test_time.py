@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from markovs_household.utils.time import Season, DayType
+from markovs_household.utils.time import DayType, Season
 
 
 def test_get_season():
