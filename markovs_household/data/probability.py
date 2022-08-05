@@ -1,13 +1,15 @@
 from typing import Dict
 import logging
+import pandas as pd
+import os
+import numpy as np
 
-from pandas import DataFrame
-
-from markovs_household.data.appliance import ApplianceCategory
+from markovs_household.utils.appliance import ApplianceCategory
 from markovs_household.utils import time
 from datetime import datetime
 from markovs_household.utils.time import Season, DayType
 from dataclasses import dataclass
+from markovs_household.data.usage_probabilities import UsageProbabilities
 
 
 @dataclass(frozen=True)
@@ -31,18 +33,42 @@ class SwitchOnProbabilityKey:
 @dataclass(frozen=True)
 class SwitchOnProbabilities:
     """
-    Probabilities to switch on an appliance given factors defined in the SwitchOnProbibilityKey class.
+    Probabilities to switch on an appliance given factors defined in the SwitchOnProbabilityKey class.
     """
-    __probabilitie_df: DataFrame
 
     __probabilities: Dict[SwitchOnProbabilityKey, float]
 
-    def from_csv(self):
-        pass
+    @classmethod
+    def from_csv(cls, cat: ApplianceCategory, path: str, usageprobs: UsageProbabilities) -> 'SwitchOnProbabilities':
+        df = pd.read_csv(os.path.join(path + "/" + cat.value + ".csv"), sep=";")
 
-    def get_probabilities(self):
-        df.loc()
-        return self.__probabilities
+        probabilities_df = pd.DataFrame(np.repeat(df.values, 4, axis=0))
+        probabilities_df.columns = df.columns
+
+        probabilities_df.insert(0, "spring_weekday",
+                                value=(probabilities_df["summer_weekday"] + probabilities_df["winter_weekday"]) / 2)
+        probabilities_df.insert(1, "spring_saturday",
+                                value=(probabilities_df["summer_saturday"] + probabilities_df["winter_saturday"]) / 2)
+        probabilities_df.insert(2, "spring_sunday",
+                                value=(probabilities_df["summer_sunday"] + probabilities_df["winter_sunday"]) / 2)
+        probabilities_df.insert(6, "autumn_weekday",
+                                value=(probabilities_df["summer_weekday"] + probabilities_df["winter_weekday"]) / 2)
+        probabilities_df.insert(7, "autumn_saturday",
+                                value=(probabilities_df["summer_saturday"] + probabilities_df["winter_saturday"]) / 2)
+        probabilities_df.insert(8, "autumn_sunday",
+                                value=(probabilities_df["summer_sunday"] + probabilities_df["winter_sunday"]) / 2)
+
+        probabilities_df = probabilities_df / 4 * usageprobs.get_usage_probability(cat)
+
+        key = [SwitchOnProbabilityKey(season, day_type, quarterly_hour_of_day)
+                                      for season in Season
+                                      for day_type in DayType
+                                      for quarterly_hour_of_day in range(4*24)]
+
+        probabilities = {i: probabilities_df[i.season.value + "_" +
+                                             i.day_type.value][i.quarterly_hour_of_day] for i in key}
+
+        return cls(probabilities)
 
     def get_probability(self, key: SwitchOnProbabilityKey) -> float:
         try:

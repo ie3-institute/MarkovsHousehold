@@ -3,7 +3,7 @@ from dataclasses import dataclass
 import pandas as pd
 from typing import Dict
 
-from markovs_household.data.appliance import ApplianceCategory
+from markovs_household.utils.appliance import ApplianceCategory
 
 
 @dataclass(frozen=True)
@@ -23,5 +23,6 @@ class UsageProbabilities:
 
     def get_usage_probability(self, cat: ApplianceCategory):
         return self.__probabilities[cat.value]
+
 
 usage_probability = UsageProbabilities
