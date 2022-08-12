@@ -5,6 +5,7 @@ class HouseholdIncome(Enum):
     """
     Enumeration of household income levels
     """
+
     BELOW_900 = "below 900"
     BELOW_1300 = "from 900 to 1300"
     BELOW_1500 = "from 1300 to 1500"
@@ -38,5 +39,6 @@ class HouseholdType(Enum):
     """
     Enumeration of different household types
     """
+
     FLAT = "flat"
     HOUSE = "house"

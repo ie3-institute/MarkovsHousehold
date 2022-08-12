@@ -1,12 +1,15 @@
+import logging
+from abc import ABC
 from dataclasses import dataclass
+from datetime import datetime
 from enum import Enum
 from typing import List
-from markovs_household.data.probability import SwitchOnProbabilities, SwitchOnProbabilityKey
-from markovs_household.data.timeseries import TimeSeries
-from abc import ABC
-from datetime import datetime
-import logging
 
+from markovs_household.data.probability import (
+    SwitchOnProbabilities,
+    SwitchOnProbabilityKey,
+)
+from markovs_household.data.timeseries import TimeSeries
 from markovs_household.utils.time import TimeInterval
 
 
@@ -14,6 +17,7 @@ class ApplianceCategory(Enum):
     """
     Enumeration of all considered appliance types
     """
+
     DISH_WASHER = "dish washer"
     WASHING_MACHINE = "washing machine"
     DRYER = "dryer"
@@ -33,6 +37,7 @@ class ApplianceType(ABC):
     """
     Type of actual appliance.
     """
+
     category: ApplianceCategory
     switch_on_probabilities: SwitchOnProbabilities
 
@@ -55,6 +60,7 @@ class ApplianceTypeLoadProfile(ApplianceType):
     """
     Appliance type that has an associated load profile
     """
+
     profile: TimeSeries
 
 
@@ -63,6 +69,7 @@ class ApplianceTypeConstantPower(ApplianceType):
     """
     Appliance that has an associated constant power
     """
+
     power: float
 
 
@@ -71,5 +78,6 @@ class Appliance:
     """
     A household appliance that is defined by its type and stores the intervals in which it is operating.
     """
+
     appliance_type: ApplianceType
     operation_intervals: List[TimeInterval]
