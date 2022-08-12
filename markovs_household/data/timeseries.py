@@ -1,7 +1,6 @@
 from collections import namedtuple
 from dataclasses import dataclass
 from datetime import timedelta
-from typing import Dict
 
 TimeSeriesEntry = namedtuple("TimeSeriesEntry", "time, value")
 

@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 
 from markovs_household.data.appliance import ApplianceTypeLoadProfile, ApplianceCategory
 from markovs_household.data.probability import SwitchOnProbabilityKey, SwitchOnProbabilities
-from markovs_household.data.timeseries import TimeSeries
+from markovs_household.data.timeseries import TimeSeries, TimeSeriesEntry
 from markovs_household.utils.time import Season, DayType
 
 SWITCH_ON_PROBABILITY_KEYS = [SwitchOnProbabilityKey(season, day_type, quarterly_hour_of_day)
@@ -13,7 +13,7 @@ SWITCH_ON_PROBABILITY_KEYS = [SwitchOnProbabilityKey(season, day_type, quarterly
 
 random.seed(42)
 RANDOM_SWITCH_ON_PROBABILITIES = SwitchOnProbabilities({key: random.random() for key in SWITCH_ON_PROBABILITY_KEYS})
-LOAD_PROFILE_STOVE = TimeSeries([(0, 100), (60, 200), (120, 150)], timedelta(minutes=4))
+LOAD_PROFILE_STOVE = TimeSeries([TimeSeriesEntry(0, 100), TimeSeriesEntry(60, 200), TimeSeriesEntry(120, 150)], timedelta(minutes=4))
 STOVE = ApplianceTypeLoadProfile(category=ApplianceCategory.STOVE,
                                  switch_on_probabilities=RANDOM_SWITCH_ON_PROBABILITIES, profile=LOAD_PROFILE_STOVE)
 DATE_TIME_KEY_PAIR = (datetime(year=2021, month=11, day=16, hour=9, minute=0),
