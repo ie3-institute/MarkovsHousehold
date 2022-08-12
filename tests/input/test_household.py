@@ -1,12 +1,16 @@
 from typing import Dict
 
-from markovs_household.data.appliance import (Appliance, ApplianceCategory,
-                                              ApplianceType,
-                                              ApplianceTypeConstantPower)
-from markovs_household.data.household import (Household, HouseholdIncome,
-                                              HouseholdType)
-from markovs_household.data.probability import (SwitchOnProbabilities,
-                                                SwitchOnProbabilityKey)
+from markovs_household.data.appliance import (
+    Appliance,
+    ApplianceCategory,
+    ApplianceType,
+    ApplianceTypeConstantPower,
+)
+from markovs_household.data.household import Household, HouseholdIncome, HouseholdType
+from markovs_household.data.probability import (
+    SwitchOnProbabilities,
+    SwitchOnProbabilityKey,
+)
 from markovs_household.input.appliances_input import HouseholdAppliancesInput
 from markovs_household.utils.time import DayType, Season
 

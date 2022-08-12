@@ -2,8 +2,7 @@ from abc import ABC, abstractmethod
 from typing import Dict
 
 from markovs_household.data.appliance import ApplianceCategory, ApplianceType
-from markovs_household.data.household_categories import (HouseholdIncome,
-                                                         HouseholdType)
+from markovs_household.data.household_categories import HouseholdIncome, HouseholdType
 
 
 class HouseholdAppliancesInput(ABC):

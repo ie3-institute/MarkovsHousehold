@@ -3,10 +3,8 @@ import random
 from dataclasses import dataclass
 from typing import Dict, List
 
-from markovs_household.data.appliance import (Appliance, ApplianceCategory,
-                                              ApplianceType)
-from markovs_household.data.household_categories import (HouseholdIncome,
-                                                         HouseholdType)
+from markovs_household.data.appliance import Appliance, ApplianceCategory, ApplianceType
+from markovs_household.data.household_categories import HouseholdIncome, HouseholdType
 from markovs_household.input.appliances_input import HouseholdAppliancesInput
 
 
@@ -20,7 +18,8 @@ class Household:
     appliances: List[Appliance]
 
     @classmethod
-    def from_average_household(cls, inp: HouseholdAppliancesInput) -> "Household":
+    def from_average_household(
+            cls, inp: HouseholdAppliancesInput) -> "Household":
         """
         Factory method that generates a household object with appliances based on an average household
         :param inp: Source of inputs

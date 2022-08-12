@@ -5,8 +5,10 @@ from datetime import datetime
 from enum import Enum
 from typing import List
 
-from markovs_household.data.probability import (SwitchOnProbabilities,
-                                                SwitchOnProbabilityKey)
+from markovs_household.data.probability import (
+    SwitchOnProbabilities,
+    SwitchOnProbabilityKey,
+)
 from markovs_household.data.timeseries import TimeSeries
 from markovs_household.utils.time import TimeInterval
 
