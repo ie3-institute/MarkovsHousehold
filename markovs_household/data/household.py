@@ -18,8 +18,7 @@ class Household:
     appliances: List[Appliance]
 
     @classmethod
-    def from_average_household(
-            cls, inp: HouseholdAppliancesInput) -> "Household":
+    def from_average_household(cls, inp: HouseholdAppliancesInput) -> "Household":
         """
         Factory method that generates a household object with appliances based on an average household
         :param inp: Source of inputs

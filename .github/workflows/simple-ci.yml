@@ -32,7 +32,7 @@ jobs:
           poetry-version: ${{ matrix.poetry-version }}
       - name: Install poetry dependencies
         run: poetry install
-      - name: Lint with flake8
+      - name: Lint with flake8 / black
         run: |
          # stop the build if there are Python syntax errors or undefined names
          poetry run black --check .
