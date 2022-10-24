@@ -60,13 +60,12 @@ class SwitchOnProbabilities:
 
         probabilities_df = probabilities_df / 4 * usageprobs.get_usage_probability(cat)
 
-        key = [SwitchOnProbabilityKey(season, day_type, quarterly_hour_of_day)
+        probabilityKeys = [SwitchOnProbabilityKey(season, day_type, quarterly_hour_of_day)
                                       for season in Season
                                       for day_type in DayType
                                       for quarterly_hour_of_day in range(4*24)]
 
-        probabilities = {i: probabilities_df[i.season.value + "_" +
-                                             i.day_type.value][i.quarterly_hour_of_day] for i in key}
+        probabilities = {probabilityKey: probabilities_df[probabilityKey.season.value + "_" + probabilityKey.day_type.value][probabilityKey.quarterly_hour_of_day] for probabilityKey in probabilityKeys}
 
         return cls(probabilities)
 

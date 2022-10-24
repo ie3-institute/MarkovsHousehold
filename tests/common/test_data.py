@@ -18,4 +18,4 @@ LOAD_PROFILE_STOVE = TimeSeries({quarterly_hour: 700 for quarterly_hour in range
 STOVE = ApplianceTypeLoadProfile(category=ApplianceCategory.STOVE,
                                  switch_on_probabilities=RANDOM_SWITCH_ON_PROBABILITIES, profile=LOAD_PROFILE_STOVE)
 DATE_TIME_KEY_PAIR = (datetime(year=2021, month=11, day=16, hour=9, minute=0),
-                      SwitchOnProbabilityKey(Season.AUTUMN, DayType.WORKING_DAY, 36))
+                      SwitchOnProbabilityKey(Season.AUTUMN, DayType.WEEKDAY, 36))

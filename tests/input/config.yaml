@@ -1,6 +1,5 @@
 consider_load_shifting: False
 simulate_typical_days: False  
-switch_on_probabilities_datapath: /Users/thomas/PycharmProjects/MarkovsHousehold/tests/input/switch_on_probabilities
-switch_on_probabilities_savepath:
-usage_probabilities_file: /Users/thomas/PycharmProjects/MarkovsHousehold/tests/input/usage_probabilities/usage_probabilities.csv
+switch_on_probabilities_datapath: tests/input/switch_on_probabilities
+usage_probabilities_file: tests/input/usage_probabilities/usage_probabilities.csv
 
