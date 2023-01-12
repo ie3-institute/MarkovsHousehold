@@ -13,5 +13,6 @@ class TimeSeries:
     :values: a mapping from a time in seconds (from operation start) to power in kW
     :length: the total length of the time series
     """
+
     values: list[TimeSeriesEntry]
     length: timedelta

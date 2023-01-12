@@ -1,13 +1,16 @@
-import random
-from dataclasses import dataclass, field
-from enum import Enum
-from typing import List, ClassVar
-from markovs_household.data.probability import SwitchOnProbabilities, SwitchOnProbabilityKey
-from markovs_household.data.timeseries import TimeSeries
-from abc import ABC, abstractmethod
-from datetime import datetime, timedelta
 import logging
+import random
+from abc import ABC, abstractmethod
+from dataclasses import dataclass, field
+from datetime import datetime, timedelta
+from enum import Enum
+from typing import ClassVar, List
 
+from markovs_household.data.probability import (
+    SwitchOnProbabilities,
+    SwitchOnProbabilityKey,
+)
+from markovs_household.data.timeseries import TimeSeries
 from markovs_household.utils.time import TimeInterval
 
 
@@ -15,6 +18,7 @@ class ApplianceCategory(Enum):
     """
     Enumeration of all considered appliance types
     """
+
     DISH_WASHER = "dish washer"
     WASHING_MACHINE = "washing machine"
     DRYER = "dryer"
@@ -34,6 +38,7 @@ class ApplianceType(ABC):
     """
     Type of actual appliance.
     """
+
     category: ApplianceCategory
     switch_on_probabilities: SwitchOnProbabilities
 
@@ -60,6 +65,7 @@ class ApplianceTypeLoadProfile(ApplianceType):
     """
     Appliance type that has an associated load profile
     """
+
     profile: TimeSeries
 
     def get_operation_time(self) -> timedelta:
@@ -71,6 +77,7 @@ class ApplianceTypeConstantPower(ApplianceType):
     """
     Appliance that has an associated constant power and an operation time in seconds
     """
+
     power: float
     operation_time: timedelta
 
@@ -83,6 +90,7 @@ class Appliance:
     """
     A household appliance that is defined by its type and stores the intervals in which it is operating.
     """
+
     appliance_type: ApplianceType
     _operation_intervals: List[TimeInterval] = field(default_factory=list)
     random_generator: ClassVar[random.Random] = random.Random(42)
@@ -113,12 +121,21 @@ class Appliance:
         operation interval
         :param current_time: current time
         """
-        switch_on_probability_key = SwitchOnProbabilityKey.extract_from_datetime(current_time)
-        switch_on_probability = self.appliance_type.switch_on_probabilities.get_probability(switch_on_probability_key)
+        switch_on_probability_key = SwitchOnProbabilityKey.extract_from_datetime(
+            current_time
+        )
+        switch_on_probability = (
+            self.appliance_type.switch_on_probabilities.get_probability(
+                switch_on_probability_key
+            )
+        )
         dice_roll = self.random_generator.random()
         if dice_roll <= switch_on_probability:
             self.__add_operation_interval(current_time)
 
     def __add_operation_interval(self, current_time: datetime):
         self._operation_intervals.append(
-            TimeInterval.get_operation_interval(current_time, self.appliance_type.get_operation_time()))
+            TimeInterval.get_operation_interval(
+                current_time, self.appliance_type.get_operation_time()
+            )
+        )

@@ -1,5 +1,7 @@
 from dataclasses import dataclass
+
 import yaml
+
 
 @dataclass(frozen=True)
 class Configuration:
@@ -11,6 +13,5 @@ class Configuration:
         with open(path, "r") as ymlfile:
             config = yaml.safe_load(ymlfile)
         return Configuration(
-            config["consider_load_shifting"],
-            config["simulate_typical_days"]
+            config["consider_load_shifting"], config["simulate_typical_days"]
         )

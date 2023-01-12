@@ -1,10 +1,10 @@
-from typing import Dict
 import logging
+from dataclasses import dataclass
+from datetime import datetime
+from typing import Dict
 
 from markovs_household.utils import time
-from datetime import datetime
-from markovs_household.utils.time import Season, DayType
-from dataclasses import dataclass
+from markovs_household.utils.time import DayType, Season
 
 
 @dataclass(frozen=True)
@@ -13,6 +13,7 @@ class SwitchOnProbabilityKey:
     Class that is used for instantiating keys to access switch on probabilities with respect to season, day type and
     quarterly hour of day.
     """
+
     season: Season
     day_type: DayType
     quarterly_hour_of_day: int
@@ -30,6 +31,7 @@ class SwitchOnProbabilities:
     """
     Probabilities to switch on an appliance given factors defined in the SwitchOnProbibilityKey class.
     """
+
     __probabilities: Dict[SwitchOnProbabilityKey, float]
 
     def get_probabilities(self):

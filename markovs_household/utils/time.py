@@ -1,12 +1,13 @@
 from dataclasses import dataclass
-from enum import Enum
 from datetime import datetime, timedelta
+from enum import Enum
 
 
 class Season(Enum):
     """
     Enumeration of all seasons
     """
+
     SPRING = "spring"
     SUMMER = "summer"
     AUTUMN = "autumn"
@@ -34,6 +35,7 @@ class DayType(Enum):
     """
     Enumeration of all day types
     """
+
     WORKING_DAY = "working day"
     SATURDAY = "saturday"
     SUNDAY = "sunday"
@@ -68,11 +70,14 @@ class TimeInterval:
     """
     Operation interval consisting of a start and end
     """
+
     start: datetime
     end: datetime
 
     @classmethod
-    def get_operation_interval(cls, start: datetime, duration: timedelta) -> 'TimeInterval':
+    def get_operation_interval(
+        cls, start: datetime, duration: timedelta
+    ) -> "TimeInterval":
         """
         Get the time interval from its start datetime and its duration
         :param start: start of the time interval
@@ -88,4 +93,3 @@ class TimeInterval:
         :return: whether `time` lies within the interval
         """
         return True if (self.start <= time < self.end) else False
-
