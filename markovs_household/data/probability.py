@@ -1,15 +1,15 @@
-from typing import Dict
 import logging
-import pandas as pd
 import os
-import numpy as np
-
-from markovs_household.utils.appliance import ApplianceCategory
-from markovs_household.utils import time
-from datetime import datetime
-from markovs_household.utils.time import Season, DayType
 from dataclasses import dataclass
+from datetime import datetime
+from typing import Dict
+
+import pandas as pd
+
 from markovs_household.data.usage_probabilities import UsageProbabilities
+from markovs_household.utils import time
+from markovs_household.utils.appliance import ApplianceCategory
+from markovs_household.utils.time import DayType, Season
 
 
 @dataclass(frozen=True)

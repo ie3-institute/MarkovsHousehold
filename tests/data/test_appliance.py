@@ -1,8 +1,7 @@
 from markovs_household.data.appliance import (
-    ApplianceTypeLoadProfile,
     ApplianceTypeConstantPower,
+    ApplianceTypeLoadProfile,
 )
-from markovs_household.data.probability import SwitchOnProbabilityKey
 from markovs_household.utils.appliance import ApplianceCategory
 from tests.common import test_data
 
@@ -31,7 +30,7 @@ def test_init_appliance_constant_profile():
     )
     assert appliance.category is ApplianceCategory.STOVE
     assert appliance.switch_on_probabilities is test_data.RANDOM_SWITCH_ON_PROBABILITIES
-    assert appliance.power is 42
+    assert appliance.power == 42
 
 
 def test_get_switch_on_probability():

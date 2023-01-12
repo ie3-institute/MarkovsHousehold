@@ -1,14 +1,14 @@
+import logging
+from abc import ABC
 from dataclasses import dataclass
+from datetime import datetime
 from typing import List
+
 from markovs_household.data.probability import (
     SwitchOnProbabilities,
     SwitchOnProbabilityKey,
 )
 from markovs_household.data.timeseries import TimeSeries
-from abc import ABC
-from datetime import datetime
-import logging
-
 from markovs_household.utils.time import TimeInterval
 from markovs_household.utils.appliance import ApplianceCategory
 
