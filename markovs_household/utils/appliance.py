@@ -5,6 +5,7 @@ class ApplianceCategory(Enum):
     """
     Enumeration of all considered appliance types
     """
+
     DISH_WASHER = "dish_washer"
     WASHING_MACHINE = "washing_machine"
     DRYER = "dryer"

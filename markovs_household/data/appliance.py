@@ -1,6 +1,9 @@
 from dataclasses import dataclass
 from typing import List
-from markovs_household.data.probability import SwitchOnProbabilities, SwitchOnProbabilityKey
+from markovs_household.data.probability import (
+    SwitchOnProbabilities,
+    SwitchOnProbabilityKey,
+)
 from markovs_household.data.timeseries import TimeSeries
 from abc import ABC
 from datetime import datetime
@@ -15,6 +18,7 @@ class ApplianceType(ABC):
     """
     Type of actual appliance.
     """
+
     category: ApplianceCategory
     switch_on_probabilities: SwitchOnProbabilities
 
@@ -37,6 +41,7 @@ class ApplianceTypeLoadProfile(ApplianceType):
     """
     Appliance type that has an associated load profile
     """
+
     profile: TimeSeries
 
 
@@ -45,6 +50,7 @@ class ApplianceTypeConstantPower(ApplianceType):
     """
     Appliance that has an associated constant power
     """
+
     power: float
 
 
@@ -53,5 +59,6 @@ class Appliance:
     """
     A household appliance that is defined by its type and stores the intervals in which it is operating.
     """
+
     appliance_type: ApplianceType
     operation_intervals: List[TimeInterval]

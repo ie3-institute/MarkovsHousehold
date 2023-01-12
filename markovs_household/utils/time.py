@@ -7,6 +7,7 @@ class Season(Enum):
     """
     Enumeration of all seasons
     """
+
     SPRING = "spring"
     SUMMER = "summer"
     AUTUMN = "autumn"
@@ -34,6 +35,7 @@ class DayType(Enum):
     """
     Enumeration of all day types
     """
+
     WEEKDAY = "weekday"
     SATURDAY = "saturday"
     SUNDAY = "sunday"
@@ -68,6 +70,7 @@ class TimeInterval:
     """
     Operation interval consisting of a start and end
     """
+
     start: datetime
     end: datetime
 

@@ -1,4 +1,4 @@
-ApplianceType;UsageProbability
+appliance_category;usage_probability
 washing_machine;0.6
 lighting;5
 dish_washer;0.77

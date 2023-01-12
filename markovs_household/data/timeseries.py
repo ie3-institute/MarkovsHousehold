@@ -9,4 +9,5 @@ class TimeSeries:
     :values: a mapping from a time step to its value
     :type values: dict[int, float]
     """
+
     values: Dict[int, float]
