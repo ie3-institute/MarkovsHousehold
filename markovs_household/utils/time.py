@@ -36,7 +36,7 @@ class DayType(Enum):
     Enumeration of all day types
     """
 
-    WORKING_DAY = "working day"
+    WEEKDAY = "weekday"
     SATURDAY = "saturday"
     SUNDAY = "sunday"
 
@@ -49,7 +49,7 @@ class DayType(Enum):
         """
         weekday = date_time.weekday()
         if weekday < 5:
-            return DayType.WORKING_DAY
+            return DayType.WEEKDAY
         if weekday == 5:
             return DayType.SATURDAY
         if weekday == 6:
