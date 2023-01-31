@@ -10,8 +10,8 @@ from markovs_household.data.probability import (
     SwitchOnProbabilityKey,
 )
 from markovs_household.data.timeseries import TimeSeries
-from markovs_household.utils.time import TimeInterval
 from markovs_household.utils.appliance import ApplianceCategory
+from markovs_household.utils.time import TimeInterval
 
 
 @dataclass(frozen=True)
