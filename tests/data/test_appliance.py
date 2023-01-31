@@ -57,7 +57,7 @@ def test_get_switch_on_probability():
     expected = stove.switch_on_probabilities.get_probability(key)
     assert stove.get_switch_on_probability(datetime) == expected
     (dt, key) = test_data.DATE_TIME_KEY_PAIR
-    probabilities = stove.switch_on_probabilities.get_probabilities()
+    probabilities = stove.switch_on_probabilities.probabilities
     expected = probabilities[SwitchOnProbabilityKey.extract_from_datetime(dt)]
     assert stove.get_switch_on_probability(dt) == expected
 
@@ -89,8 +89,8 @@ def test_is_turned_on():
 
 
 def test_handle_smiulation_step():
-    zero_probability_key = SwitchOnProbabilityKey(Season.WINTER, DayType.WORKING_DAY, 0)
-    one_probability_key = SwitchOnProbabilityKey(Season.WINTER, DayType.WORKING_DAY, 1)
+    zero_probability_key = SwitchOnProbabilityKey(Season.WINTER, DayType.WEEKDAY, 0)
+    one_probability_key = SwitchOnProbabilityKey(Season.WINTER, DayType.WEEKDAY, 1)
     switch_on_probabilities = SwitchOnProbabilities(
         {zero_probability_key: 0, one_probability_key: 1}
     )
