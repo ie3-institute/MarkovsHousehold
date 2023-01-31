@@ -3,7 +3,6 @@ import random
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta
-from enum import Enum
 from typing import ClassVar, List
 
 from markovs_household.data.probability import (
@@ -12,25 +11,7 @@ from markovs_household.data.probability import (
 )
 from markovs_household.data.timeseries import TimeSeries
 from markovs_household.utils.time import TimeInterval
-
-
-class ApplianceCategory(Enum):
-    """
-    Enumeration of all considered appliance types
-    """
-
-    DISH_WASHER = "dish washer"
-    WASHING_MACHINE = "washing machine"
-    DRYER = "dryer"
-    STOVE = "stove"
-    FRIDGE = "fridge"
-    FREEZER = "freezer"
-    TELEVISION = "television"
-    VIDEO_RECORDER = "video recorder"  # what year is it?
-    PC = "pc"
-    TELECOMMUNICATION = "telecommunication"
-    LIGHTING = "lighting"
-    WATER_HEATING = "water heating"
+from markovs_household.utils.appliance import ApplianceCategory
 
 
 @dataclass(frozen=True)

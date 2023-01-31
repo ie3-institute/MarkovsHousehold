@@ -5,10 +5,9 @@ description = ""
 authors = [""]
 
 [tool.poetry.dependencies]
-python = "3.10.4"
+python = "^3.10.4"
 PyYAML = "^6.0"
-Pint = "^0.18"
-DateTime = "^4.4"
+pandas = "^1.4.2"
 
 [tool.poetry.dev-dependencies]
 pre-commit = "^2.20.0"

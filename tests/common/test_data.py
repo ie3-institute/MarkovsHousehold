@@ -1,12 +1,14 @@
 import random
 from datetime import datetime, timedelta
 
-from markovs_household.data.appliance import ApplianceCategory, ApplianceTypeLoadProfile
+from markovs_household.data.appliance import ApplianceTypeLoadProfile
 from markovs_household.data.probability import (
     SwitchOnProbabilities,
     SwitchOnProbabilityKey,
 )
 from markovs_household.data.timeseries import TimeSeries, TimeSeriesEntry
+from markovs_household.data.timeseries import TimeSeries
+from markovs_household.utils.appliance import ApplianceCategory
 from markovs_household.utils.time import DayType, Season
 
 SWITCH_ON_PROBABILITY_KEYS = [
@@ -31,5 +33,5 @@ STOVE = ApplianceTypeLoadProfile(
 )
 DATE_TIME_KEY_PAIR = (
     datetime(year=2021, month=11, day=16, hour=9, minute=0),
-    SwitchOnProbabilityKey(Season.AUTUMN, DayType.WORKING_DAY, 36),
+    SwitchOnProbabilityKey(Season.AUTUMN, DayType.WEEKDAY, 36),
 )

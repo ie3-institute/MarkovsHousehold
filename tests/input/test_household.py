@@ -20,7 +20,7 @@ class TestHouseholdAppliancesInput(HouseholdAppliancesInput):
     pc = ApplianceTypeConstantPower(
         ApplianceCategory.PC,
         SwitchOnProbabilities(
-            {SwitchOnProbabilityKey(Season.SPRING, DayType.WORKING_DAY, 0): 0.1}
+            {SwitchOnProbabilityKey(Season.SPRING, DayType.WEEKDAY, 0): 0.1}
         ),
         50.0,
         timedelta(hours=1),
@@ -29,7 +29,7 @@ class TestHouseholdAppliancesInput(HouseholdAppliancesInput):
     video_recorder = ApplianceTypeConstantPower(
         ApplianceCategory.VIDEO_RECORDER,
         SwitchOnProbabilities(
-            {SwitchOnProbabilityKey(Season.SPRING, DayType.WORKING_DAY, 0): 0.5}
+            {SwitchOnProbabilityKey(Season.SPRING, DayType.WEEKDAY, 0): 0.5}
         ),
         20.0,
         timedelta(hours=1),
@@ -38,7 +38,7 @@ class TestHouseholdAppliancesInput(HouseholdAppliancesInput):
     washing_machine = ApplianceTypeConstantPower(
         ApplianceCategory.WASHING_MACHINE,
         SwitchOnProbabilities(
-            {SwitchOnProbabilityKey(Season.SPRING, DayType.WORKING_DAY, 0): 0.5}
+            {SwitchOnProbabilityKey(Season.SPRING, DayType.WEEKDAY, 0): 0.5}
         ),
         100.0,
         timedelta(hours=1),
