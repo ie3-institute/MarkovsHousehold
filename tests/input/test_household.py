@@ -7,9 +7,7 @@ from markovs_household.data.appliance import (
     ApplianceTypeConstantPower,
 )
 from markovs_household.data.household import Household, HouseholdIncome, HouseholdType
-from markovs_household.data.probability import (
-    SwitchOnProbabilityKey,
-)
+from markovs_household.data.probability import SwitchOnProbabilityKey
 from markovs_household.input.appliances_input import HouseholdAppliancesInput
 from markovs_household.utils.time import DayType, Season
 
@@ -17,22 +15,19 @@ from markovs_household.utils.time import DayType, Season
 class TestHouseholdAppliancesInput(HouseholdAppliancesInput):
     pc = ApplianceTypeConstantPower(
         ApplianceCategory.PC,
-            {SwitchOnProbabilityKey(Season.SPRING, DayType.WEEKDAY, 0): 0.1}
-        ,
+        {SwitchOnProbabilityKey(Season.SPRING, DayType.WEEKDAY, 0): 0.1},
         50.0,
     )
 
     video_recorder = ApplianceTypeConstantPower(
         ApplianceCategory.VIDEO_RECORDER,
-            {SwitchOnProbabilityKey(Season.SPRING, DayType.WEEKDAY, 0): 0.5}
-        ,
+        {SwitchOnProbabilityKey(Season.SPRING, DayType.WEEKDAY, 0): 0.5},
         20.0,
     )
 
     washing_machine = ApplianceTypeConstantPower(
         ApplianceCategory.WASHING_MACHINE,
-            {SwitchOnProbabilityKey(Season.SPRING, DayType.WEEKDAY, 0): 0.5}
-        ,
+        {SwitchOnProbabilityKey(Season.SPRING, DayType.WEEKDAY, 0): 0.5},
         100.0,
     )
 
