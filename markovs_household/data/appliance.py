@@ -4,13 +4,10 @@ from dataclasses import dataclass
 from datetime import datetime
 from typing import List
 
-from markovs_household.data.probability import (
-    SwitchOnProbabilities,
-    SwitchOnProbabilityKey,
-)
+from markovs_household.data.probability import SwitchOnProbabilityKey
 from markovs_household.data.timeseries import TimeSeries
-from markovs_household.utils.time import TimeInterval
 from markovs_household.utils.appliance import ApplianceCategory
+from markovs_household.utils.time import TimeInterval
 
 
 @dataclass(frozen=True)
@@ -20,7 +17,7 @@ class ApplianceType(ABC):
     """
 
     category: ApplianceCategory
-    switch_on_probabilities: SwitchOnProbabilities
+    switch_on_probabilities: dict[SwitchOnProbabilityKey, float]
 
     def get_switch_on_probability(self, date_time: datetime) -> float:
         """
@@ -30,7 +27,7 @@ class ApplianceType(ABC):
         """
         key = SwitchOnProbabilityKey.extract_from_datetime(date_time)
         try:
-            return self.switch_on_probabilities.get_probability(key)
+            return self.switch_on_probabilities[key]
         except KeyError as exc:
             logging.error("Cannot determine the switch on probability", exc)
             raise exc

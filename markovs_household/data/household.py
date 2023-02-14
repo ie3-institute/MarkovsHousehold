@@ -53,7 +53,7 @@ class Household:
         )
 
     @classmethod
-    def from_income(cls, inp: HouseholdAppliancesInput,income: float):
+    def from_income(cls, inp: HouseholdAppliancesInput, income: float):
         """
         Factory method that generates a household object with appliances based on its income
         :param inp: Source of inputs

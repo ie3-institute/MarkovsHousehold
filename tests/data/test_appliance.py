@@ -36,5 +36,5 @@ def test_init_appliance_constant_profile():
 def test_get_switch_on_probability():
     stove = test_data.STOVE
     (datetime, key) = test_data.DATE_TIME_KEY_PAIR
-    expected = stove.switch_on_probabilities.get_probability(key)
+    expected = stove.switch_on_probabilities[key]
     assert stove.get_switch_on_probability(datetime) == expected

@@ -3,7 +3,6 @@ from datetime import datetime
 
 from markovs_household.data.appliance import ApplianceTypeLoadProfile
 from markovs_household.data.probability import (
-    SwitchOnProbabilities,
     SwitchOnProbabilityKey,
 )
 from markovs_household.data.timeseries import TimeSeries
@@ -18,9 +17,8 @@ SWITCH_ON_PROBABILITY_KEYS = [
 ]
 
 random.seed(42)
-RANDOM_SWITCH_ON_PROBABILITIES = SwitchOnProbabilities(
-    {key: random.random() for key in SWITCH_ON_PROBABILITY_KEYS}
-)
+RANDOM_SWITCH_ON_PROBABILITIES = {key: random.random() for key in SWITCH_ON_PROBABILITY_KEYS}
+
 LOAD_PROFILE_STOVE = TimeSeries({quarterly_hour: 700 for quarterly_hour in range(4)})
 STOVE = ApplianceTypeLoadProfile(
     category=ApplianceCategory.STOVE,
