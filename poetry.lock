@@ -727,7 +727,7 @@ test = ["covdefaults (>=2.2.2)", "coverage (>=7.1)", "coverage-enable-subprocess
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10.4"
-content-hash = "08f5054be06ed482c81477a4c270ab7c0d968459b00b9cf382c8e3d1e55a8207"
+content-hash = "ea00105ac6fffe8f47c4d995009e2177c05feac91e5db15d1a224ff886551d06"
 
 [metadata.files]
 alabaster = [
