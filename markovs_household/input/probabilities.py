@@ -11,7 +11,7 @@ def read_usage_probabilities(path: str) -> dict[ApplianceCategory, float]:
     df_usage_probabilities = pd.read_csv(path, sep=";", index_col="appliance_category")
     usage_probability_dict = df_usage_probabilities.to_dict()["usage_probability"]
     for category in ApplianceCategory:
-        if not category.value in usage_probability_dict:
+        if category.value not in usage_probability_dict:
             raise ValueError(
                 "No switch on probability with name {} found in file {}.".format(
                     category.value, path

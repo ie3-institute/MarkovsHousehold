@@ -57,7 +57,7 @@ class CsvHouseholdAppliancesInput(HouseholdAppliancesInput):
         )
         average_hh_dict = {}
         for appliance in ApplianceCategory:
-            if not appliance.value in average_hh.columns:
+            if appliance.value not in average_hh.columns:
                 raise ValueError("Appliance doesn't exist!")
             average_hh_dict[appliance] = average_hh[appliance.value]
         self.average_hh = average_hh_dict
@@ -67,7 +67,7 @@ class CsvHouseholdAppliancesInput(HouseholdAppliancesInput):
             for idx, row in data.iterrows():
                 appliance_dict = {}
                 for appliance in ApplianceCategory:
-                    if not appliance.value in row.keys():
+                    if appliance.value not in row.keys():
                         raise ValueError("Appliance doesn't exist!")
                     appliance_dict[appliance] = row[appliance.value]
                 res[idx] = appliance_dict
