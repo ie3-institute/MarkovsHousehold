@@ -46,34 +46,41 @@ class CsvHouseholdAppliancesInput(HouseholdAppliancesInput):
     average_hh: Dict[ApplianceCategory, float]
     by_income: Dict[HouseholdIncome, Dict[ApplianceCategory, float]]
     by_inhabitants: Dict[int, Dict[ApplianceCategory, float]]
+    by_type: Dict[HouseholdType, Dict[ApplianceCategory, float]]
     appliance_types: Dict[ApplianceCategory, ApplianceType]
 
     def __init__(self, dir_path: str, delimiter: str):
-        average_hh = pd.read_csv(os.path.join(dir_path, "average_hh.csv"))
+        appliances_path = os.path.join(dir_path, "appliances")
+
+        average_hh = pd.read_csv(os.path.join(appliances_path, "average_hh.csv"), delimiter=";")
         average_hh_dict = {}
         for appliance in ApplianceCategory:
-            average_hh_dict[appliance] = average_hh[appliance.name]
+            if not appliance.value in average_hh.columns:
+               raise ValueError("Appliance doesn't exist!")
+            average_hh_dict[appliance] = average_hh[appliance.value]
         self.average_hh = average_hh_dict
 
-        def get_category_dict(data: pd.Dataframe):
+        def get_category_dict(data: pd.DataFrame):
             res = {}
             for idx, row in data.iterrows():
                 appliance_dict = {}
                 for appliance in ApplianceCategory:
-                    appliance_dict[appliance] = row[appliance.name]
+                    if not appliance.value in row.keys():
+                        raise ValueError("Appliance doesn't exist!")
+                    appliance_dict[appliance] = row[appliance.value]
                 res[idx] = appliance_dict
             return res
 
         by_income = pd.read_csv(
-            os.path.join(dir_path, "by_income.csv"), delimiter=delimiter
+            os.path.join(appliances_path, "by_income.csv"), delimiter=delimiter
         )
-        by_income["income"] = by_income["income"].apply(lambda x: HouseholdIncome[x])
+        by_income["income"] = by_income["income"].apply(lambda x: HouseholdIncome(x))
         by_income.set_index("income", inplace=True, drop=True)
         by_income_dict = get_category_dict(by_income)
         self.by_income = by_income_dict
 
         by_inhabitants = pd.read_csv(
-            os.path.join(dir_path, "by_inhabitants.csv"),
+            os.path.join(appliances_path, "by_inhabitants.csv"),
             delimiter=delimiter,
             index_col="inhabitants",
         )
@@ -81,16 +88,16 @@ class CsvHouseholdAppliancesInput(HouseholdAppliancesInput):
         self.by_inhabitants = by_inhabitants_dict
 
         by_type = pd.read_csv(
-            os.path.join(dir_path, "by_type.csv"), delimiter=delimiter
+            os.path.join(appliances_path, "by_type.csv"), delimiter=delimiter
         )
-        by_type = by_type["type"].apply(lambda x: HouseholdType[x])
+        by_type["type"] = by_type["type"].apply(lambda x: HouseholdType(x))
         by_type.set_index("type", inplace=True, drop=True)
         by_type_dict = get_category_dict(by_type)
         self.by_type = by_type_dict
 
         self.appliance_types = self.initialize_appliance_types(
-            os.path.join(dir_path, "usage_probs.csv"),
-            os.path.join(dir_path, "switch_on_probs.csv"),
+            os.path.join(dir_path, "probabilities", "usage_probabilities", "usage_probabilities.csv"),
+            os.path.join(dir_path, "probabilities", "switch_on_probabilities"),
         )
 
     @staticmethod
@@ -101,7 +108,7 @@ class CsvHouseholdAppliancesInput(HouseholdAppliancesInput):
         dct = {}
         for cat in ApplianceCategory:
             switch_on_probs = read_switch_on_probablities(
-                cat, switch_on_probs_path, usage_probs
+                cat, switch_on_probs_path, usage_probs[cat]
             )
             dct[cat] = ApplianceType(cat, switch_on_probs)
         return dct
