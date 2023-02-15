@@ -52,11 +52,13 @@ class CsvHouseholdAppliancesInput(HouseholdAppliancesInput):
     def __init__(self, dir_path: str, delimiter: str):
         appliances_path = os.path.join(dir_path, "appliances")
 
-        average_hh = pd.read_csv(os.path.join(appliances_path, "average_hh.csv"), delimiter=";")
+        average_hh = pd.read_csv(
+            os.path.join(appliances_path, "average_hh.csv"), delimiter=delimiter
+        )
         average_hh_dict = {}
         for appliance in ApplianceCategory:
             if not appliance.value in average_hh.columns:
-               raise ValueError("Appliance doesn't exist!")
+                raise ValueError("Appliance doesn't exist!")
             average_hh_dict[appliance] = average_hh[appliance.value]
         self.average_hh = average_hh_dict
 
@@ -96,7 +98,12 @@ class CsvHouseholdAppliancesInput(HouseholdAppliancesInput):
         self.by_type = by_type_dict
 
         self.appliance_types = self.initialize_appliance_types(
-            os.path.join(dir_path, "probabilities", "usage_probabilities", "usage_probabilities.csv"),
+            os.path.join(
+                dir_path,
+                "probabilities",
+                "usage_probabilities",
+                "usage_probabilities.csv",
+            ),
             os.path.join(dir_path, "probabilities", "switch_on_probabilities"),
         )
 
