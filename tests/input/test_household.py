@@ -1,55 +1,22 @@
-from datetime import timedelta
 from typing import Dict
 
 from markovs_household.data.appliance import (
     Appliance,
     ApplianceCategory,
     ApplianceType,
-    ApplianceTypeConstantPower,
 )
 from markovs_household.data.household import Household, HouseholdIncome, HouseholdType
-from markovs_household.data.probability import (
-    SwitchOnProbabilities,
-    SwitchOnProbabilityKey,
-)
 from markovs_household.input.appliances_input import HouseholdAppliancesInput
-from markovs_household.utils.time import DayType, Season
+from tests.common.test_data import PC, VIDEO_RECORDER, WASHING_MACHINE
 
 
 class TestHouseholdAppliancesInput(HouseholdAppliancesInput):
-    pc = ApplianceTypeConstantPower(
-        ApplianceCategory.PC,
-        SwitchOnProbabilities(
-            {SwitchOnProbabilityKey(Season.SPRING, DayType.WEEKDAY, 0): 0.1}
-        ),
-        50.0,
-        timedelta(hours=1),
-    )
-
-    video_recorder = ApplianceTypeConstantPower(
-        ApplianceCategory.VIDEO_RECORDER,
-        SwitchOnProbabilities(
-            {SwitchOnProbabilityKey(Season.SPRING, DayType.WEEKDAY, 0): 0.5}
-        ),
-        20.0,
-        timedelta(hours=1),
-    )
-
-    washing_machine = ApplianceTypeConstantPower(
-        ApplianceCategory.WASHING_MACHINE,
-        SwitchOnProbabilities(
-            {SwitchOnProbabilityKey(Season.SPRING, DayType.WEEKDAY, 0): 0.5}
-        ),
-        100.0,
-        timedelta(hours=1),
-    )
-
     @classmethod
     def get_appliance_types(cls) -> Dict[ApplianceCategory, ApplianceType]:
         return {
-            ApplianceCategory.PC: cls.pc,
-            ApplianceCategory.VIDEO_RECORDER: cls.video_recorder,
-            ApplianceCategory.WASHING_MACHINE: cls.washing_machine,
+            ApplianceCategory.PC: PC,
+            ApplianceCategory.VIDEO_RECORDER: VIDEO_RECORDER,
+            ApplianceCategory.WASHING_MACHINE: WASHING_MACHINE,
         }
 
     @classmethod
@@ -102,7 +69,7 @@ def test_init_household_avg():
     assert len(household.appliances) == 2
 
     for appliance in household.appliances:
-        assert appliance.appliance_type == TestHouseholdAppliancesInput.pc
+        assert appliance.appliance_type == PC
         assert appliance._operation_intervals == []
 
 
@@ -113,7 +80,7 @@ def test_init_household_by_no_of_inhabitants():
     assert len(household.appliances) == 2 or len(household.appliances) == 3
 
     for appliance in household.appliances:
-        assert appliance.appliance_type == TestHouseholdAppliancesInput.pc
+        assert appliance.appliance_type == PC
         assert appliance._operation_intervals == []
 
 
@@ -122,11 +89,8 @@ def test_init_household_by_income():
 
     assert len(household.appliances) == 3
 
-    assert (
-        Appliance(TestHouseholdAppliancesInput.washing_machine, [])
-        in household.appliances
-    )
-    assert Appliance(TestHouseholdAppliancesInput.pc, []) in household.appliances
+    assert Appliance(WASHING_MACHINE, []) in household.appliances
+    assert Appliance(PC, []) in household.appliances
 
 
 def test_init_household_by_household_type():
@@ -136,12 +100,6 @@ def test_init_household_by_household_type():
 
     assert len(household.appliances) == 5
 
-    assert (
-        Appliance(TestHouseholdAppliancesInput.washing_machine, [])
-        in household.appliances
-    )
-    assert Appliance(TestHouseholdAppliancesInput.pc, []) in household.appliances
-    assert (
-        Appliance(TestHouseholdAppliancesInput.video_recorder, [])
-        in household.appliances
-    )
+    assert Appliance(WASHING_MACHINE, []) in household.appliances
+    assert Appliance(PC, []) in household.appliances
+    assert Appliance(VIDEO_RECORDER, []) in household.appliances

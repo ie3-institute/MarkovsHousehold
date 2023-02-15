@@ -3,6 +3,7 @@ import random
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta
+from math import ceil
 from typing import ClassVar, List
 
 from markovs_household.data.probability import (
@@ -40,6 +41,9 @@ class ApplianceType(ABC):
     def get_operation_time(self) -> timedelta:
         pass
 
+    def get_time_series_for(self, step_size: timedelta) -> List[float]:
+        pass
+
 
 @dataclass(frozen=True)
 class ApplianceTypeLoadProfile(ApplianceType):
@@ -51,6 +55,20 @@ class ApplianceTypeLoadProfile(ApplianceType):
 
     def get_operation_time(self) -> timedelta:
         return self.profile.length
+
+    def get_time_series_for(self, step_size: timedelta) -> List[float]:
+        last = self.profile.values[0]
+
+        result = [last.value]
+
+        for entry in self.profile.values[1:]:
+            delta_seconds = entry.time - last.time
+
+            if delta_seconds == step_size.seconds:
+                result.append(entry.value)
+                last = entry
+
+        return result
 
 
 @dataclass(frozen=True)
@@ -65,6 +83,11 @@ class ApplianceTypeConstantPower(ApplianceType):
     def get_operation_time(self) -> timedelta:
         return self.operation_time
 
+    def get_time_series_for(self, step_size: timedelta) -> List[float]:
+        steps = ceil(self.operation_time / step_size)
+
+        return [self.power] * steps
+
 
 @dataclass(frozen=True)
 class Appliance:
@@ -76,8 +99,7 @@ class Appliance:
     _operation_intervals: List[TimeInterval] = field(default_factory=list)
     random_generator: ClassVar[random.Random] = random.Random(42)
 
-    @property
-    def __operation_intervals(self):
+    def operation_intervals(self):
         return self._operation_intervals
 
     def handle_simulation_step(self, current_time: datetime) -> None:
