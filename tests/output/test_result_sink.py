@@ -1,8 +1,10 @@
+import csv
+import tempfile
 from datetime import datetime, timedelta
 
 from markovs_household.data.appliance import Appliance
 from markovs_household.data.household import Household
-from markovs_household.output.result_sink import create_timeseries
+from markovs_household.output.result_sink import create_timeseries, write_timeseries
 from markovs_household.utils.time import TimeInterval
 from tests.common.test_data import PC, VIDEO_RECORDER, WASHING_MACHINE, STOVE
 
@@ -64,3 +66,35 @@ def test_create_timeseries():
         datetime(year=2021, month=11, day=11, hour=17, minute=45): 0.0,
     }
     assert timeseries == expected
+
+
+def test_write_timeseries():
+    # tmp file will be deleted when it is closed
+    with tempfile.NamedTemporaryFile(
+        delete=True, prefix="mhh_write_result_", suffix=".csv"
+    ) as tmp_file:
+
+        timeseries = {
+            datetime(year=2021, month=11, day=11, hour=11, minute=0): 50.0,
+            datetime(year=2021, month=11, day=11, hour=11, minute=15): 60.0,
+            datetime(year=2021, month=11, day=11, hour=11, minute=30): 70.0,
+            datetime(year=2021, month=11, day=11, hour=11, minute=45): 100.0,
+            datetime(year=2021, month=11, day=11, hour=12, minute=0): 20.0,
+            datetime(year=2021, month=11, day=11, hour=12, minute=15): 20.0,
+            datetime(year=2021, month=11, day=11, hour=12, minute=30): 0.0,
+        }
+
+        write_timeseries(timeseries, tmp_file.name)
+
+        # open file again in read mode
+        with open(tmp_file.name, mode="r") as read_file:
+
+            csv_reader = csv.DictReader(read_file, delimiter=",")
+            assert csv_reader.fieldnames == ["time", "power"]
+
+            read_result: dict[datetime, float] = {}
+            for row in csv_reader:
+                datetime_obj = datetime.strptime(row["time"], "%Y-%m-%d %H:%M:%S")
+                read_result[datetime_obj] = float(row["power"])
+
+            assert read_result == timeseries

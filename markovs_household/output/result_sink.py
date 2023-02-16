@@ -1,9 +1,10 @@
+import csv
 from datetime import timedelta, datetime
 
 from markovs_household.data.household import Household
 
 
-def create_timeseries(hh: Household, step_size: timedelta):
+def create_timeseries(hh: Household, step_size: timedelta) -> dict[datetime, float]:
     timeseries: dict[datetime, float] = {}
 
     for appliance in hh.appliances:
@@ -25,3 +26,12 @@ def create_timeseries(hh: Household, step_size: timedelta):
                 timeseries[date] = 0.0
 
     return timeseries
+
+
+def write_timeseries(timeseries: dict[datetime, float], file: str):
+    with open(file, mode="w") as csv_file:
+        csv_writer = csv.writer(csv_file, delimiter=",")
+        csv_writer.writerow(["time", "power"])
+
+        for time, power in timeseries.items():
+            csv_writer.writerow([time, power])
