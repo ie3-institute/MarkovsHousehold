@@ -11,7 +11,7 @@ def create_timeseries(hh: Household, step_size: timedelta) -> dict[datetime, flo
         intervals = appliance.operation_intervals()
 
         for interval in intervals:
-            appliance_series = appliance.appliance_type.get_time_series_for(step_size)
+            appliance_series = appliance.appliance_type.get_timeseries_for(step_size)
             date = interval.start
 
             for power in appliance_series:

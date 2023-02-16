@@ -41,7 +41,7 @@ class ApplianceType(ABC):
     def get_operation_time(self) -> timedelta:
         pass
 
-    def get_time_series_for(self, step_size: timedelta) -> List[float]:
+    def get_timeseries_for(self, step_size: timedelta) -> List[float]:
         pass
 
 
@@ -56,7 +56,7 @@ class ApplianceTypeLoadProfile(ApplianceType):
     def get_operation_time(self) -> timedelta:
         return self.profile.length
 
-    def get_time_series_for(self, step_size: timedelta) -> List[float]:
+    def get_timeseries_for(self, step_size: timedelta) -> List[float]:
         last = self.profile.values[0]
 
         result = [last.value]
@@ -83,7 +83,7 @@ class ApplianceTypeConstantPower(ApplianceType):
     def get_operation_time(self) -> timedelta:
         return self.operation_time
 
-    def get_time_series_for(self, step_size: timedelta) -> List[float]:
+    def get_timeseries_for(self, step_size: timedelta) -> List[float]:
         steps = ceil(self.operation_time / step_size)
 
         return [self.power] * steps
