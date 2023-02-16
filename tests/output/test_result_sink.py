@@ -6,7 +6,7 @@ from markovs_household.data.appliance import Appliance
 from markovs_household.data.household import Household
 from markovs_household.output.result_sink import create_timeseries, write_timeseries
 from markovs_household.utils.time import TimeInterval
-from tests.common.test_data import PC, VIDEO_RECORDER, WASHING_MACHINE, STOVE
+from tests.common.test_data import PC, STOVE, VIDEO_RECORDER, WASHING_MACHINE
 
 
 def test_create_timeseries():

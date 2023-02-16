@@ -1,5 +1,5 @@
 import csv
-from datetime import timedelta, datetime
+from datetime import datetime, timedelta
 
 from markovs_household.data.household import Household
 

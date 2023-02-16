@@ -1,10 +1,6 @@
 from typing import Dict
 
-from markovs_household.data.appliance import (
-    Appliance,
-    ApplianceCategory,
-    ApplianceType,
-)
+from markovs_household.data.appliance import Appliance, ApplianceCategory, ApplianceType
 from markovs_household.data.household import Household, HouseholdIncome, HouseholdType
 from markovs_household.input.appliances_input import HouseholdAppliancesInput
 from tests.common.test_data import PC, VIDEO_RECORDER, WASHING_MACHINE

@@ -2,8 +2,8 @@ import random
 from datetime import datetime, timedelta
 
 from markovs_household.data.appliance import (
-    ApplianceTypeLoadProfile,
     ApplianceTypeConstantPower,
+    ApplianceTypeLoadProfile,
 )
 from markovs_household.data.probability import (
     SwitchOnProbabilities,
