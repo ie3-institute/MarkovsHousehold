@@ -19,6 +19,9 @@ def create_timeseries(hh: Household, step_size: timedelta):
 
                 date = date + step_size
 
-    # todo fill the rest with zeroes? or is it enough to set first values to 0 after a power != 0
+            # set the value that follows the last of the appliance
+            # time series values to 0, if it has not been set yet
+            if timeseries.get(date) is None:
+                timeseries[date] = 0.0
 
     return timeseries

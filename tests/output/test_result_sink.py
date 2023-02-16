@@ -54,11 +54,13 @@ def test_create_timeseries():
         datetime(year=2021, month=11, day=11, hour=11, minute=45): 70.0,
         datetime(year=2021, month=11, day=11, hour=12, minute=0): 20.0,
         datetime(year=2021, month=11, day=11, hour=12, minute=15): 20.0,
+        datetime(year=2021, month=11, day=11, hour=12, minute=30): 0.0,
         datetime(year=2021, month=11, day=11, hour=16, minute=15): 100.0,
         datetime(year=2021, month=11, day=11, hour=16, minute=30): 200.0,
         datetime(year=2021, month=11, day=11, hour=16, minute=45): 100.0,
         datetime(year=2021, month=11, day=11, hour=17, minute=0): 100.0,
         datetime(year=2021, month=11, day=11, hour=17, minute=15): 100.0,
         datetime(year=2021, month=11, day=11, hour=17, minute=30): 100.0,
+        datetime(year=2021, month=11, day=11, hour=17, minute=45): 0.0,
     }
     assert timeseries == expected
