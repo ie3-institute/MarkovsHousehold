@@ -1,4 +1,5 @@
 import csv
+import os
 import tempfile
 from datetime import datetime, timedelta
 
@@ -69,32 +70,37 @@ def test_create_timeseries():
 
 
 def test_write_timeseries():
-    # tmp file will be deleted when it is closed
-    with tempfile.NamedTemporaryFile(
-        delete=True, prefix="mhh_write_result_", suffix=".csv"
-    ) as tmp_file:
+    # disable automatic deletion, we handle this manually
+    tmp_file = tempfile.NamedTemporaryFile(
+        mode="w+", delete=False, prefix="mhh_write_result_", suffix=".csv"
+    )
+    # close it again right away (Windows does not like opening it a second time)
+    tmp_file.close()
 
-        timeseries = {
-            datetime(year=2021, month=11, day=11, hour=11, minute=0): 50.0,
-            datetime(year=2021, month=11, day=11, hour=11, minute=15): 60.0,
-            datetime(year=2021, month=11, day=11, hour=11, minute=30): 70.0,
-            datetime(year=2021, month=11, day=11, hour=11, minute=45): 100.0,
-            datetime(year=2021, month=11, day=11, hour=12, minute=0): 20.0,
-            datetime(year=2021, month=11, day=11, hour=12, minute=15): 20.0,
-            datetime(year=2021, month=11, day=11, hour=12, minute=30): 0.0,
-        }
+    timeseries = {
+        datetime(year=2021, month=11, day=11, hour=11, minute=0): 50.0,
+        datetime(year=2021, month=11, day=11, hour=11, minute=15): 60.0,
+        datetime(year=2021, month=11, day=11, hour=11, minute=30): 70.0,
+        datetime(year=2021, month=11, day=11, hour=11, minute=45): 100.0,
+        datetime(year=2021, month=11, day=11, hour=12, minute=0): 20.0,
+        datetime(year=2021, month=11, day=11, hour=12, minute=15): 20.0,
+        datetime(year=2021, month=11, day=11, hour=12, minute=30): 0.0,
+    }
 
-        write_timeseries(timeseries, tmp_file.name)
+    # write timeseries
+    write_timeseries(timeseries, tmp_file.name)
 
-        # open file again in read mode
-        with open(tmp_file.name, mode="r") as read_file:
+    # open file again in read mode
+    with open(tmp_file.name, mode="r", newline="") as read_file:
+        csv_reader = csv.DictReader(read_file, delimiter=",")
+        assert csv_reader.fieldnames == ["time", "power"]
 
-            csv_reader = csv.DictReader(read_file, delimiter=",")
-            assert csv_reader.fieldnames == ["time", "power"]
+        read_result: dict[datetime, float] = {}
+        for row in csv_reader:
+            datetime_obj = datetime.strptime(row["time"], "%Y-%m-%d %H:%M:%S")
+            read_result[datetime_obj] = float(row["power"])
 
-            read_result: dict[datetime, float] = {}
-            for row in csv_reader:
-                datetime_obj = datetime.strptime(row["time"], "%Y-%m-%d %H:%M:%S")
-                read_result[datetime_obj] = float(row["power"])
+        assert read_result == timeseries
 
-            assert read_result == timeseries
+    # clean up: delete temporary file
+    os.remove(tmp_file.name)

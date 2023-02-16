@@ -29,7 +29,7 @@ def create_timeseries(hh: Household, step_size: timedelta) -> dict[datetime, flo
 
 
 def write_timeseries(timeseries: dict[datetime, float], file: str):
-    with open(file, mode="w") as csv_file:
+    with open(file, mode="w", newline="") as csv_file:
         csv_writer = csv.writer(csv_file, delimiter=",", quoting=csv.QUOTE_ALL)
         csv_writer.writerow(["time", "power"])
 
