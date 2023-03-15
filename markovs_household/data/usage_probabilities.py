@@ -1,7 +1,7 @@
 from dataclasses import dataclass
+from typing import Dict
 
 import pandas as pd
-from typing import Dict
 
 from markovs_household.utils.appliance import ApplianceCategory
 
@@ -17,7 +17,7 @@ class UsageProbabilities:
         )
         usage_probability_dict = df_usage_probabilities.to_dict()["usage_probability"]
         for category in ApplianceCategory:
-            if not category.value in usage_probability_dict:
+            if category.value not in usage_probability_dict:
                 raise ValueError(
                     "No switch on probability with name {} found in file {}.".format(
                         category.value, path
