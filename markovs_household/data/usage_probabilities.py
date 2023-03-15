@@ -17,7 +17,7 @@ class UsageProbabilities:
         )
         usage_probability_dict = df_usage_probabilities.to_dict()["usage_probability"]
         for category in ApplianceCategory:
-            if not category.value in usage_probability_dict:
+            if category.value not in usage_probability_dict:
                 raise ValueError(
                     "No switch on probability with name {} found in file {}.".format(
                         category.value, path
