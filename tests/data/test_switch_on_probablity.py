@@ -1,6 +1,6 @@
+from markovs_household.config.config import *
 from markovs_household.data.probability import *
 from markovs_household.data.usage_probabilities import *
-from markovs_household.config.config import *
 from markovs_household.utils.utils import ROOT_DIR
 
 
