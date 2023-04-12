@@ -10,9 +10,9 @@ from markovs_household.utils.time import DayType, Season
 from tests.common.utils import TEST_RESOURCES_DIR
 
 up_path = os.path.join(
-    TEST_RESOURCES_DIR, "usage_probabilities", "usage_probabilities.csv"
+    TEST_RESOURCES_DIR, "probabilities", "usage_probabilities", "usage_probabilities.csv"
 )
-sop_path = os.path.join(TEST_RESOURCES_DIR, "switch_on_probabilities")
+sop_path = os.path.join(TEST_RESOURCES_DIR, "probabilities", "switch_on_probabilities")
 
 
 def test_read_usage_probabilities():
