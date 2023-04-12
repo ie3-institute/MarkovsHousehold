@@ -103,7 +103,7 @@ def test_init_household_avg():
 
     for appliance in household.appliances:
         assert appliance.appliance_type == TestHouseholdAppliancesInput.pc
-        assert appliance._operation_intervals == []
+        assert appliance.get_operation_intervals() == []
 
 
 def test_init_household_by_no_of_inhabitants():
@@ -114,7 +114,7 @@ def test_init_household_by_no_of_inhabitants():
 
     for appliance in household.appliances:
         assert appliance.appliance_type == TestHouseholdAppliancesInput.pc
-        assert appliance._operation_intervals == []
+        assert appliance.get_operation_intervals() == []
 
 
 def test_init_household_by_income():

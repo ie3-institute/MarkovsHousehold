@@ -104,7 +104,7 @@ def test_handle_smiulation_step():
     appliance = Appliance(appliance_type)
     initial_time = datetime(year=2022, month=1, day=4, hour=0, minute=11)
     appliance.handle_simulation_step(initial_time)
-    assert len(appliance._operation_intervals) == 0
+    assert len(appliance.get_operation_intervals()) == 0
     next_time = datetime(year=2022, month=1, day=4, hour=0, minute=24)
     appliance.handle_simulation_step(next_time)
-    assert len(appliance._operation_intervals) == 1
+    assert len(appliance.get_operation_intervals()) == 1

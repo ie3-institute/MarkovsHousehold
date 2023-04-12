@@ -22,7 +22,7 @@ RANDOM_SWITCH_ON_PROBABILITIES = SwitchOnProbabilities(
     {key: random.random() for key in SWITCH_ON_PROBABILITY_KEYS}
 )
 LOAD_PROFILE_STOVE = TimeSeries(
-    [TimeSeriesEntry(0, 100), TimeSeriesEntry(60, 200), TimeSeriesEntry(120, 150)],
+    [TimeSeriesEntry(timedelta(), 100), TimeSeriesEntry(timedelta(seconds=60), 200), TimeSeriesEntry(timedelta(seconds=120), 150)],
     timedelta(minutes=4),
 )
 STOVE = ApplianceTypeLoadProfile(
