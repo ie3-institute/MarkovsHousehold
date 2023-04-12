@@ -1,10 +1,11 @@
 from dataclasses import dataclass
 from datetime import timedelta
 
+
 @dataclass(frozen=True)
 class TimeSeriesEntry:
-    time: timedelta # since start of time series
-    value: float # in kW
+    time: timedelta  # since start of time series
+    value: float  # in kW
 
 
 @dataclass(frozen=True)
