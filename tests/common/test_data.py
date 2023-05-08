@@ -27,11 +27,11 @@ RANDOM_SWITCH_ON_PROBABILITIES = SwitchOnProbabilities(
 )
 LOAD_PROFILE_STOVE = TimeSeries(
     [
-        TimeSeriesEntry(timedelta(), 1),
-        TimeSeriesEntry(timedelta(seconds=60), 2),
-        TimeSeriesEntry(timedelta(seconds=120), 1),
+        TimeSeriesEntry(timedelta(), 2),
+        TimeSeriesEntry(timedelta(minutes=15), 1),
+        TimeSeriesEntry(timedelta(minutes=30), 0.8),
     ],
-    timedelta(minutes=4),
+    timedelta(minutes=60),
 )
 
 STOVE = ApplianceTypeLoadProfile(
@@ -45,7 +45,7 @@ PC = ApplianceTypeConstantPower(
     SwitchOnProbabilities(
         {SwitchOnProbabilityKey(Season.SPRING, DayType.WEEKDAY, 0): 0.1}
     ),
-    50.0,
+    0.1,
     timedelta(hours=1),
 )
 
@@ -54,7 +54,7 @@ VIDEO_RECORDER = ApplianceTypeConstantPower(
     SwitchOnProbabilities(
         {SwitchOnProbabilityKey(Season.SPRING, DayType.WEEKDAY, 0): 0.5}
     ),
-    20.0,
+    0.025,
     timedelta(hours=1),
 )
 
@@ -63,7 +63,7 @@ WASHING_MACHINE = ApplianceTypeConstantPower(
     SwitchOnProbabilities(
         {SwitchOnProbabilityKey(Season.SPRING, DayType.WEEKDAY, 0): 0.5}
     ),
-    100.0,
+    1.0,
     timedelta(hours=1, minutes=30),
 )
 

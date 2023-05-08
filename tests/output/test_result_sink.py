@@ -51,19 +51,19 @@ def test_create_timeseries():
     timeseries = create_timeseries(hh, timedelta(minutes=15))
 
     expected = {
-        datetime(year=2021, month=11, day=11, hour=11, minute=0): 50.0,
-        datetime(year=2021, month=11, day=11, hour=11, minute=15): 50.0,
-        datetime(year=2021, month=11, day=11, hour=11, minute=30): 70.0,
-        datetime(year=2021, month=11, day=11, hour=11, minute=45): 70.0,
-        datetime(year=2021, month=11, day=11, hour=12, minute=0): 20.0,
-        datetime(year=2021, month=11, day=11, hour=12, minute=15): 20.0,
+        datetime(year=2021, month=11, day=11, hour=11, minute=0): 0.1,
+        datetime(year=2021, month=11, day=11, hour=11, minute=15): 0.1,
+        datetime(year=2021, month=11, day=11, hour=11, minute=30): 0.125,
+        datetime(year=2021, month=11, day=11, hour=11, minute=45): 0.125,
+        datetime(year=2021, month=11, day=11, hour=12, minute=0): 0.025,
+        datetime(year=2021, month=11, day=11, hour=12, minute=15): 0.025,
         datetime(year=2021, month=11, day=11, hour=12, minute=30): 0.0,
-        datetime(year=2021, month=11, day=11, hour=16, minute=15): 100.0,
-        datetime(year=2021, month=11, day=11, hour=16, minute=30): 200.0,
-        datetime(year=2021, month=11, day=11, hour=16, minute=45): 100.0,
-        datetime(year=2021, month=11, day=11, hour=17, minute=0): 100.0,
-        datetime(year=2021, month=11, day=11, hour=17, minute=15): 100.0,
-        datetime(year=2021, month=11, day=11, hour=17, minute=30): 100.0,
+        datetime(year=2021, month=11, day=11, hour=16, minute=15): 1.0,
+        datetime(year=2021, month=11, day=11, hour=16, minute=30): 3.0,
+        datetime(year=2021, month=11, day=11, hour=16, minute=45): 2.0,
+        datetime(year=2021, month=11, day=11, hour=17, minute=0): 1.8,
+        datetime(year=2021, month=11, day=11, hour=17, minute=15): 1.0,
+        datetime(year=2021, month=11, day=11, hour=17, minute=30): 1.0,
         datetime(year=2021, month=11, day=11, hour=17, minute=45): 0.0,
     }
     assert timeseries == expected

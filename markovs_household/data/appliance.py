@@ -41,6 +41,7 @@ class ApplianceType(ABC):
     def get_operation_time(self) -> timedelta:
         pass
 
+    @abstractmethod
     def get_timeseries_for(self, step_size: timedelta) -> List[float]:
         pass
 
@@ -64,7 +65,7 @@ class ApplianceTypeLoadProfile(ApplianceType):
         for entry in self.profile.values[1:]:
             delta_seconds = entry.time - last.time
 
-            if delta_seconds == step_size.seconds:
+            if delta_seconds == step_size:
                 result.append(entry.value)
                 last = entry
 
