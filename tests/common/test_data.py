@@ -23,9 +23,9 @@ RANDOM_SWITCH_ON_PROBABILITIES = SwitchOnProbabilities(
 )
 LOAD_PROFILE_STOVE = TimeSeries(
     [
-        TimeSeriesEntry(timedelta(), 100),
-        TimeSeriesEntry(timedelta(seconds=60), 200),
-        TimeSeriesEntry(timedelta(seconds=120), 150),
+        TimeSeriesEntry(timedelta(), 1),
+        TimeSeriesEntry(timedelta(seconds=60), 2),
+        TimeSeriesEntry(timedelta(seconds=120), 1),
     ],
     timedelta(minutes=4),
 )
