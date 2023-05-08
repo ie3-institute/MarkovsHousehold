@@ -75,7 +75,9 @@ class TimeInterval:
     end: datetime
 
     @classmethod
-    def get_operation_interval(cls, start: datetime, duration: timedelta):
+    def get_operation_interval(
+        cls, start: datetime, duration: timedelta
+    ) -> "TimeInterval":
         """
         Get the time interval from its start datetime and its duration
         :param start: start of the time interval
@@ -83,3 +85,11 @@ class TimeInterval:
         :return:
         """
         return TimeInterval(start, start + duration)
+
+    def is_within(self, time: datetime) -> bool:
+        """
+        Checks the time step is within the time interval.
+        :param time: the time to check
+        :return: whether `time` lies within the interval
+        """
+        return True if (self.start <= time < self.end) else False

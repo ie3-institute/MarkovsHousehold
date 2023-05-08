@@ -37,7 +37,7 @@ class SwitchOnProbabilities:
     Probabilities to switch on an appliance given factors defined in the SwitchOnProbabilityKey class.
     """
 
-    __probabilities: Dict[SwitchOnProbabilityKey, float]
+    probabilities: Dict[SwitchOnProbabilityKey, float]
 
     @classmethod
     def from_csv(
@@ -86,7 +86,7 @@ class SwitchOnProbabilities:
 
     def get_probability(self, key: SwitchOnProbabilityKey) -> float:
         try:
-            return self.__probabilities[key]
+            return self.probabilities[key]
         except KeyError as exc:
             logging.error(f"Couldn't find a switch on probability for key: {key}")
             raise exc

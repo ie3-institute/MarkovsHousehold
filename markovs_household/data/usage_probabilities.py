@@ -8,7 +8,7 @@ from markovs_household.utils.appliance import ApplianceCategory
 
 @dataclass(frozen=True)
 class UsageProbabilities:
-    __probabilities: Dict[str, float]
+    _probabilities: Dict[str, float]
 
     @classmethod
     def from_csv(cls, path: str) -> "UsageProbabilities":
@@ -27,7 +27,7 @@ class UsageProbabilities:
         return UsageProbabilities(usage_probability_dict)
 
     def get_usage_probability(self, cat: ApplianceCategory):
-        return self.__probabilities[cat.value]
+        return self._probabilities[cat.value]
 
 
 usage_probability = UsageProbabilities

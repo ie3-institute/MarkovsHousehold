@@ -1,3 +1,4 @@
+from datetime import timedelta
 from typing import Dict
 
 from markovs_household.data.appliance import (
@@ -22,6 +23,7 @@ class TestHouseholdAppliancesInput(HouseholdAppliancesInput):
             {SwitchOnProbabilityKey(Season.SPRING, DayType.WEEKDAY, 0): 0.1}
         ),
         50.0,
+        timedelta(hours=1),
     )
 
     video_recorder = ApplianceTypeConstantPower(
@@ -30,6 +32,7 @@ class TestHouseholdAppliancesInput(HouseholdAppliancesInput):
             {SwitchOnProbabilityKey(Season.SPRING, DayType.WEEKDAY, 0): 0.5}
         ),
         20.0,
+        timedelta(hours=1),
     )
 
     washing_machine = ApplianceTypeConstantPower(
@@ -38,6 +41,7 @@ class TestHouseholdAppliancesInput(HouseholdAppliancesInput):
             {SwitchOnProbabilityKey(Season.SPRING, DayType.WEEKDAY, 0): 0.5}
         ),
         100.0,
+        timedelta(hours=1),
     )
 
     @classmethod
@@ -99,7 +103,7 @@ def test_init_household_avg():
 
     for appliance in household.appliances:
         assert appliance.appliance_type == TestHouseholdAppliancesInput.pc
-        assert appliance.operation_intervals == []
+        assert appliance.get_operation_intervals() == []
 
 
 def test_init_household_by_no_of_inhabitants():
@@ -110,7 +114,7 @@ def test_init_household_by_no_of_inhabitants():
 
     for appliance in household.appliances:
         assert appliance.appliance_type == TestHouseholdAppliancesInput.pc
-        assert appliance.operation_intervals == []
+        assert appliance.get_operation_intervals() == []
 
 
 def test_init_household_by_income():
