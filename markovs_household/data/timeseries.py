@@ -1,8 +1,11 @@
-from collections import namedtuple
 from dataclasses import dataclass
 from datetime import timedelta
 
-TimeSeriesEntry = namedtuple("TimeSeriesEntry", "time, value")
+
+@dataclass(frozen=True)
+class TimeSeriesEntry:
+    time: timedelta  # since start of time series
+    value: float  # in kW
 
 
 @dataclass(frozen=True)

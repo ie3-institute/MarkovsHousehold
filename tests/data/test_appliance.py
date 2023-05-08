@@ -65,7 +65,7 @@ def test_get_switch_on_probability():
 
 def test_is_turned_on():
     appliance_type = ApplianceTypeLoadProfile(
-        category=STOVE,
+        category=ApplianceCategory.STOVE,
         switch_on_probabilities=test_data.RANDOM_SWITCH_ON_PROBABILITIES,
         profile=test_data.LOAD_PROFILE_STOVE,
     )
@@ -95,9 +95,8 @@ def test_handle_smiulation_step():
     switch_on_probabilities = SwitchOnProbabilities(
         {zero_probability_key: 0, one_probability_key: 1}
     )
-    stove = STOVE
     appliance_type = ApplianceTypeConstantPower(
-        category=stove,
+        category=ApplianceCategory.STOVE,
         switch_on_probabilities=switch_on_probabilities,
         power=42,
         operation_time=timedelta(minutes=10),
@@ -105,7 +104,7 @@ def test_handle_smiulation_step():
     appliance = Appliance(appliance_type)
     initial_time = datetime(year=2022, month=1, day=4, hour=0, minute=11)
     appliance.handle_simulation_step(initial_time)
-    assert len(appliance._operation_intervals) == 0
+    assert len(appliance.get_operation_intervals()) == 0
     next_time = datetime(year=2022, month=1, day=4, hour=0, minute=24)
     appliance.handle_simulation_step(next_time)
-    assert len(appliance._operation_intervals) == 1
+    assert len(appliance.get_operation_intervals()) == 1

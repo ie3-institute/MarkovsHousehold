@@ -8,7 +8,7 @@ def create_timeseries(hh: Household, step_size: timedelta) -> dict[datetime, flo
     timeseries: dict[datetime, float] = {}
 
     for appliance in hh.appliances:
-        intervals = appliance.operation_intervals()
+        intervals = appliance.get_operation_intervals()
 
         for interval in intervals:
             appliance_series = appliance.appliance_type.get_timeseries_for(step_size)
