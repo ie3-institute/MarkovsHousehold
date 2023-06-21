@@ -12,6 +12,7 @@ Welcome to the documentation of "Markov's household", a stochastic electrical ho
    :maxdepth: 2
    :caption: Contents:
 
+   user/simulation_overview.md
    developer/developer.md
 
 
