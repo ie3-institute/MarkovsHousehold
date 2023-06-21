@@ -16,3 +16,27 @@ The legacy, MatLab-based routine offers two operation modes:
 :::{admonition} Refactoring note
 For the refactoring, we will foremost focus on operation mode 1 and maybe add 2 later.
 :::
+
+## Input Data
+1. **Read probability**
+
+Eingabeoberflaeche Wahrscheinlichkeit Leistung.xls
+- Loadprofile for appliance classes from "Synergy Potential of Smart Appliances" (2008)
+- Hourly switch-on-probability: $$p_{on,1h}$$ for appliance and season
+- Usage probability (days/year) $$p_{use}$$ for appliance and season
+
+$$\underbrace {\begin{bmatrix} p_{1, spring} & \dots &p_{1,winter}\\ \vdots &\vdots&\vdots \\ p_{96, spring} & \dots &p_{96,winter}\end{bmatrix}}_{\mathbf{M_{Wk}}}= \frac {p_{ein,1h}} {4} \cdot p_{use}$$
+
+2. **Read input interface**
+
+Eingabeoberflaeche Haushalte.xls
+- Criteria: average household, number of residents, income, housetype
+- number of households to be simulated
+- number of appliaces according to criteria
+
+
+3. **Define variables**
+
+- configuration parameters
+- timesteps per day
+- number of days to be simulated
