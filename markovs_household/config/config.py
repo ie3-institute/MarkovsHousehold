@@ -1,4 +1,6 @@
 from dataclasses import dataclass
+from datetime import datetime
+from pathlib import Path
 
 import yaml
 
@@ -7,16 +9,25 @@ import yaml
 class Configuration:
     consider_load_shifting: bool
     simulate_typical_days: bool
-    switch_on_probabilities_datapath: str
-    usage_probabilities_file: str
+    start: datetime
+    end: datetime
+    probabilities_path: str
+    nr_houses: int
 
     @staticmethod
     def parse_config(path):
+        path = Path(path).resolve()
+
         with open(path, "r") as ymlfile:
             config = yaml.safe_load(ymlfile)
+        dt_fmt = "%Y-%m-%d %H:%M"
+        start = datetime.strptime(config["start"], dt_fmt)
+        end = datetime.strptime(config["end"], dt_fmt)
         return Configuration(
-            config["consider_load_shifting"],
-            config["simulate_typical_days"],
-            config["switch_on_probabilities_datapath"],
-            config["usage_probabilities_file"],
+            consider_load_shifting=config["consider_load_shifting"],
+            simulate_typical_days=config["simulate_typical_days"],
+            probabilities_path=config["probabilities_path"],
+            nr_houses=config["nr_houses"],
+            start=start,
+            end=end,
         )

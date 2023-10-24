@@ -5,9 +5,7 @@ from markovs_household.data.appliance import (
     ApplianceCategory,
     ApplianceTypeLoadProfile,
 )
-from markovs_household.data.probability import (
-    SwitchOnProbabilityKey,
-)
+from markovs_household.data.probability import SwitchOnProbabilityKey
 from markovs_household.data.timeseries import TimeSeries, TimeSeriesEntry
 from markovs_household.utils.time import DayType, Season, TimeInterval
 from tests.common import test_data
@@ -78,8 +76,8 @@ def test_handle_smiulation_step():
     )
     appliance = Appliance(appliance_type)
     initial_time = datetime(year=2022, month=1, day=4, hour=0, minute=11)
-    appliance.handle_simulation_step(initial_time)
+    appliance.step(initial_time)
     assert len(appliance.get_operation_intervals()) == 0
     next_time = datetime(year=2022, month=1, day=4, hour=0, minute=24)
-    appliance.handle_simulation_step(next_time)
+    appliance.step(next_time)
     assert len(appliance.get_operation_intervals()) == 1

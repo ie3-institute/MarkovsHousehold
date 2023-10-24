@@ -60,7 +60,7 @@ class Appliance:
     _operation_intervals: List[TimeInterval] = field(default_factory=list)
     _random_generator: ClassVar[random.Random] = random.Random(42)
 
-    def handle_simulation_step(self, current_time: datetime) -> None:
+    def step(self, current_time: datetime) -> None:
         """
         Handles a simulation step to check stochastically check if the appliance is turned on at this point in time.
         If the appliance is turned on an operation interval is added to the appliances operation intervals.

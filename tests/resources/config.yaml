@@ -1,5 +1,6 @@
 consider_load_shifting: False
 simulate_typical_days: False  
-switch_on_probabilities_datapath: tests/input/switch_on_probabilities
-usage_probabilities_file: tests/input/usage_probabilities/usage_probabilities.csv
-
+probabilities_path: "tests/resources"
+start: '2023-01-01 00:00'
+end: '2023-02-01 00:00'
+nr_houses: 2
