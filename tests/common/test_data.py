@@ -1,7 +1,10 @@
 import random
 from datetime import datetime, timedelta
 
-from markovs_household.data.appliance import ApplianceTypeLoadProfile
+from markovs_household.data.appliance import (
+    ApplianceTypeConstantPower,
+    ApplianceTypeLoadProfile,
+)
 from markovs_household.data.probability import (
     SwitchOnProbabilities,
     SwitchOnProbabilityKey,
@@ -18,22 +21,52 @@ SWITCH_ON_PROBABILITY_KEYS = [
 ]
 
 random.seed(42)
+
 RANDOM_SWITCH_ON_PROBABILITIES = SwitchOnProbabilities(
     {key: random.random() for key in SWITCH_ON_PROBABILITY_KEYS}
 )
 LOAD_PROFILE_STOVE = TimeSeries(
     [
-        TimeSeriesEntry(timedelta(), 1),
-        TimeSeriesEntry(timedelta(seconds=60), 2),
-        TimeSeriesEntry(timedelta(seconds=120), 1),
+        TimeSeriesEntry(timedelta(), 2),
+        TimeSeriesEntry(timedelta(minutes=15), 1),
+        TimeSeriesEntry(timedelta(minutes=30), 0.8),
     ],
-    timedelta(minutes=4),
+    timedelta(minutes=60),
 )
+
 STOVE = ApplianceTypeLoadProfile(
     category=ApplianceCategory.STOVE,
     switch_on_probabilities=RANDOM_SWITCH_ON_PROBABILITIES,
     profile=LOAD_PROFILE_STOVE,
 )
+
+PC = ApplianceTypeConstantPower(
+    ApplianceCategory.PC,
+    SwitchOnProbabilities(
+        {SwitchOnProbabilityKey(Season.SPRING, DayType.WEEKDAY, 0): 0.1}
+    ),
+    0.1,
+    timedelta(hours=1),
+)
+
+VIDEO_RECORDER = ApplianceTypeConstantPower(
+    ApplianceCategory.VIDEO_RECORDER,
+    SwitchOnProbabilities(
+        {SwitchOnProbabilityKey(Season.SPRING, DayType.WEEKDAY, 0): 0.5}
+    ),
+    0.025,
+    timedelta(hours=1),
+)
+
+WASHING_MACHINE = ApplianceTypeConstantPower(
+    ApplianceCategory.WASHING_MACHINE,
+    SwitchOnProbabilities(
+        {SwitchOnProbabilityKey(Season.SPRING, DayType.WEEKDAY, 0): 0.5}
+    ),
+    1.0,
+    timedelta(hours=1, minutes=30),
+)
+
 DATE_TIME_KEY_PAIR = (
     datetime(year=2021, month=11, day=16, hour=9, minute=0),
     SwitchOnProbabilityKey(Season.AUTUMN, DayType.WEEKDAY, 36),
