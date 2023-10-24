@@ -4,9 +4,16 @@ from dataclasses import dataclass
 from typing import Dict
 
 import pandas as pd
+from pandas import DataFrame
 
-from markovs_household.data.appliance import ApplianceCategory, ApplianceType
+from markovs_household.data.appliance import (
+    ApplianceCategory,
+    ApplianceType,
+    ApplianceTypeLoadProfile,
+)
 from markovs_household.data.household_categories import HouseholdIncome, HouseholdType
+from markovs_household.data.probability import SwitchOnProbabilityKey
+from markovs_household.data.timeseries import TimeSeries
 from markovs_household.input.probabilities import (
     read_switch_on_probablities,
     read_usage_probabilities,
@@ -58,7 +65,7 @@ class CsvHouseholdAppliancesInput(HouseholdAppliancesInput):
         average_hh_dict = {}
         for appliance in ApplianceCategory:
             if appliance.value not in average_hh.columns:
-                raise ValueError("Appliance doesn't exist!")
+                raise ValueError(f"Appliance {appliance.value} doesn't exist!")
             average_hh_dict[appliance] = average_hh[appliance.value]
         self.average_hh = average_hh_dict
 
@@ -68,7 +75,7 @@ class CsvHouseholdAppliancesInput(HouseholdAppliancesInput):
                 appliance_dict = {}
                 for appliance in ApplianceCategory:
                     if appliance.value not in row.keys():
-                        raise ValueError("Appliance doesn't exist!")
+                        raise ValueError(f"Appliance {appliance.value} doesn't exist!")
                     appliance_dict[appliance] = row[appliance.value]
                 res[idx] = appliance_dict
             return res
@@ -105,19 +112,32 @@ class CsvHouseholdAppliancesInput(HouseholdAppliancesInput):
                 "usage_probabilities.csv",
             ),
             os.path.join(dir_path, "probabilities", "switch_on_probabilities"),
+            os.path.join(dir_path, "appliances", "load_ts.csv"),
         )
 
     @staticmethod
     def initialize_appliance_types(
-        usage_probs_path: str, switch_on_probs_path: str
+        usage_probs_path: str, switch_on_probs_path: str, load_profile_path: str
     ) -> dict[ApplianceCategory, ApplianceType]:
         usage_probs = read_usage_probabilities(usage_probs_path)
+        load_profile_df = pd.read_csv(load_profile_path)
         dct = {}
         for cat in ApplianceCategory:
-            switch_on_probs = read_switch_on_probablities(
-                cat, switch_on_probs_path, usage_probs[cat]
-            )
-            dct[cat] = ApplianceType(cat, switch_on_probs)
+            if cat == ApplianceCategory.OTHER_LOAD:
+                # We only expect a single value, as this is a constant load appliance
+                load = load_profile_df[cat.value][~load_profile_df[cat.value].isnull()]
+                assert len(load) == 1
+                load = load.iloc[0]
+                load_profile = TimeSeries.for_constant_running_load(load)
+                switch_on_probs = {key: 1.0 for key in SwitchOnProbabilityKey.get_all()}
+            else:
+                load_profile = TimeSeries.from_quarter_hour_series(
+                    load_profile_df[cat.value]
+                )
+                switch_on_probs = read_switch_on_probablities(
+                    cat, switch_on_probs_path, usage_probs[cat]
+                )
+            dct[cat] = ApplianceTypeLoadProfile(cat, switch_on_probs, load_profile)
         return dct
 
     def get_appliance_types(self) -> Dict[ApplianceCategory, ApplianceType]:

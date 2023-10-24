@@ -18,3 +18,4 @@ class ApplianceCategory(Enum):
     TELECOMMUNICATION = "telecommunication"
     LIGHTING = "lighting"
     WATER_HEATING = "water_heating"
+    OTHER_LOAD = "other_load"

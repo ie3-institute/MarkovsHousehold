@@ -51,12 +51,7 @@ def read_switch_on_probablities(
 
     probabilities_df = probabilities_df / 4 * usage_prob
 
-    probability_keys = [
-        SwitchOnProbabilityKey(season, day_type, quarterly_hour_of_day)
-        for season in Season
-        for day_type in DayType
-        for quarterly_hour_of_day in range(4 * 24)
-    ]
+    probability_keys = SwitchOnProbabilityKey.get_all()
 
     probabilities = {
         probability_key: probabilities_df[

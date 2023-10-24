@@ -22,3 +22,12 @@ class SwitchOnProbabilityKey:
         day_type = DayType.get_day_type(date_time)
         quarterly_hour_of_day = time.get_quarterly_hour_of_day(date_time)
         return SwitchOnProbabilityKey(season, day_type, quarterly_hour_of_day)
+
+    @staticmethod
+    def get_all():
+        return [
+            SwitchOnProbabilityKey(season, day_type, quarterly_hour_of_day)
+            for season in Season
+            for day_type in DayType
+            for quarterly_hour_of_day in range(4 * 24)
+        ]

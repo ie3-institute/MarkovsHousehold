@@ -51,19 +51,6 @@ class ApplianceTypeLoadProfile(ApplianceType):
 
 
 @dataclass(frozen=True)
-class ApplianceTypeConstantPower(ApplianceType):
-    """
-    Appliance that has an associated constant power and an operation time in seconds
-    """
-
-    power: float
-    operation_time: timedelta
-
-    def get_operation_time(self) -> timedelta:
-        return self.operation_time
-
-
-@dataclass(frozen=True)
 class Appliance:
     """
     A household appliance that is defined by its type and stores the intervals in which it is operating.
@@ -98,11 +85,9 @@ class Appliance:
         switch_on_probability_key = SwitchOnProbabilityKey.extract_from_datetime(
             current_time
         )
-        switch_on_probability = (
-            self.appliance_type.switch_on_probabilities.get_probability(
-                switch_on_probability_key
-            )
-        )
+        switch_on_probability = self.appliance_type.switch_on_probabilities[
+            switch_on_probability_key
+        ]
         dice_roll = self._random_generator.random()
         if dice_roll <= switch_on_probability:
             self._add_operation_interval(current_time)
