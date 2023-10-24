@@ -5,9 +5,7 @@ from markovs_household.data.appliance import (
     ApplianceCategory,
     ApplianceTypeLoadProfile,
 )
-from markovs_household.data.probability import (
-    SwitchOnProbabilityKey,
-)
+from markovs_household.data.probability import SwitchOnProbabilityKey
 from markovs_household.data.timeseries import TimeSeries, TimeSeriesEntry
 from markovs_household.utils.time import DayType, Season, TimeInterval
 from tests.common import test_data

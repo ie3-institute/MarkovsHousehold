@@ -4,7 +4,6 @@ from dataclasses import dataclass
 from typing import Dict
 
 import pandas as pd
-from pandas import DataFrame
 
 from markovs_household.data.appliance import (
     ApplianceCategory,

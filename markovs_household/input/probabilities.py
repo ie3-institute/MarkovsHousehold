@@ -4,7 +4,6 @@ import pandas as pd
 
 from markovs_household.data.probability import SwitchOnProbabilityKey
 from markovs_household.utils.appliance import ApplianceCategory
-from markovs_household.utils.time import DayType, Season
 
 
 def read_usage_probabilities(path: str) -> dict[ApplianceCategory, float]:
