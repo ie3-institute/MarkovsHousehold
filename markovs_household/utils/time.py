@@ -58,9 +58,9 @@ class DayType(Enum):
 
 def get_quarterly_hour_of_day(date_time: datetime) -> int:
     """
-    Calculates the current 15 minute interval of a datetime instance
+    Calculates the current 15-minute interval of a datetime instance
     :param date_time: the datetime instance
-    :return: the 15 minute interval
+    :return: the 15-minute interval
     """
     return (date_time.hour * 60 + date_time.minute) // 15
 

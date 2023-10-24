@@ -5,10 +5,7 @@ from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 from typing import ClassVar, List
 
-from markovs_household.data.probability import (
-    SwitchOnProbabilities,
-    SwitchOnProbabilityKey,
-)
+from markovs_household.data.probability import SwitchOnProbabilityKey
 from markovs_household.data.timeseries import TimeSeries
 from markovs_household.utils.appliance import ApplianceCategory
 from markovs_household.utils.time import TimeInterval
@@ -21,7 +18,7 @@ class ApplianceType(ABC):
     """
 
     category: ApplianceCategory
-    switch_on_probabilities: SwitchOnProbabilities
+    switch_on_probabilities: dict[SwitchOnProbabilityKey, float]
 
     def get_switch_on_probability(self, date_time: datetime) -> float:
         """
@@ -31,7 +28,7 @@ class ApplianceType(ABC):
         """
         key = SwitchOnProbabilityKey.extract_from_datetime(date_time)
         try:
-            return self.switch_on_probabilities.get_probability(key)
+            return self.switch_on_probabilities[key]
         except KeyError as exc:
             logging.error("Cannot determine the switch on probability", exc)
             raise exc
@@ -51,19 +48,6 @@ class ApplianceTypeLoadProfile(ApplianceType):
 
     def get_operation_time(self) -> timedelta:
         return self.profile.length
-
-
-@dataclass(frozen=True)
-class ApplianceTypeConstantPower(ApplianceType):
-    """
-    Appliance that has an associated constant power and an operation time in seconds
-    """
-
-    power: float
-    operation_time: timedelta
-
-    def get_operation_time(self) -> timedelta:
-        return self.operation_time
 
 
 @dataclass(frozen=True)
@@ -101,11 +85,9 @@ class Appliance:
         switch_on_probability_key = SwitchOnProbabilityKey.extract_from_datetime(
             current_time
         )
-        switch_on_probability = (
-            self.appliance_type.switch_on_probabilities.get_probability(
-                switch_on_probability_key
-            )
-        )
+        switch_on_probability = self.appliance_type.switch_on_probabilities[
+            switch_on_probability_key
+        ]
         dice_roll = self._random_generator.random()
         if dice_roll <= switch_on_probability:
             self._add_operation_interval(current_time)

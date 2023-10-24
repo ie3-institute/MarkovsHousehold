@@ -5,43 +5,41 @@ from markovs_household.data.appliance import (
     Appliance,
     ApplianceCategory,
     ApplianceType,
-    ApplianceTypeConstantPower,
+    ApplianceTypeLoadProfile,
 )
 from markovs_household.data.household import Household, HouseholdIncome, HouseholdType
-from markovs_household.data.probability import (
-    SwitchOnProbabilities,
-    SwitchOnProbabilityKey,
-)
+from markovs_household.data.probability import SwitchOnProbabilityKey
+from markovs_household.data.timeseries import TimeSeries, TimeSeriesEntry
 from markovs_household.input.appliances_input import HouseholdAppliancesInput
 from markovs_household.utils.time import DayType, Season
 
 
 class TestHouseholdAppliancesInput(HouseholdAppliancesInput):
-    pc = ApplianceTypeConstantPower(
+    pc = ApplianceTypeLoadProfile(
         ApplianceCategory.PC,
-        SwitchOnProbabilities(
-            {SwitchOnProbabilityKey(Season.SPRING, DayType.WEEKDAY, 0): 0.1}
+        {SwitchOnProbabilityKey(Season.SPRING, DayType.WEEKDAY, 0): 0.1},
+        TimeSeries(
+            [TimeSeriesEntry(timedelta(), 50.0)],
+            timedelta(hours=1),
         ),
-        50.0,
-        timedelta(hours=1),
     )
 
-    video_recorder = ApplianceTypeConstantPower(
+    video_recorder = ApplianceTypeLoadProfile(
         ApplianceCategory.VIDEO_RECORDER,
-        SwitchOnProbabilities(
-            {SwitchOnProbabilityKey(Season.SPRING, DayType.WEEKDAY, 0): 0.5}
+        {SwitchOnProbabilityKey(Season.SPRING, DayType.WEEKDAY, 0): 0.5},
+        TimeSeries(
+            [TimeSeriesEntry(timedelta(), 20.0)],
+            timedelta(hours=1),
         ),
-        20.0,
-        timedelta(hours=1),
     )
 
-    washing_machine = ApplianceTypeConstantPower(
+    washing_machine = ApplianceTypeLoadProfile(
         ApplianceCategory.WASHING_MACHINE,
-        SwitchOnProbabilities(
-            {SwitchOnProbabilityKey(Season.SPRING, DayType.WEEKDAY, 0): 0.5}
+        {SwitchOnProbabilityKey(Season.SPRING, DayType.WEEKDAY, 0): 0.5},
+        TimeSeries(
+            [TimeSeriesEntry(timedelta(), 100.0)],
+            timedelta(hours=1),
         ),
-        100.0,
-        timedelta(hours=1),
     )
 
     @classmethod

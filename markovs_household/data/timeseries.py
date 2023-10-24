@@ -1,6 +1,8 @@
 from dataclasses import dataclass
 from datetime import timedelta
 
+from pandas import Series
+
 
 @dataclass(frozen=True)
 class TimeSeriesEntry:
@@ -19,3 +21,16 @@ class TimeSeries:
 
     values: list[TimeSeriesEntry]
     length: timedelta
+
+    @classmethod
+    def from_quarter_hour_series(cls, series: Series):
+        entries = []
+        for idx, x in enumerate(series.dropna()):
+            td = timedelta(minutes=idx)
+            entries.append(TimeSeriesEntry(td, x))
+        return TimeSeries(entries, timedelta(minutes=15 * len(series)))
+
+    @classmethod
+    def for_constant_running_load(cls, load: float):
+        # todo: check how we ensure that this load is always on
+        return TimeSeries([TimeSeriesEntry(timedelta(), load)], timedelta(hours=24))
