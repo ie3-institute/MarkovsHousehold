@@ -1,11 +1,15 @@
 import math
 import random
 from dataclasses import dataclass
+from datetime import datetime
 from typing import Dict, List
 
 from markovs_household.data.appliance import Appliance, ApplianceCategory, ApplianceType
 from markovs_household.data.household_categories import HouseholdIncome, HouseholdType
-from markovs_household.input.appliances_input import HouseholdAppliancesInput
+from markovs_household.input.appliances_input import (
+    ApplianceInitStrategy,
+    HouseholdAppliancesInput,
+)
 
 
 @dataclass(frozen=True)
@@ -16,6 +20,39 @@ class Household:
     """
 
     appliances: List[Appliance]
+
+    def step(self, time: datetime):
+        [appliance.step(time) for appliance in self.appliances]
+
+    @classmethod
+    def initialize_households(
+        cls,
+        hh_input: HouseholdAppliancesInput,
+        strategy: ApplianceInitStrategy,
+        nr_houses: int,
+    ) -> list["Household"]:
+        # Initialize Households
+        households: list[Household] = []
+        match strategy:
+            case ApplianceInitStrategy.AVERAGE:
+                avg_appliances = hh_input.get_household_average_appliances()
+                for _ in range(nr_houses):
+                    appliances = []
+                    for cat in ApplianceCategory:
+                        cat_qty = avg_appliances[cat]
+                        nr, rmd = int(cat_qty), cat_qty % 1
+                        nr = int(nr)
+                        if rmd > random.random():
+                            nr += 1
+                        appliance_type = hh_input.get_appliance_types()[cat]
+                        [
+                            appliances.append(Appliance(appliance_type))
+                            for _ in range(nr)
+                        ]
+                    households.append(cls(appliances))
+            case _:
+                raise NotImplementedError(f"Strategy {strategy} not implemented yet")
+        return households
 
     @classmethod
     def from_average_household(cls, inp: HouseholdAppliancesInput) -> "Household":

@@ -1,6 +1,7 @@
 import os.path
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
+from enum import Enum
 from typing import Dict
 
 import pandas as pd
@@ -17,6 +18,13 @@ from markovs_household.input.probabilities import (
     read_switch_on_probablities,
     read_usage_probabilities,
 )
+
+
+class ApplianceInitStrategy(Enum):
+    AVERAGE = "average"
+    INCOME = "income"
+    INHABITANTS = "inhabitants"
+    TYPE = "type"
 
 
 class HouseholdAppliancesInput(ABC):
@@ -65,7 +73,12 @@ class CsvHouseholdAppliancesInput(HouseholdAppliancesInput):
         for appliance in ApplianceCategory:
             if appliance.value not in average_hh.columns:
                 raise ValueError(f"Appliance {appliance.value} doesn't exist!")
-            average_hh_dict[appliance] = average_hh[appliance.value]
+            val = average_hh[appliance.value]
+            if len(val) != 1:
+                raise ValueError(
+                    f"Appliance {appliance.value} has more than one or no values!"
+                )
+            average_hh_dict[appliance] = val.iloc[0]
         self.average_hh = average_hh_dict
 
         def get_category_dict(data: pd.DataFrame):
