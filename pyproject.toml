@@ -7,7 +7,7 @@ authors = ["ie3"]
 [tool.poetry.dependencies]
 python = "~3.10.4"
 PyYAML = "~6.0"
-pandas = "~2.1.1"
+pandas = "~2.1.2"
 
 [tool.poetry.dev-dependencies]
 pre-commit = "~3.5.0"
