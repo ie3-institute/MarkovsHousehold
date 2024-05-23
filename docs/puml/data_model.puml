@@ -44,7 +44,7 @@ class ApplianceTypeLoadProfile extends ApplianceType{
     + __init__(\n\tfloat: usage_probability,\n\tSwitchOnProbabilities: type_switch_on_probability,\n\tTimeSeries: time_series\n\t): ApplianceTypeLoadProfile
     + get_time_series_length():
 }
-note right of TimeSeries: Mapping from time of operation to\nconsumed power
+note right of ApplianceTypeLoadProfile: Mapping from time of operation to\nconsumed power
 
 class ApplianceTypeConstantPower extends ApplianceType{
     float: p_rated
@@ -56,7 +56,6 @@ class Appliance {
     - List[OperationInterval]: operation_intervals
     - ApplianceType: appliance_type
 }
-
 Appliance *-- ApplianceType
 
 class TimeSeries {
