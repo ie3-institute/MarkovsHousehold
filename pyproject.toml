@@ -5,7 +5,7 @@ description = ""
 authors = ["ie3"]
 
 [tool.poetry.dependencies]
-python = "~3.10.4"
+python = "~3.11.6"
 PyYAML = "~6.0"
 pandas = "~2.2.0"
 
